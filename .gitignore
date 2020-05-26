@@ -1,0 +1,6 @@
+#  Do not track .DS_Store
+*.DS_Store
+
+# Do not track Vim plugins
+vim/.vim/bundle/*
+

@@ -1,0 +1,46 @@
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+
+alias gs='git status -s'
+alias gl='git log --abbrev-commit'
+alias glo='git log --oneline'
+# alias gc='git checkout'
+alias gcm='git commit -m'
+alias ga='git add'
+alias gb='git branch'
+alias gcb='git checkout -b'
+alias grv='git remote -v'
+alias gsl='git stash list'
+alias gsp='git stash pop'
+alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
+alias cd='echo "do not leave your computer unlocked nerd." && cd $*'
+
+alias pgup='pg_ctl -D /usr/local/var/postgres start'
+alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
+
+alias knot-all='knot run-all federation-svc demand-svc ffne-svc launch-svc pricing-engine notify-svc property-svc supply-svc foundation'
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+function parse_git_branch { 
+   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
+} 
+export PS1="\[\e[32;40m\]\H:\w\$(parse_git_branch):\u \\$ \[\e[0m\]"
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+__git_complete gs _git_status
+__git_complete gc _git_checkout
+__git_complete ga _git_add
+
+export PATH="/usr/local/opt/vim@7.4/bin:$PATH"
+
+export VIMRUNTIME=/usr/local/opt/vim@7.4/share/vim/vim74
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
+source /Users/sarmijo/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

@@ -1,0 +1,24 @@
+# This is Git's per-user configuration file.
+[user]
+    name = Stefan Armijo
+    email = stefan.armijo@gmail.com
+# Please adapt and uncomment the following lines:
+#	name = Stefan Armijo
+#	email = stefan.armijo@gmail.com
+[core]
+    excludesfile = /Users/sarmijo/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+    template = /Users/sarmijo/.stCommitMsg
+[push]
+    default = current
+[pull]
+    default = current
+
+[url "https://"]   
+    insteadOf = git://

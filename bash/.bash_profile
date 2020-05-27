@@ -34,11 +34,6 @@ __git_complete gs _git_status
 __git_complete gc _git_checkout
 __git_complete ga _git_add
 
-export PATH="/usr/local/opt/vim@7.4/bin:$PATH"
-
-export VIMRUNTIME=/usr/local/opt/vim@7.4/share/vim/vim74
-
-export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 source /Users/sarmijo/Library/Preferences/org.dystroy.broot/launcher/bash/br

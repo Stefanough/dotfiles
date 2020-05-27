@@ -344,19 +344,6 @@ endif
 " use tree view as native view
 let g:netrw_liststyle = 3
 
-" SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
-
 " Vim Tab Configuration
 " alias :tabnew to :tn
 " :command :tn :tabnew << FIX
@@ -394,4 +381,17 @@ let NERDTreeShowHidden=1
 
 " vim-markdown-preview
 let vim_markdown_preview_github=2
+
+" SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 

@@ -1,0 +1,18 @@
+{
+  "workbench.colorCustomizations": {
+    "[Charcoal Oceanic Next]": {
+      "editorRuler.foreground": "#163824",
+      "editor.background": "#191919",
+      "statusBar.border": "#163824",
+      "statusBar.background": "#191919",
+      "sideBar.border": "#163824",
+      "sideBar.background": "#191919"
+    },
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f",
+    "activityBar.background": "#220199",
+    "titleBar.activeBackground": "#3001D6",
+    "titleBar.activeForeground": "#FEFDFF"
+  }
+}

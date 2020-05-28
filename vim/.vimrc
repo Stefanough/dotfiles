@@ -397,11 +397,17 @@ let vim_markdown_preview_browser='/Applications/Firefox.app/Contents/MacOS/firef
 
 
 " CtrlP
-" Use this option to change the mapping to invoke CtrlP in |Normal| mode: >
+"
+" Use this option to change the mapping to invoke CtrlP in |Normal| mode
 let g:ctrlp_map = '<c-p>'
 
-"Set the default opening command to use when pressing the above mapping: >
+" Set the default opening command to use when pressing the above mapping
 let g:ctrlp_cmd = 'CtrlP'
+
+" Ignore node_modules
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/](node_modules)$',
+      \ }
 
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
 

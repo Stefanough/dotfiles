@@ -1,4 +1,5 @@
-set nocompatible              " be iMproved, required. Do not allow compatability with Vi style APIs.
+" be iMproved, required. Do not allow compatability with Vi style APIs.
+set nocompatible
 
 filetype off                  " required
 
@@ -44,14 +45,9 @@ Plugin 'https://github.com/tpope/vim-surround'
 " Git wrapper for Vim. Provides Git commands in Vim command line.
 Plugin 'tpope/vim-fugitive'
 
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" OLD
-" Plugin 'git://git.wincent.com/command-t.git'
-" NEW
+" Fast file navigation for VIM
 " Plugin 'wincent/command-t'
-"
+
 " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 
@@ -63,11 +59,6 @@ Plugin 'https://github.com/airblade/vim-gitgutter.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
 
 " lean & mean status/tabline for vim that's light as air
 " https://github.com/vim-airline/vim-airline
@@ -108,7 +99,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-commentary'
 
 " A light Vim plugin for previewing markdown files in a browser - without leaving Vim.
-Plugin 'JamshedVesuna/vim-markdown-preview'
+" Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -139,9 +130,6 @@ else
   set undodir=~/.vim/undo//        " undo file directory
   set directory=~/.vim/swp//       " set .swp file directory
 endif
-set ruler		           " show the cursor position all the time
-set showcmd		           " display incomplete commands
-set incsearch		           " do incremental searching
 
 " For Win32 GUI - remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
@@ -228,8 +216,18 @@ endif
 " CONFIG
 " set histroy table to 1000 entries
 set history=1000
+
 " set the window's title, reflecting the file currently being edited.
 set title
+
+" show the cursor position all the time
+set ruler		           
+
+" display incomplete commands
+set showcmd
+
+" do incremental searching
+set incsearch		           
 
 " KEYMAPS
 
@@ -379,8 +377,31 @@ set pastetoggle=<F2>
 " NERDTree
 let NERDTreeShowHidden=1
 
+" NERDTree-git-plugin
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
 " vim-markdown-preview
-let vim_markdown_preview_github=2
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='/Applications/Firefox.app/Contents/MacOS/firefox'
+
+
+" CtrlP
+" Use this option to change the mapping to invoke CtrlP in |Normal| mode: >
+let g:ctrlp_map = '<c-p>'
+
+"Set the default opening command to use when pressing the above mapping: >
+let g:ctrlp_cmd = 'CtrlP'
 
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
 

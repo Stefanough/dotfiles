@@ -1,2 +1,9 @@
+# ignore editor temp and swap files
 *~
+
+# no DS_Store
 .DS_Store
+
+# none of these
+node_modules/
+

@@ -32,6 +32,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Typescript syntax files for Vim
+Plugin 'leafgarland/typescript-vim'
+
 " vim-javascript installed 2018-04-29
 Plugin 'https://github.com/pangloss/vim-javascript'
 
@@ -148,10 +151,6 @@ endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-"if &t_Co > 2 || has("gui_running")
-"  syntax on
-"  set hlsearch
-"endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -287,11 +286,11 @@ set clipboard=unnamed
 " vnoremap <A-j> :m '>+1<CR>gv=gv
 " vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" CURSOR SETTINGS
+" cursor settings
 " change shape in iTerm2 OS X
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+  let &t_SR = "\<Esc>]50;CursorShape=2\x7" " Underscore on replace mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 
 
 " FORMATING
@@ -306,11 +305,18 @@ set linebreak
 " STYLING
 " show line numbers by default
 set number
+
 " use relative line numbers
 set relativenumber
 
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
 " try to get Solarized working
-syntax on
 " let g:solarized_termcolors=256
 " set t_Co=256
 " set background=dark
@@ -404,9 +410,9 @@ let g:ctrlp_map = '<c-p>'
 " Set the default opening command to use when pressing the above mapping
 let g:ctrlp_cmd = 'CtrlP'
 
-" Ignore node_modules
+" Ignore node_modules, dist direcotories
 let g:ctrlp_custom_ignore = {
-      \ 'dir': '\v[\/](node_modules)$',
+      \ 'dir': '\v[\/](node_modules|dist)$',
       \ }
 
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS

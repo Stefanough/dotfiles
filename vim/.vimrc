@@ -349,8 +349,7 @@ endif
 let g:netrw_liststyle = 3
 
 " Vim Tab Configuration
-" alias :tabnew to :tn
-" :command :tn :tabnew << FIX
+:command Tn tabnew
 
 " OTHER SETTINGS
 

@@ -360,6 +360,9 @@ set nomodeline
 " F2 to toggle paste mode
 set pastetoggle=<F2>
 
+" \p to toggle paste mode
+nnoremap <Leader>p :set paste!<CR>
+
 " set paste on paste
 " Creates weird delay when returning to normal mode from insert
 " May have to change when using tmux

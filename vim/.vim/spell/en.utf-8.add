@@ -15,7 +15,6 @@ SHAs
 Hyphenless
 whitespace
 px
-#qation
 eqation/!
 biconditional
 Σ
@@ -81,3 +80,17 @@ transactionality
 UUID
 Peleton
 args
+TypeScript
+AST
+typechecker
+asigned/!
+readonly
+Variadic
+arity
+Iterable
+iterable
+js
+firstName
+Async
+Mixin
+mixin

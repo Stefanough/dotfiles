@@ -110,33 +110,9 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-
-" END OF THE VUNDLE
-
-" What is all of this below?
-" \/ \/ \/ \/ \/ \/ \/ \/ \/
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		           " do not keep a backup file, use versions instead
-else
-  set backup		           " keep a backup file (restore to previous version)
-  set backupdir=~/.vim/backup//    " backup file directory (// avoids file name collisions)
-  set undofile		           " keep an undo file (undo changes after closing)
-  set undodir=~/.vim/undo//        " undo file directory
-  set directory=~/.vim/swp//       " set .swp file directory
-endif
-
-" For Win32 GUI - remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-" nothink
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -198,13 +174,6 @@ if has('langmap') && exists('+langnoremap')
   " compatible).
   set langnoremap
 endif
-
-
-" Add optional packages.
-"
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-
 
 "   ***********
 "  *************
@@ -275,16 +244,6 @@ nmap ,cl :let @+=expand("%:p")<CR>
 
 " set something something register to copy to system clipboard
 set clipboard=unnamed
-
-" move single lines or selected blocks up and down
-" execute set <M-j>=\ej
-" execute set <M-k>=\ek
-" nmap <A-J> :m.+1<CR>
-" nmap <A-K> :m.-2<CR>
-" imap <A-j> <Esc>:m .+1<CR>==gi
-" imap <A-k> <Esc>:m .-2<CR>==gi
-" vnoremap <A-j> :m '>+1<CR>gv=gv
-" vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " cursor settings
 " change shape in iTerm2 OS X

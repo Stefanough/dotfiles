@@ -246,10 +246,19 @@ nmap ,cl :let @+=expand("%:p")<CR>
 set clipboard=unnamed
 
 " cursor settings
-" change shape in iTerm2 OS X
+" change shape in iTerm2
+if $TERM_PROGRAM =~ "iTerm"
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
   let &t_SR = "\<Esc>]50;CursorShape=2\x7" " Underscore on replace mode
   let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
+
+" change cursor in native Apple Terminal
+if $TERM_PROGRAM =~ "Apple_Terminal"
+  let &t_SI.="\e[5 q" "SI = INSERT mode
+  let &t_SR.="\e[4 q" "SR = REPLACE mode
+  let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+endif
 
 
 " FORMATING

@@ -198,7 +198,7 @@ set showcmd
 set incsearch		           
 
 " cursor settings
-" change shape in iTerm2
+" change cursor in iTerm2
 if $TERM_PROGRAM =~ "iTerm"
   let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
   let &t_SR = "\<Esc>]50;CursorShape=2\x7" " Underscore on replace mode
@@ -212,6 +212,17 @@ if $TERM_PROGRAM =~ "Apple_Terminal"
   let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 endif
 
+" change cursor in Gnome Terminal version ≥ 3.16
+if has("autocmd")
+  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
+  au InsertEnter,InsertChange *
+    \ if v:insertmode == 'i' | 
+    \   silent execute '!echo -ne "\e[5 q"' | redraw! |
+    \ elseif v:insertmode == 'r' |
+    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
+    \ endif
+  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+endif
 
 " KEYMAPS
 
@@ -318,7 +329,7 @@ endif
 let g:netrw_liststyle = 3
 
 " Vim Tab Configuration
-:command Tn tabnew
+" :command Tn tabnew
 
 " OTHER SETTINGS
 

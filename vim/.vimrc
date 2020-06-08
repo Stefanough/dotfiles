@@ -197,6 +197,33 @@ set showcmd
 " do incremental searching
 set incsearch		           
 
+" cursor settings
+" change cursor in iTerm2
+if $TERM_PROGRAM =~ "iTerm"
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+  let &t_SR = "\<Esc>]50;CursorShape=2\x7" " Underscore on replace mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
+
+" change cursor in native Apple Terminal
+if $TERM_PROGRAM =~ "Apple_Terminal"
+  let &t_SI.="\e[5 q" "SI = INSERT mode
+  let &t_SR.="\e[4 q" "SR = REPLACE mode
+  let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+endif
+
+" change cursor in Gnome Terminal version ≥ 3.16
+if has("autocmd")
+  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
+  au InsertEnter,InsertChange *
+    \ if v:insertmode == 'i' | 
+    \   silent execute '!echo -ne "\e[5 q"' | redraw! |
+    \ elseif v:insertmode == 'r' |
+    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
+    \ endif
+  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+endif
+
 " KEYMAPS
 
 " insert a space in normal mode:
@@ -244,21 +271,6 @@ nmap ,cl :let @+=expand("%:p")<CR>
 
 " set something something register to copy to system clipboard
 set clipboard=unnamed
-
-" cursor settings
-" change shape in iTerm2
-if $TERM_PROGRAM =~ "iTerm"
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-  let &t_SR = "\<Esc>]50;CursorShape=2\x7" " Underscore on replace mode
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
-
-" change cursor in native Apple Terminal
-if $TERM_PROGRAM =~ "Apple_Terminal"
-  let &t_SI.="\e[5 q" "SI = INSERT mode
-  let &t_SR.="\e[4 q" "SR = REPLACE mode
-  let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
-endif
 
 
 " FORMATING
@@ -317,7 +329,7 @@ endif
 let g:netrw_liststyle = 3
 
 " Vim Tab Configuration
-:command Tn tabnew
+" :command Tn tabnew
 
 " OTHER SETTINGS
 

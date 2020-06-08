@@ -10,7 +10,7 @@ export PATH="$PATH:/Users/sarmijo/mono/tools/knot/bin2"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-source /Users/sarmijo/Library/Preferences/org.dystroy.broot/launcher/bash/br
+# source /Users/sarmijo/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 

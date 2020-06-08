@@ -23,6 +23,12 @@ alias knot-all='knot run-all federation-svc demand-svc ffne-svc launch-svc prici
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+# Git stuff
+
+# Git autocompletion
+source ~/.git-completion.bash
+
+
 function parse_git_branch { 
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
 } 
@@ -36,6 +42,6 @@ __git_complete ga _git_add
 
 export PATH="/usr/local/sbin:$PATH"
 
-source /Users/sarmijo/Library/Preferences/org.dystroy.broot/launcher/bash/br
+# source /Users/sarmijo/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

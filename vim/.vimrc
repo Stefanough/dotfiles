@@ -226,6 +226,9 @@ endif
 
 " KEYMAPS
 
+" Hide search highlighting for the current search
+nmap <leader>n :noh<CR>
+
 " insert a space in normal mode:
 nmap <space> i<space><esc>
 

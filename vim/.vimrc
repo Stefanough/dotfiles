@@ -182,6 +182,10 @@ endif
 "   ***********
 
 " CONFIG
+
+" Visual ommand line completion
+set wildmenu
+
 " set histroy table to 1000 entries
 set history=1000
 

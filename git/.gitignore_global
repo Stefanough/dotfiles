@@ -6,4 +6,4 @@
 
 # none of these
 node_modules/
-
+**/.vscode/

@@ -404,6 +404,9 @@ let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](node_modules|dist)$',
       \ }
 
+" Use pwd (location where Vim was opened)
+let g:ctrlp_working_path_mode=0
+
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
 
 " set statusline+=%#warningmsg#

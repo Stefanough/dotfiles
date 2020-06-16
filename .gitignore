@@ -3,4 +3,5 @@
 
 # Do not track Vim plugins
 vim/.vim/bundle/*
+.netrwhist
 

@@ -401,7 +401,7 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " Ignore node_modules, dist direcotories
 let g:ctrlp_custom_ignore = {
-      \ 'dir': '\v[\/](node_modules|dist)$',
+      \ 'dir': '\v[\/](node_modules|dist|site-packages)$',
       \ }
 
 " Use pwd (location where Vim was opened)

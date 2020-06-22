@@ -106,9 +106,8 @@ Plugin 'tpope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -312,7 +311,7 @@ endif
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-" To disable the folding config-=uration for the vim-markdown plugin:
+" To disable the folding configuration for the vim-markdown plugin:
 let g:vim_markdown_folding_disabled = 1
 
 

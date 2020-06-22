@@ -303,11 +303,13 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Colors and stuff
+
+set background=dark
+
 " try to get Solarized working
 " let g:solarized_termcolors=256
 " set t_Co=256
-" set background=dark
-" colorscheme delek
 
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab

@@ -255,9 +255,9 @@ nmap <S-X> 0D
 " easier switching between splits
 nmap <C-W> <C-W><C-W>
 
-" easier tab navigation
-nmap <C-J> g<S-T>
-nmap <C-K> gt
+" easier tab navigation with vim keybindings for lett and right
+nmap <C-H> g<S-T>
+nmap <C-L> gt
 
 " Move by rows instead of lines (much more intuitive with 'wrap')
 nnoremap <expr> j v:count ? 'j' : 'gj'

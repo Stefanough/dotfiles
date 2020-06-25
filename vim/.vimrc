@@ -373,7 +373,7 @@ nnoremap <Leader>p :set paste!<CR>
 " GitGutter
 
 " sign column color
-highlight SignColumn ctermbg=black
+highlight SignColumn ctermbg=black ctermfg=black
 highlight GitGutterAdd ctermfg=green
 highlight GitGutterDelete ctermfg=red
 

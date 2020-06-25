@@ -370,7 +370,17 @@ nnoremap <Leader>p :set paste!<CR>
 " PLUGIN SETTINGS
 " ***************
 
+" GitGutter
+
+" sign column color
+highlight SignColumn ctermbg=black
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterDelete ctermfg=red
+
+"
 " NERDTree
+
+" show hidden files by default
 let NERDTreeShowHidden=1
 
 " NERDTree-git-plugin
@@ -386,6 +396,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
+
 
 " vim-markdown-preview
 let vim_markdown_preview_github=1

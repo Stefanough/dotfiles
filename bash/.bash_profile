@@ -37,8 +37,10 @@ source ~/.git-completion.bash
 
 function parse_git_branch { 
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
-} 
-export PS1="\[\e[32;40m\]\H:\w\$(parse_git_branch):\u \\$ \[\e[0m\]"
+}
+
+# Configure prompt format
+export PS1="\[\e[32;40m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 

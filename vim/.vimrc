@@ -300,11 +300,11 @@ set relativenumber
 
 " toggle relative and absolute line numbers on pane focus (works with tmux
 " foccus-events) from https://jeffkreeftmeijer.com/vim-number/
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained * set relativenumber
-:  autocmd BufLeave,FocusLost   * set norelativenumber
-:augroup END
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained * set relativenumber
+  autocmd BufLeave,FocusLost   * set norelativenumber
+augroup END
 
 " show cursor line
 set cursorline
@@ -391,7 +391,10 @@ highlight SignColumn ctermbg=black ctermfg=black
 highlight GitGutterAdd ctermfg=green
 highlight GitGutterDelete ctermfg=red
 
-"
+" after opening and entering a hunk preview, close preview pane with <esc>
+let g:gitgutter_close_preview_on_escape=1
+
+
 " NERDTree
 
 " show hidden files by default

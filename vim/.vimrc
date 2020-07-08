@@ -104,6 +104,9 @@ Plugin 'tpope/vim-commentary'
 " A light Vim plugin for previewing markdown files in a browser - without leaving Vim.
 " Plugin 'JamshedVesuna/vim-markdown-preview'
 
+" Make terminal vim and tmux work better together.
+ Plugin 'tmux-plugins/vim-tmux-focus-events'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

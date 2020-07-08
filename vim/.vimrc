@@ -41,24 +41,11 @@ Plugin 'https://github.com/pangloss/vim-javascript'
 " surround.vim: quoting/parenthesizing made simple
 Plugin 'https://github.com/tpope/vim-surround'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"
-" Git wrapper for Vim. Provides Git commands in Vim command line.
-Plugin 'tpope/vim-fugitive'
-
 " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 
 " A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
-
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " lean & mean status/tabline for vim that's light as air
 " https://github.com/vim-airline/vim-airline

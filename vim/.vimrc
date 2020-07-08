@@ -298,6 +298,14 @@ set number
 " use relative line numbers
 set relativenumber
 
+" toggle relative and absolute line numbers on pane focus (works with tmux
+" foccus-events) from https://jeffkreeftmeijer.com/vim-number/
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained * set relativenumber
+:  autocmd BufLeave,FocusLost   * set norelativenumber
+:augroup END
+
 " show cursor line
 set cursorline
 

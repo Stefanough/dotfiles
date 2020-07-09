@@ -41,27 +41,11 @@ Plugin 'https://github.com/pangloss/vim-javascript'
 " surround.vim: quoting/parenthesizing made simple
 Plugin 'https://github.com/tpope/vim-surround'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"
-" Git wrapper for Vim. Provides Git commands in Vim command line.
-Plugin 'tpope/vim-fugitive'
-
-" Fast file navigation for VIM
-" Plugin 'wincent/command-t'
-
 " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 
 " A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
-
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " lean & mean status/tabline for vim that's light as air
 " https://github.com/vim-airline/vim-airline
@@ -87,11 +71,6 @@ Plugin 'loremipsum'
 " Tag and block(?) matching
 Plugin 'MatchTag'
 
-" js-beautify plugin
-" Plugin 'maksimr/vim-jsbeautify'
-
-" try to get ESlint into vim
-
 " NERDTree
 Plugin 'preservim/nerdtree'
 
@@ -100,9 +79,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " commentary.vim: comment stuff out
 Plugin 'tpope/vim-commentary'
-
-" A light Vim plugin for previewing markdown files in a browser - without leaving Vim.
-" Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " Make terminal vim and tmux work better together.
  Plugin 'tmux-plugins/vim-tmux-focus-events'

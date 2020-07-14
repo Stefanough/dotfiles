@@ -32,6 +32,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" A Vim plugin that provides GraphQL file detection, syntax highlighting, and indentation.
+Plugin 'jparise/vim-graphql'
+
 " Typescript syntax files for Vim
 Plugin 'leafgarland/typescript-vim'
 
@@ -283,7 +286,7 @@ augroup numbertoggle
 augroup END
 
 " show cursor line
-set cursorline
+" set cursorline
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.

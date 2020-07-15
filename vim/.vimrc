@@ -51,21 +51,15 @@ Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
 
 " lean & mean status/tabline for vim that's light as air
-" https://github.com/vim-airline/vim-airline
 Plugin 'bling/vim-airline'
 
 " Vim script for text filtering and alignment
-" https://github.com/godlygeek/tabular
 Plugin 'godlygeek/tabular'
 
 " For vim-markdown
-" https://github.com/plasticboy/vim-markdown
 Plugin 'plasticboy/vim-markdown'
 
-" Solarized color scheme
-" Plugin 'altercation/vim-colors-solarized'
-
-" Syntastic
+" Syntax checking hacks for vim
 Plugin 'scrooloose/syntastic'
 
 " Generate some lorem in your docs
@@ -84,7 +78,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-commentary'
 
 " Make terminal vim and tmux work better together.
- Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -106,8 +100,6 @@ if has('mouse')
   set mouse=a
 endif
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -174,13 +166,13 @@ set history=1000
 set title
 
 " show the cursor position all the time
-set ruler		           
+set ruler
 
 " display incomplete commands
 set showcmd
 
 " do incremental searching
-set incsearch		           
+set incsearch
 
 " cursor settings
 " change cursor in iTerm2
@@ -201,7 +193,7 @@ endif
 if has("autocmd")
   au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
   au InsertEnter,InsertChange *
-    \ if v:insertmode == 'i' | 
+    \ if v:insertmode == 'i' |
     \   silent execute '!echo -ne "\e[5 q"' | redraw! |
     \ elseif v:insertmode == 'r' |
     \   silent execute '!echo -ne "\e[3 q"' | redraw! |
@@ -226,12 +218,6 @@ vmap mm <esc>
 " delete all characters on line without removing line
 nmap <S-X> 0D
 
-" add new line above cursor without entering insert mode
-" nmap oo o<esc>k
-
-" add new line below cursor without entering insert mode
-" nmap OO O<esc>j
-
 
 " NAVIGATION
 " easier switching between splits
@@ -253,9 +239,6 @@ nmap ,cs :let @+=expand("%")<CR>
 
 " copy full path of curent file to system register
 nmap ,cl :let @+=expand("%:p")<CR>
-
-" paste from vim register to begining of line
-" nmap <C-P> 0P
 
 " set something something register to copy to system clipboard
 set clipboard=unnamed
@@ -285,9 +268,6 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost   * set norelativenumber
 augroup END
 
-" show cursor line
-" set cursorline
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -299,15 +279,8 @@ endif
 
 set background=dark
 
-" try to get Solarized working
-" let g:solarized_termcolors=256
-" set t_Co=256
-
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
-
-" To disable the folding configuration for the vim-markdown plugin:
-let g:vim_markdown_folding_disabled = 1
 
 
 " REGISTERS
@@ -343,21 +316,6 @@ set pastetoggle=<F2>
 " \p to toggle paste mode
 nnoremap <Leader>p :set paste!<CR>
 
-" set paste on paste
-" Creates weird delay when returning to normal mode from insert
-" May have to change when using tmux
-" https://szunyog.github.io/vim/vim-automatically-set-paste-mode
-" let &t_SI .= "\<Esc>[?2004h"
-" let &t_EI .= "\<Esc>[?2004l"
-
-" inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
-" function! XTermPasteBegin()
-"   set pastetoggle=<Esc>[201~
-"   set paste
-"   return ""
-" endfunction
-
 
 
 " PLUGIN SETTINGS
@@ -372,6 +330,12 @@ highlight GitGutterDelete ctermfg=red
 
 " after opening and entering a hunk preview, close preview pane with <esc>
 let g:gitgutter_close_preview_on_escape=1
+
+
+" Vim Markdown
+
+" To disable the folding configuration for the vim-markdown plugin:
+let g:vim_markdown_folding_disabled = 1
 
 
 " NERDTree
@@ -420,7 +384,7 @@ let g:ctrlp_working_path_mode=0
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
-" 
+"
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1

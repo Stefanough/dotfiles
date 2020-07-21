@@ -206,6 +206,9 @@ endif
 " Hide search highlighting for the current search
 nmap <leader>n :noh<CR>
 
+" Toggle spell check and highlight
+nmap <leader>s :set spell!<CR>
+
 " insert a space in normal mode:
 nmap <space> i<space><esc>
 

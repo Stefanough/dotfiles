@@ -201,6 +201,13 @@ if has("autocmd")
   au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
 
+" attempt at Alacritty cursor shapes
+if $COLORTERM =~ "truecolor"  " assume we're in Alacritty if this is in env
+  let &t_SI = "\<esc>[6 q" "SI = INSERT mode
+  let &t_SR = "\<esc>[4 q" "SR = REPLACE mode
+  let &t_EI = "\<esc>[0 q" "EI = NORMAL mode (ELSE)
+endif
+
 " KEYMAPS
 
 " Hide search highlighting for the current search

@@ -15,8 +15,8 @@ set nowritebackup
 " |:noswapfile| modifier can be used to not create a swapfile for a new buffer.
 set noswapfile
 
-" update every 100 ms
-set updatetime=100
+" update every 10 ms
+set updatetime=10
 
 
 " PLUGINS
@@ -201,7 +201,7 @@ if has("autocmd")
   au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
 
-" attempt at Alacritty cursor shapes
+" chage cursor in Alacritty
 if $COLORTERM =~ "truecolor"  " assume we're in Alacritty if this is in env
   let &t_SI = "\<esc>[6 q" "SI = INSERT mode
   let &t_SR = "\<esc>[4 q" "SR = REPLACE mode

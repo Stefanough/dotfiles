@@ -354,7 +354,7 @@ let g:vim_markdown_folding_disabled = 1
 let NERDTreeShowHidden=1
 
 " NERDTree-git-plugin
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDGitStatusTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",

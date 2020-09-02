@@ -1,4 +1,4 @@
-" be iMproved, required. Do not allow compatability with Vi style APIs.
+" be iMproved, required. Do not allow compatibility with Vi style APIs.
 set nocompatible
 
 filetype off                  " required
@@ -72,7 +72,7 @@ Plugin 'MatchTag'
 Plugin 'preservim/nerdtree'
 
 " A plugin of NERDTree showing git status
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " commentary.vim: comment stuff out
 Plugin 'tpope/vim-commentary'
@@ -156,10 +156,10 @@ endif
 
 " CONFIG
 
-" Visual ommand line completion
+" Visual command line completion
 set wildmenu
 
-" set histroy table to 1000 entries
+" set history table to 1000 entries
 set history=1000
 
 " set the window's title, reflecting the file currently being edited.
@@ -201,7 +201,7 @@ if has("autocmd")
   au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
 
-" chage cursor in Alacritty
+" change cursor in Alacritty
 if $COLORTERM =~ "truecolor"  " assume we're in Alacritty if this is in env
   let &t_SI = "\<esc>[6 q" "SI = INSERT mode
   let &t_SR = "\<esc>[4 q" "SR = REPLACE mode
@@ -209,6 +209,12 @@ if $COLORTERM =~ "truecolor"  " assume we're in Alacritty if this is in env
 endif
 
 " KEYMAPS
+
+" Blank line under current line no white space
+nmap <CR> ojjk
+
+" Blank line above current line no white space
+nmap <CR> Ojjj
 
 " Hide search highlighting for the current search
 nmap <leader>n :noh<CR>
@@ -233,7 +239,7 @@ nmap <S-X> 0D
 " easier switching between splits
 nmap <C-W> <C-W><C-W>
 
-" easier tab navigation with vim keybindings for lett and right
+" easier tab navigation with vim keybindings for let and right
 nmap <C-H> g<S-T>
 nmap <C-L> gt
 
@@ -247,14 +253,14 @@ nnoremap <expr> <Up> v:count ? 'k' : 'gk'
 " copy current filename to system register (clipboard)
 nmap ,cs :let @+=expand("%")<CR>
 
-" copy full path of curent file to system register
+" copy full path of current file to system register
 nmap ,cl :let @+=expand("%:p")<CR>
 
 " set something something register to copy to system clipboard
 set clipboard=unnamed
 
 
-" FORMATING
+" FORMATTING
 
 " turn off auto-insertion of comment leader on newline
 " set formatoptions-=cro
@@ -271,7 +277,7 @@ set number
 set relativenumber
 
 " toggle relative and absolute line numbers on pane focus (works with tmux
-" foccus-events) from https://jeffkreeftmeijer.com/vim-number/
+" focus-events) from https://jeffkreeftmeijer.com/vim-number/
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained * set relativenumber
@@ -354,18 +360,18 @@ let g:vim_markdown_folding_disabled = 1
 let NERDTreeShowHidden=1
 
 " NERDTree-git-plugin
-let g:NERDGitStatusTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+" let g:NERDGitStatusTreeIndicatorMapCustom = {
+"     \ "Modified"  : "✹",
+"     \ "Staged"    : "✚",
+"     \ "Untracked" : "✭",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "✖",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ 'Ignored'   : '☒',
+"     \ "Unknown"   : "?"
+"     \ }
 
 
 " vim-markdown-preview
@@ -374,14 +380,14 @@ let vim_markdown_preview_browser='/Applications/Firefox.app/Contents/MacOS/firef
 
 
 " CtrlP
-"
+
 " Use this option to change the mapping to invoke CtrlP in |Normal| mode
 let g:ctrlp_map = '<c-p>'
 
 " Set the default opening command to use when pressing the above mapping
 let g:ctrlp_cmd = 'CtrlP'
 
-" Ignore node_modules, dist direcotories
+" Ignore node_modules, dist directories
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](node_modules|dist|site-packages|__pycache__)$',
       \ }

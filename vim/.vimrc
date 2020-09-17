@@ -395,6 +395,9 @@ let g:ctrlp_custom_ignore = {
 " Use pwd (location where Vim was opened)
 let g:ctrlp_working_path_mode=0
 
+" all the files
+let g:ctrlp_max_files=0
+
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
 
 set statusline+=%#warningmsg#

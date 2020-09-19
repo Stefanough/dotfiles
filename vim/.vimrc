@@ -256,6 +256,10 @@ nmap ,cs :let @+=expand("%")<CR>
 " copy full path of current file to system register
 nmap ,cl :let @+=expand("%:p")<CR>
 
+" autocomplete on tab
+imap <Tab> <C-N>
+
+
 " set something something register to copy to system clipboard
 set clipboard=unnamed
 
@@ -332,6 +336,15 @@ set pastetoggle=<F2>
 " \p to toggle paste mode
 nnoremap <Leader>p :set paste!<CR>
 
+
+" FUNCTIONS
+command! Dbg call Ignore()
+function! Ignore()
+   normal! o
+   normal! oimport ipdb
+   normal! oipdb.set_trace()
+
+endfunction
 
 
 " PLUGIN SETTINGS

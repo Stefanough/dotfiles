@@ -8,33 +8,33 @@ draw_bold_text_with_bright_colors: true
 
 
 # Colors (Tomorrow Night)
-# colors:
-#   # Default colors
-#   primary:
-#     background: '#1d1f21'
-#     foreground: '#c5c8c6'
+colors:
+  # Default colors
+  primary:
+    background: '#1d1f21'
+    foreground: '#c5c8c6'
 
-#   # Normal colors
-#   normal:
-#     black:   '#1d1f21'
-#     red:     '#ac1a11'
-#     green:   '#00A600'
-#     yellow:  '#999900'
-#     blue:    '#0011aa'
-#     magenta: '#a327ad'
-#     cyan:    '#00a6b2'
-#     white:   '#bfbfbf'
+  # Normal colors
+  normal:
+    black:   '#1d1f21'
+    red:     '#ac1a11'
+    green:   '#00A600'
+    yellow:  '#999900'
+    blue:    '#7EAAC7'
+    magenta: '#a327ad'
+    cyan:    '#00a6b2'
+    white:   '#bfbfbf'
 
-#   # Bright colors
-#   bright:
-#     black:   '#666666'
-#     red:     '#ad402a'
-#     green:   '#00d900'
-#     yellow:  '#e5e500'
-#     blue:    '#001df4'
-#     magenta: '#d235de'
-#     cyan:    '#00e5e5'
-#     white:   '#e5e5e5'
+  # Bright colors
+  bright:
+    black:   '#666666'
+    red:     '#ad402a'
+    green:   '#00d900'
+    yellow:  '#e5e500'
+    blue:    '#001df4'
+    magenta: '#d235de'
+    cyan:    '#00e5e5'
+    white:   '#e5e5e5'
 
 # Dim colors
 #
@@ -172,34 +172,34 @@ draw_bold_text_with_bright_colors: true
 
 
 # scorcerer colors
-colors:
-  primary:
-    background: '#222222'
-    foreground: '#c2c2b0'
+# colors:
+#   primary:
+#     background: '#222222'
+#     foreground: '#c2c2b0'
 
-  cursor:
-    text:   '#c2c2b0'
-    cursor: '#c2c2b0'
+#   cursor:
+#     text:   '#c2c2b0'
+#     cursor: '#c2c2b0'
 
-  normal:
-    black:   '#111111'
-    red:     '#aa4450'
-    green:   '#719611'
-    yellow:  '#cc8800'
-    blue:    '#6688aa'
-    magenta: '#8f6f8f'
-    cyan:    '#528b8b'
-    white:   '#d3d3d3'
+#   normal:
+#     black:   '#111111'
+#     red:     '#aa4450'
+#     green:   '#719611'
+#     yellow:  '#cc8800'
+#     blue:    '#6688aa'
+#     magenta: '#8f6f8f'
+#     cyan:    '#528b8b'
+#     white:   '#d3d3d3'
 
-  bright:
-    black:   '#181818'
-    red:     '#ff6a6a'
-    green:   '#b1d631'
-    yellow:  '#ff9800'
-    blue:    '#90b0d1'
-    magenta: '#8181a6'
-    cyan:    '#87ceeb'
-    white:   '#c1cdc1'
+#   bright:
+#     black:   '#181818'
+#     red:     '#ff6a6a'
+#     green:   '#b1d631'
+#     yellow:  '#ff9800'
+#     blue:    '#90b0d1'
+#     magenta: '#8181a6'
+#     cyan:    '#87ceeb'
+#     white:   '#c1cdc1'
 
 
 

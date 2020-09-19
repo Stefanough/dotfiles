@@ -259,6 +259,10 @@ nmap ,cs :let @+=expand("%")<CR>
 " copy full path of current file to system register
 nmap ,cl :let @+=expand("%:p")<CR>
 
+" autocomplete on tab
+imap <Tab> <C-N>
+
+
 " set something something register to copy to system clipboard
 set clipboard=unnamed
 
@@ -336,6 +340,15 @@ set pastetoggle=<F2>
 nnoremap <Leader>p :set paste!<CR>
 
 
+" FUNCTIONS
+command! Dbg call Ignore()
+function! Ignore()
+   normal! o
+   normal! oimport ipdb
+   normal! oipdb.set_trace()
+
+endfunction
+
 
 " PLUGIN SETTINGS
 " ***************
@@ -397,6 +410,9 @@ let g:ctrlp_custom_ignore = {
 
 " Use pwd (location where Vim was opened)
 let g:ctrlp_working_path_mode=0
+
+" all the files
+let g:ctrlp_max_files=0
 
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
 

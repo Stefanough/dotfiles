@@ -80,6 +80,9 @@ Plugin 'tpope/vim-commentary'
 " Make terminal vim and tmux work better together.
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 
+" A Vim plugin for TypeScript 
+Plugin 'quramy/tsuquyomi'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

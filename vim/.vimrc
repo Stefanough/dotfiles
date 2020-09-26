@@ -210,6 +210,12 @@ endif
 
 " KEYMAPS
 
+" Up and down by 10 rows
+nmap <C-J> 10j
+nmap <C-K> 10k
+vmap <C-J> 10j
+vmap <C-K> 10k
+
 " Blank line under current line no white space
 nmap <CR> ojjk
 
@@ -256,8 +262,12 @@ nmap ,cs :let @+=expand("%")<CR>
 " copy full path of current file to system register
 nmap ,cl :let @+=expand("%:p")<CR>
 
-" autocomplete on tab
+" native autocomplete on tab
 imap <Tab> <C-N>
+imap <S-Tab> <C-P>
+
+" cariage return for native autocomplete selection
+imap <expr> <CR> ((pumvisible())?("\<C-y>"):("<CR>"))
 
 
 " set something something register to copy to system clipboard

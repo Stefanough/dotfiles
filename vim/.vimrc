@@ -80,6 +80,10 @@ Plugin 'tpope/vim-commentary'
 " Make terminal vim and tmux work better together.
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 
+" abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
+" https://github.com/tpope/vim-abolish
+Plugin 'tpope/vim-abolish'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -158,6 +162,10 @@ endif
 
 " Visual command line completion
 set wildmenu
+
+" ignorecase, smartcase
+set ignorecase
+set smartcase
 
 " set history table to 1000 entries
 set history=1000

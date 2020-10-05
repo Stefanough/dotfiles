@@ -84,6 +84,9 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 " https://github.com/tpope/vim-abolish
 Plugin 'tpope/vim-abolish'
 
+" A code-completion engine for Vim
+Plugin 'ycm-core/YouCompleteMe'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -411,6 +414,9 @@ let vim_markdown_preview_browser='/Applications/Firefox.app/Contents/MacOS/firef
 
 
 " CtrlP
+
+" Open new files in a new tab
+let g:ctrlp_open_new_file = 't'
 
 " Use this option to change the mapping to invoke CtrlP in |Normal| mode
 let g:ctrlp_map = '<c-p>'

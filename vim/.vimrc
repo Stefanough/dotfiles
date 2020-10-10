@@ -90,6 +90,9 @@ Plugin 'ycm-core/YouCompleteMe'
 " ???
 Plugin 'koron/nyancat-vim'
 
+" precision colorscheme for the vim text editor
+Plugin 'altercation/vim-colors-solarized'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -322,7 +325,8 @@ endif
 
 " Colors and stuff
 
-set background=dark
+set background=light
+colorscheme solarized
 
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab

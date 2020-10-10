@@ -83,6 +83,16 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 " A Vim plugin for TypeScript 
 Plugin 'quramy/tsuquyomi'
 
+" abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
+" https://github.com/tpope/vim-abolish
+Plugin 'tpope/vim-abolish'
+
+" A code-completion engine for Vim
+Plugin 'ycm-core/YouCompleteMe'
+
+" ???
+Plugin 'koron/nyancat-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -162,6 +172,10 @@ endif
 " Visual command line completion
 set wildmenu
 
+" ignorecase, smartcase
+set ignorecase
+set smartcase
+
 " set history table to 1000 entries
 set history=1000
 
@@ -212,12 +226,19 @@ if $COLORTERM =~ "truecolor"  " assume we're in Alacritty if this is in env
 endif
 
 " KEYMAPS
+imap <Backspace> _dont_
+
+" Up and down by 10 rows
+nmap <C-J> 10j
+nmap <C-K> 10k
+vmap <C-J> 10j
+vmap <C-K> 10k
 
 " Blank line under current line no white space
-nmap <CR> ojjk
+" nmap <CR> o<Esc>k
 
 " Blank line above current line no white space
-nmap <CR> Ojjj
+" nmap <S-CR> O<Esc>k
 
 " Hide search highlighting for the current search
 nmap <leader>n :noh<CR>
@@ -229,10 +250,10 @@ nmap <leader>s :set spell!<CR>
 nmap <space> i<space><esc>
 
 " exit insert mode by double tapping jj
-imap jj <right><esc>
+imap jj _bad_
 
 " exit visual mode by double tapping mm
-vmap mm <esc>
+" vmap mm <esc>
 
 " delete all characters on line without removing line
 nmap <S-X> 0D
@@ -259,8 +280,12 @@ nmap ,cs :let @+=expand("%")<CR>
 " copy full path of current file to system register
 nmap ,cl :let @+=expand("%:p")<CR>
 
-" autocomplete on tab
+" native autocomplete on tab
 imap <Tab> <C-N>
+imap <S-Tab> <C-P>
+
+" cariage return for native autocomplete selection
+imap <expr> <CR> ((pumvisible())?("\<C-y>"):("<CR>"))
 
 
 " set something something register to copy to system clipboard
@@ -396,6 +421,9 @@ let vim_markdown_preview_browser='/Applications/Firefox.app/Contents/MacOS/firef
 
 
 " CtrlP
+
+" Open new files in a new tab
+let g:ctrlp_open_new_file = 't'
 
 " Use this option to change the mapping to invoke CtrlP in |Normal| mode
 let g:ctrlp_map = '<c-p>'

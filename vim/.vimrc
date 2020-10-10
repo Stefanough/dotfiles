@@ -388,10 +388,14 @@ endfunction
 
 " GitGutter
 
-" sign column color
-" highlight SignColumn ctermbg=black ctermfg=black
-highlight GitGutterAdd ctermfg=white
-highlight GitGutterDelete ctermfg=red
+" sign column color for solarized-light themes in Alacritty
+
+" setting color by number indicates picking from the 256 color set available
+" to the terminal
+highlight SignColumn ctermbg=lightgrey
+highlight GitGutterAdd ctermfg=34 ctermbg=lightgrey
+highlight GitGutterChange ctermfg=208 ctermbg=lightgrey
+highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
 
 " after opening and entering a hunk preview, close preview pane with <esc>
 let g:gitgutter_close_preview_on_escape=1

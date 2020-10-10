@@ -51,7 +51,10 @@ Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
 
 " lean & mean status/tabline for vim that's light as air
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+
+" A collection of themes for vim-airline
+Plugin 'vim-airline/vim-airline-themes'
 
 " Vim script for text filtering and alignment
 Plugin 'godlygeek/tabular'
@@ -325,8 +328,12 @@ endif
 
 " Colors and stuff
 
+" themes
 set background=light
 colorscheme solarized
+
+" Airline theme
+let g:airline_theme='solarized'
 
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
@@ -382,8 +389,8 @@ endfunction
 " GitGutter
 
 " sign column color
-highlight SignColumn ctermbg=black ctermfg=black
-highlight GitGutterAdd ctermfg=green
+" highlight SignColumn ctermbg=black ctermfg=black
+highlight GitGutterAdd ctermfg=white
 highlight GitGutterDelete ctermfg=red
 
 " after opening and entering a hunk preview, close preview pane with <esc>

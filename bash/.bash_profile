@@ -40,7 +40,7 @@ function parse_git_branch {
 }
 
 # Configure prompt format
-export PS1="\[\e[32;40m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
+export PS1="\[\e[00;36m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 

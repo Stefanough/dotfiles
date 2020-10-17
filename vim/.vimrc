@@ -42,7 +42,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'https://github.com/pangloss/vim-javascript'
 
 " surround.vim: quoting/parenthesizing made simple
-Plugin 'https://github.com/tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
@@ -67,9 +67,6 @@ Plugin 'scrooloose/syntastic'
 
 " Generate some lorem in your docs
 Plugin 'loremipsum'
-
-" Tag and block(?) matching
-Plugin 'MatchTag'
 
 " NERDTree
 Plugin 'preservim/nerdtree'
@@ -146,16 +143,6 @@ if has("autocmd")
 else
   set autoindent " always set autoindenting on
 endif " has("autocmd")
-
-
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
 
 if has('langmap') && exists('+langnoremap')
   " Prevent that the langmap option applies to characters that result from a

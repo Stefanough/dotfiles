@@ -42,7 +42,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'https://github.com/pangloss/vim-javascript'
 
 " surround.vim: quoting/parenthesizing made simple
-Plugin 'https://github.com/tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
@@ -51,7 +51,10 @@ Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
 
 " lean & mean status/tabline for vim that's light as air
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+
+" A collection of themes for vim-airline
+Plugin 'vim-airline/vim-airline-themes'
 
 " Vim script for text filtering and alignment
 Plugin 'godlygeek/tabular'
@@ -64,9 +67,6 @@ Plugin 'scrooloose/syntastic'
 
 " Generate some lorem in your docs
 Plugin 'loremipsum'
-
-" Tag and block(?) matching
-Plugin 'MatchTag'
 
 " NERDTree
 Plugin 'preservim/nerdtree'
@@ -92,6 +92,9 @@ Plugin 'ycm-core/YouCompleteMe'
 
 " ???
 Plugin 'koron/nyancat-vim'
+
+" precision colorscheme for the vim text editor
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -143,16 +146,6 @@ if has("autocmd")
 else
   set autoindent " always set autoindenting on
 endif " has("autocmd")
-
-
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
 
 if has('langmap') && exists('+langnoremap')
   " Prevent that the langmap option applies to characters that result from a
@@ -325,7 +318,12 @@ endif
 
 " Colors and stuff
 
-set background=dark
+" themes
+set background=light
+colorscheme solarized
+
+" Airline theme
+let g:airline_theme='solarized'
 
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
@@ -380,10 +378,14 @@ endfunction
 
 " GitGutter
 
-" sign column color
-highlight SignColumn ctermbg=black ctermfg=black
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterDelete ctermfg=red
+" sign column color for solarized-light themes in Alacritty
+
+" setting color by number indicates picking from the 256 color set available
+" to the terminal
+highlight SignColumn ctermbg=lightgrey
+highlight GitGutterAdd ctermfg=34 ctermbg=lightgrey
+highlight GitGutterChange ctermfg=208 ctermbg=lightgrey
+highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
 
 " after opening and entering a hunk preview, close preview pane with <esc>
 let g:gitgutter_close_preview_on_escape=1

@@ -316,11 +316,11 @@ endif
 " Colors and stuff
 
 " themes
-set background=light
+set background=dark
 colorscheme solarized
 
 " Airline theme
-let g:airline_theme='solarized'
+let g:airline_theme='solarized_flood'
 
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
@@ -379,10 +379,18 @@ endfunction
 
 " setting color by number indicates picking from the 256 color set available
 " to the terminal
-highlight SignColumn ctermbg=lightgrey
-highlight GitGutterAdd ctermfg=34 ctermbg=lightgrey
-highlight GitGutterChange ctermfg=208 ctermbg=lightgrey
-highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
+
+" colors for solarized_light
+" highlight SignColumn ctermbg=lightgrey
+" highlight GitGutterAdd ctermfg=34 ctermbg=lightgrey
+" highlight GitGutterChange ctermfg=208 ctermbg=lightgrey
+" highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
+
+" colors for solarized dark
+highlight SignColumn ctermbg=8
+highlight GitGutterAdd ctermfg=34 ctermbg=8
+highlight GitGutterChange ctermfg=208 ctermbg=8
+highlight GitGutterDelete ctermfg=red ctermbg=8
 
 " after opening and entering a hunk preview, close preview pane with <esc>
 let g:gitgutter_close_preview_on_escape=1

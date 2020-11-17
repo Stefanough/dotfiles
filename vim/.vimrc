@@ -93,6 +93,15 @@ Plugin 'koron/nyancat-vim'
 " precision colorscheme for the vim text editor
 Plugin 'altercation/vim-colors-solarized'
 
+" Runs your UnitTests with py.test displaying red/green bars and errors
+" Plugin 'alfredodeza/pytest.vim'
+
+" Run your tests at the speed of thought
+Plugin 'janko-m/vim-test'
+
+" Something
+Plugin 'jgdavey/tslime.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -441,6 +450,9 @@ let g:ctrlp_working_path_mode=0
 " all the files
 let g:ctrlp_max_files=0
 
+" open multiple files
+let g:ctrlp_open_multiple_files = 't'
+
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
 
 set statusline+=%#warningmsg#
@@ -459,3 +471,8 @@ let g:syntastic_python_checkers = ['flake8']
 " let g:syntastic_typescript_eslint_args=['--cache']
 " let g:syntastic_javascript_eslint_exe = './node_modules/.bin/eslint .'
 " let g:syntastic_typescript_eslint_exe = 'eslint'
+
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+
+set rtp+=/usr/local/opt/fzf

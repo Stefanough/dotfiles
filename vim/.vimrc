@@ -216,19 +216,12 @@ if $COLORTERM =~ "truecolor"  " assume we're in Alacritty if this is in env
 endif
 
 " KEYMAPS
-imap <Backspace> _dont_
 
 " Up and down by 10 rows
 nmap <C-J> 10j
 nmap <C-K> 10k
 vmap <C-J> 10j
 vmap <C-K> 10k
-
-" Blank line under current line no white space
-" nmap <CR> o<Esc>k
-
-" Blank line above current line no white space
-" nmap <S-CR> O<Esc>k
 
 " Hide search highlighting for the current search
 nmap <leader>n :noh<CR>
@@ -238,12 +231,6 @@ nmap <leader>s :set spell!<CR>
 
 " insert a space in normal mode:
 nmap <space> i<space><esc>
-
-" exit insert mode by double tapping jj
-imap jj _bad_
-
-" exit visual mode by double tapping mm
-" vmap mm <esc>
 
 " delete all characters on line without removing line
 nmap <S-X> 0D
@@ -284,14 +271,12 @@ set clipboard=unnamed
 
 " FORMATTING
 
-" turn off auto-insertion of comment leader on newline
-" set formatoptions-=cro
-
 " wrap lines on whole words
 set linebreak
 
 
 " STYLING
+
 " show line numbers by default
 set number
 

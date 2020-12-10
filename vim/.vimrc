@@ -219,19 +219,12 @@ if $COLORTERM =~ "truecolor"  " assume we're in Alacritty if this is in env
 endif
 
 " KEYMAPS
-imap <Backspace> _dont_
 
 " Up and down by 10 rows
 nmap <C-J> 10j
 nmap <C-K> 10k
 vmap <C-J> 10j
 vmap <C-K> 10k
-
-" Blank line under current line no white space
-" nmap <CR> o<Esc>k
-
-" Blank line above current line no white space
-" nmap <S-CR> O<Esc>k
 
 " Hide search highlighting for the current search
 nmap <leader>n :noh<CR>
@@ -241,12 +234,6 @@ nmap <leader>s :set spell!<CR>
 
 " insert a space in normal mode:
 nmap <space> i<space><esc>
-
-" exit insert mode by double tapping jj
-imap jj _bad_
-
-" exit visual mode by double tapping mm
-" vmap mm <esc>
 
 " delete all characters on line without removing line
 nmap <S-X> 0D
@@ -287,14 +274,12 @@ set clipboard=unnamed
 
 " FORMATTING
 
-" turn off auto-insertion of comment leader on newline
-" set formatoptions-=cro
-
 " wrap lines on whole words
 set linebreak
 
 
 " STYLING
+
 " show line numbers by default
 set number
 
@@ -319,11 +304,11 @@ endif
 " Colors and stuff
 
 " themes
-set background=light
+set background=dark
 colorscheme solarized
 
 " Airline theme
-let g:airline_theme='solarized'
+let g:airline_theme='solarized_flood'
 
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
@@ -382,10 +367,18 @@ endfunction
 
 " setting color by number indicates picking from the 256 color set available
 " to the terminal
-highlight SignColumn ctermbg=lightgrey
-highlight GitGutterAdd ctermfg=34 ctermbg=lightgrey
-highlight GitGutterChange ctermfg=208 ctermbg=lightgrey
-highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
+
+" colors for solarized_light
+" highlight SignColumn ctermbg=lightgrey
+" highlight GitGutterAdd ctermfg=34 ctermbg=lightgrey
+" highlight GitGutterChange ctermfg=208 ctermbg=lightgrey
+" highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
+
+" colors for solarized dark
+highlight SignColumn ctermbg=8
+highlight GitGutterAdd ctermfg=34 ctermbg=8
+highlight GitGutterChange ctermfg=208 ctermbg=8
+highlight GitGutterDelete ctermfg=red ctermbg=8
 
 " after opening and entering a hunk preview, close preview pane with <esc>
 let g:gitgutter_close_preview_on_escape=1

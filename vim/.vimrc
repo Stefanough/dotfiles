@@ -226,6 +226,9 @@ nmap <C-K> 10k
 vmap <C-J> 10j
 vmap <C-K> 10k
 
+" set cursorline and cursorcolumn
+nmap <leader>c :set cursorcolumn! cursorline!<CR>
+
 " Hide search highlighting for the current search
 nmap <leader>n :noh<CR>
 
@@ -257,13 +260,11 @@ nmap ,cs :let @+=expand("%")<CR>
 " copy full path of current file to system register
 nmap ,cl :let @+=expand("%:p")<CR>
 
-" native autocomplete on tab
-imap <Tab> <C-N>
-imap <S-Tab> <C-P>
+" copy project path and file name of current buffer to system register
+" nmap <leader>f :let @+=expand(f)<CR> <--- does not work
 
-" cariage return for native autocomplete selection
-imap <expr> <CR> ((pumvisible())?("\<C-y>"):("<CR>"))
-
+" tab for native autocomplete selection
+imap <expr> <Tab> ((pumvisible())?("\<C-y>"):("<Tab>"))
 
 " set something something register to copy to system clipboard
 set clipboard=unnamed

@@ -80,6 +80,9 @@ Plugin 'tpope/vim-commentary'
 " Make terminal vim and tmux work better together.
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 
+" A Vim plugin for TypeScript 
+Plugin 'quramy/tsuquyomi'
+
 " abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
 " https://github.com/tpope/vim-abolish
 Plugin 'tpope/vim-abolish'

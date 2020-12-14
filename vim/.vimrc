@@ -47,7 +47,7 @@ Plugin 'tpope/vim-surround'
 " Fuzzy file, buffer, mru, tag, etc finder
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
 
-" A Vim plugin which shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
+" Shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
 
 " lean & mean status/tabline for vim that's light as air
@@ -92,6 +92,9 @@ Plugin 'koron/nyancat-vim'
 
 " precision colorscheme for the vim text editor
 Plugin 'altercation/vim-colors-solarized'
+
+" Run your tests at the speed of thought
+Plugin 'vim-test/vim-test'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -231,9 +234,6 @@ nmap <leader>s :set spell!<CR>
 
 " insert a space in normal mode:
 nmap <space> i<space><esc>
-
-" delete all characters on line without removing line
-nmap <S-X> 0D
 
 
 " NAVIGATION
@@ -402,7 +402,7 @@ let NERDTreeShowHidden=1
 "     \ "Deleted"   : "✖",
 "     \ "Dirty"     : "✗",
 "     \ "Clean"     : "✔︎",
-"     \ 'Ignored'   : '☒',
+"     \ "Ignored"   : "☒",
 "     \ "Unknown"   : "?"
 "     \ }
 
@@ -452,3 +452,5 @@ let g:syntastic_python_checkers = ['flake8']
 " let g:syntastic_typescript_eslint_args=['--cache']
 " let g:syntastic_javascript_eslint_exe = './node_modules/.bin/eslint .'
 " let g:syntastic_typescript_eslint_exe = 'eslint'
+
+set exrc

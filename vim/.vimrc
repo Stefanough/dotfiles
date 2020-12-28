@@ -74,7 +74,7 @@ Plugin 'tpope/vim-commentary'
 " Make terminal vim and tmux work better together.
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 
-" A Vim plugin for TypeScript 
+" A Vim plugin for TypeScript
 Plugin 'quramy/tsuquyomi'
 
 " abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
@@ -420,7 +420,7 @@ let g:syntastic_check_on_wq = 0
 
 " checkers
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_md_checkers = ['usr/local/bin/mdl']
+let g:syntastic_md_checkers = ['mdl']
 " let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_typescript_checkers = ['eslint']
 " let g:syntastic_typescript_eslint_args=['--cache']

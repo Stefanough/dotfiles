@@ -68,12 +68,6 @@ Plugin 'scrooloose/syntastic'
 " Generate some lorem in your docs
 Plugin 'loremipsum'
 
-" NERDTree
-Plugin 'preservim/nerdtree'
-
-" A plugin of NERDTree showing git status
-" Plugin 'Xuyuanp/nerdtree-git-plugin'
-
 " commentary.vim: comment stuff out
 Plugin 'tpope/vim-commentary'
 
@@ -389,26 +383,6 @@ let g:gitgutter_close_preview_on_escape=1
 
 " To disable the folding configuration for the vim-markdown plugin:
 let g:vim_markdown_folding_disabled = 1
-
-
-" NERDTree
-
-" show hidden files by default
-let NERDTreeShowHidden=1
-
-" NERDTree-git-plugin
-" let g:NERDGitStatusTreeIndicatorMapCustom = {
-"     \ "Modified"  : "✹",
-"     \ "Staged"    : "✚",
-"     \ "Untracked" : "✭",
-"     \ "Renamed"   : "➜",
-"     \ "Unmerged"  : "═",
-"     \ "Deleted"   : "✖",
-"     \ "Dirty"     : "✗",
-"     \ "Clean"     : "✔︎",
-"     \ "Ignored"   : "☒",
-"     \ "Unknown"   : "?"
-"     \ }
 
 
 " CtrlP

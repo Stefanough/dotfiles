@@ -427,4 +427,8 @@ let g:syntastic_md_checkers = ['mdl']
 " let g:syntastic_javascript_eslint_exe = './node_modules/.bin/eslint .'
 " let g:syntastic_typescript_eslint_exe = 'eslint'
 
+" enable exrc for project specific .vimrc files
 set exrc
+
+" enable secure to prevent autocmd commands in local rc files
+set secure

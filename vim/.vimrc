@@ -411,11 +411,6 @@ let NERDTreeShowHidden=1
 "     \ }
 
 
-" vim-markdown-preview
-let vim_markdown_preview_github=1
-let vim_markdown_preview_browser='/Applications/Firefox.app/Contents/MacOS/firefox'
-
-
 " CtrlP
 
 " Open new files in a new tab

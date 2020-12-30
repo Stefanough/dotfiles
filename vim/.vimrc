@@ -356,6 +356,10 @@ endfunction
 " PLUGIN SETTINGS
 " ***************
 
+" YCM
+" better go to def (may be default?)
+map gd :YcmCompleter GoTo<CR>
+
 " GitGutter
 
 " sign column color for solarized-light themes in Alacritty

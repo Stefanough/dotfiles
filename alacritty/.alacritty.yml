@@ -1,5 +1,14 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+cursor:
+  style:
+    shape: block
+    blinking: Always
+
+blink_interval: 750
+unfocussed_hollow: true
+
+# also try screen-256color
 TERM: xterm-256color
 
 # If `true`, bold text is drawn using the bright color variants.

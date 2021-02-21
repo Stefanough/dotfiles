@@ -299,7 +299,7 @@ endif
 " Colors and stuff
 
 " themes
-set background=dark
+set background=light
 colorscheme solarized
 
 " Airline theme
@@ -368,16 +368,16 @@ map gd :YcmCompleter GoTo<CR>
 " to the terminal
 
 " colors for solarized_light
-" highlight SignColumn ctermbg=lightgrey
-" highlight GitGutterAdd ctermfg=34 ctermbg=lightgrey
-" highlight GitGutterChange ctermfg=208 ctermbg=lightgrey
-" highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
+highlight SignColumn ctermbg=lightgrey
+highlight GitGutterAdd ctermfg=34 ctermbg=lightgrey
+highlight GitGutterChange ctermfg=208 ctermbg=lightgrey
+highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
 
 " colors for solarized dark
-highlight SignColumn ctermbg=8
-highlight GitGutterAdd ctermfg=34 ctermbg=8
-highlight GitGutterChange ctermfg=208 ctermbg=8
-highlight GitGutterDelete ctermfg=red ctermbg=8
+" highlight SignColumn ctermbg=8
+" highlight GitGutterAdd ctermfg=34 ctermbg=8
+" highlight GitGutterChange ctermfg=208 ctermbg=8
+" highlight GitGutterDelete ctermfg=red ctermbg=8
 
 " after opening and entering a hunk preview, close preview pane with <esc>
 let g:gitgutter_close_preview_on_escape=1

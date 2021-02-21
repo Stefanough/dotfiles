@@ -358,7 +358,7 @@ endfunction
 
 " YCM
 " better go to def (may be default?)
-map gd :YcmCompleter GoTo<CR>
+nmap gd :YcmCompleter GoTo<CR>
 
 " GitGutter
 
@@ -381,6 +381,9 @@ highlight GitGutterDelete ctermfg=red ctermbg=lightgrey
 
 " after opening and entering a hunk preview, close preview pane with <esc>
 let g:gitgutter_close_preview_on_escape=1
+
+nnoremap ]c :GitGutterNextHunk<CR>
+nnoremap [c :GitGutterPrevHunk<CR>
 
 
 " Vim Markdown

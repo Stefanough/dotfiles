@@ -434,6 +434,21 @@ let g:syntastic_md_checkers = ['mdl']
 " let g:syntastic_javascript_eslint_exe = './node_modules/.bin/eslint .'
 " let g:syntastic_typescript_eslint_exe = 'eslint'
 
+
+func! s:SetBreakpoint()
+    cal append('.', repeat(' ', strlen(matchstr(getline('.'), '^\s*'))) . 'import ipdb; ipdb.set_trace()')
+endf
+
+func! s:RemoveBreakpoint()
+    exe 'silent! g/^\s*import\sipdb\;\?\n*\s*ipdb.set_trace()/d'
+endf
+
+func! s:ToggleBreakpoint()
+    if getline('.')=~#'^\s*import\sipdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
+endf
+
+nnoremap <C-I> :call <SID>ToggleBreakpoint()<CR>
+
 " enable exrc for project specific .vimrc files
 set exrc
 

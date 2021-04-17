@@ -303,7 +303,7 @@ set background=light
 colorscheme solarized
 
 " Airline theme
-let g:airline_theme='solarized_flood'
+" let g:airline_theme='solarized_flood'
 
 " For indents that consist of 2 space characters but are entered with the tab key
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
@@ -360,6 +360,9 @@ endfunction
 " better go to def (may be default?)
 nmap gd :YcmCompleter GoTo<CR>
 
+" Experiment with ths direct ycm to open GoTo commands in a new tab.
+let g:ycm_goto_buffer_command = 'split-or-existing-window'
+
 " GitGutter
 
 " sign column color for solarized-light themes in Alacritty
@@ -414,6 +417,9 @@ let g:ctrlp_working_path_mode=0
 " all the files
 let g:ctrlp_max_files=0
 
+" show hidden files
+let g:ctrlp_show_hidden = 1
+
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
 
 set statusline+=%#warningmsg#
@@ -447,10 +453,11 @@ func! s:ToggleBreakpoint()
     if getline('.')=~#'^\s*import\sipdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
 endf
 
-nnoremap <C-I> :call <SID>ToggleBreakpoint()<CR>
+nnoremap <C-B> :call <SID>ToggleBreakpoint()<CR>
 
 " enable exrc for project specific .vimrc files
 set exrc
 
 " enable secure to prevent autocmd commands in local rc files
 set secure
+

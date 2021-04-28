@@ -217,3 +217,8 @@ colors: *solarized_light
   #   `- { index: 16, color: '#ff00ff' }`
   #
   #indexed_colors: []
+
+font:
+  normal:
+    family: Iosevka
+    style: Regular

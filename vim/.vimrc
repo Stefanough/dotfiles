@@ -93,6 +93,12 @@ Plugin 'altercation/vim-colors-solarized'
 " Run your tests at the speed of thought
 Plugin 'vim-test/vim-test'
 
+" Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plugin 'raimondi/delimitmate'
+
+" Auto close (X)HTML tags
+Plugin 'alvan/vim-closetag'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

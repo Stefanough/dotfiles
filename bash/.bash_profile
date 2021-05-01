@@ -16,9 +16,6 @@ alias gsp='git stash pop'
 alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
 alias cd='echo "do not leave your computer unlocked nerd." && cd $*'
 
-alias pgup='pg_ctl -D /usr/local/var/postgres start'
-alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
-
 function parse_git_branch { 
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
 }

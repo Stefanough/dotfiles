@@ -31,6 +31,9 @@ alias mkcd='_(){ mkdir -p $1; cd $1; }; _'
 alias pgup='pg_ctl -D /usr/local/var/postgres start'
 alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
 
+# pip = pip3
+alias pip=pip3
+
 
 ##########################
 #

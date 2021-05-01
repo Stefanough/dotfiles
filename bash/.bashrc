@@ -15,6 +15,6 @@ alias ls='ls -F'
 alias npmglobal='npm list -g --depth 0'
 
 # create a directory and enter
-alias mkcd='_(){ mkdir $1; cd $1; }; _'
+alias mkcd='_(){ mkdir -p $1; cd $1; }; _'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

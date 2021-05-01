@@ -24,12 +24,6 @@ alias knot-all='knot run-all federation-svc demand-svc ffne-svc launch-svc prici
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# Git stuff
-
-# Git autocompletion
-source ~/.git-completion.bash
-
-
 function parse_git_branch { 
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/' 
 }

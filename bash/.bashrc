@@ -30,7 +30,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bash completions installed with homebrew
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # Python stuff
 
@@ -78,6 +78,7 @@ alias cd='echo "do not leave your computer unlocked nerd." && cd $*'
 __git_complete gs _git_status
 __git_complete gc _git_checkout
 __git_complete ga _git_add
+
 
 ##########################
 #

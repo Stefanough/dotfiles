@@ -3,10 +3,11 @@
     name = Stefan Armijo
     email = stefan.armijo@gmail.com
 # Please adapt and uncomment the following lines:
-#	name = Stefan Armijo
-#	email = stefan.armijo@gmail.com
+#    name = Stefan Armijo
+#    email = stefan.armijo@gmail.com
 [core]
     excludesfile = /Users/sarmijo/.gitignore_global
+    editor = vim
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path =
@@ -22,3 +23,7 @@
 
 [url "https://"]
     insteadOf = git://
+[help]
+    autoCorrect = 0
+[color]
+    ui = auto

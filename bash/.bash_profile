@@ -19,11 +19,6 @@ alias cd='echo "do not leave your computer unlocked nerd." && cd $*'
 alias pgup='pg_ctl -D /usr/local/var/postgres start'
 alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
 
-# Npm
-alias npmglobal='npm list -g --depth 0'
-
-# Filesystem stuff
-alias mkcd='_(){ mkdir $1; cd $1; }; _'
 
 alias knot-all='knot run-all federation-svc demand-svc ffne-svc launch-svc pricing-engine notify-svc property-svc supply-svc foundation'
 

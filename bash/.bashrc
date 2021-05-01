@@ -1,4 +1,3 @@
-
 ##########################
 #
 # Set up prompt style
@@ -11,6 +10,33 @@ function parse_git_branch {
 
 # Configure prompt format
 export PS1="\[\e[00;36m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
+
+
+##########################
+#
+# Integrations
+#
+##########################
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Git autocompletion
+source ~/.git-completion.bash
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bash completions installed with homebrew
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+# Python stuff
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 
 ##########################
@@ -53,23 +79,10 @@ __git_complete gs _git_status
 __git_complete gc _git_checkout
 __git_complete ga _git_add
 
-
 ##########################
 #
-# Integrations
+# Exports
 #
 ##########################
 
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# Git autocompletion
-source ~/.git-completion.bash
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# bash completions installed with homebrew
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+export PATH="/usr/local/sbin:$PATH"

@@ -19,9 +19,6 @@ alias cd='echo "do not leave your computer unlocked nerd." && cd $*'
 alias pgup='pg_ctl -D /usr/local/var/postgres start'
 alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
 
-
-alias knot-all='knot run-all federation-svc demand-svc ffne-svc launch-svc pricing-engine notify-svc property-svc supply-svc foundation'
-
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 function parse_git_branch { 

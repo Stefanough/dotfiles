@@ -16,8 +16,6 @@ alias gsp='git stash pop'
 alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
 alias cd='echo "do not leave your computer unlocked nerd." && cd $*'
 
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-
 __git_complete gs _git_status
 __git_complete gc _git_checkout
 __git_complete ga _git_add

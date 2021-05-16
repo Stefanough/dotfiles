@@ -374,6 +374,9 @@ let g:ycm_filetype_whitelist = {
   \ "python":1,
 \ }
 
+" Close preview window after completion
+let g:ycm_autoclose_preview_window_after_completion=1
+
 " GitGutter
 
 " sign column color for solarized-light themes in Alacritty

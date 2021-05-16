@@ -365,7 +365,7 @@ endfunction
 " YCM
 " remaps
 nmap gd :YcmCompleter GoTo<CR>
-nmap <leader>gr :YcmCompleter GoToReferences<CR>
+nmap gr :YcmCompleter GoToReferences<CR>
 
 " Experiment with ths direct ycm to open GoTo commands in a new tab.
 let g:ycm_goto_buffer_command = 'split-or-existing-window'

@@ -369,6 +369,11 @@ nmap gd :YcmCompleter GoTo<CR>
 " Experiment with ths direct ycm to open GoTo commands in a new tab.
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
 
+" explicitly whitelist files
+let g:ycm_filetype_whitelist = {
+  \ "python":1,
+\ }
+
 " GitGutter
 
 " sign column color for solarized-light themes in Alacritty

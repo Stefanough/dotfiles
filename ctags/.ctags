@@ -1,4 +1,5 @@
 --python-kinds=-i
+--fields=+l
 --exclude=node_modules
 --langdef=typescript
 --langmap=typescript:.ts.tsx

@@ -378,6 +378,9 @@ let g:ycm_filetype_whitelist = {
 " Close preview window after completion
 let g:ycm_autoclose_preview_window_after_completion=1
 
+" Use tags file for identifier lookup. Does this work??
+let g:ycm_collect_identifiers_from_tags_files=1
+
 " GitGutter
 
 " sign column color for solarized-light themes in Alacritty

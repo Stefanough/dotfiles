@@ -418,6 +418,9 @@ let g:vim_markdown_folding_disabled = 1
 " Open new files in a new tab
 let g:ctrlp_open_new_file = 't'
 
+" Open new files in a new tab. Ctrl-z to select and ctrl-o to open.
+let g:ctrlp_open_multiple_files = 'tj'
+
 " Use this option to change the mapping to invoke CtrlP in |Normal| mode
 let g:ctrlp_map = '<c-p>'
 

@@ -55,7 +55,7 @@ alias ls='ls -F'
 alias npmglobal='npm list -g --depth 0'
 
 # create a directory and enter
-alias mkcd='_(){ mkdir -p $1; cd $1; }; _'
+mkcd() { mkdir -p "$1"; cd "$1" || return; }
 
 alias pgup='pg_ctl -D /usr/local/var/postgres start'
 alias pgdown='pg_ctl -D /usr/local/var/postgres stop'

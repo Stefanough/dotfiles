@@ -29,6 +29,12 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+" fugitive.vim: A Git wrapper so awesome, it should be illegal
+Plugin 'https://github.com/tpope/vim-fugitive'
+
+" rhubarb.vim: GitHub extension for fugitive.vim
+Plugin 'https://github.com/tpope/vim-rhubarb'
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 

@@ -45,6 +45,9 @@ fi
 #
 ##########################
 
+# pass clipboard to jq
+alias pjq='pbpaste | jq'
+
 # show trailing slash on directories
 alias ls='ls -F'
 

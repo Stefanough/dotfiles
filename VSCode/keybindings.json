@@ -33,7 +33,7 @@
     },
     {
         "key": "ctrl+j",
-        "command": "workbench.action.previousEditor",
+        "command": "workbench.action.previousEditorInGroup",
     },
     {
         "key": "ctrl+space l",
@@ -42,6 +42,31 @@
     {
         "key": "ctrl+space h",
         "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "ctrl+space l",
+        "command": "workbench.explorer.fileView.focus",
+        "when": "activeEditorGroupLast"
+    },
+    {
+        "key": "ctrl+space h",
+        "command": "workbench.explorer.fileView.focus",
+        "when": "activeEditorGroupIndex == 1"
+    },
+    {
+        "key": "ctrl+space l",
+        "command": "workbench.action.focusFirstEditorGroup",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "ctrl+space h",
+        "command": "workbench.action.focusLastEditorGroup",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "search.action.openNewEditor",
+        "when": "inQuickOpen"
     },
     {
         "key": ".",
@@ -59,4 +84,14 @@
         },
         "when": "editorTextFocus && suggestWidgetVisible && editorLangId == html"
     },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen",
+        "when": "editorTextFocus && !suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    }
 ]

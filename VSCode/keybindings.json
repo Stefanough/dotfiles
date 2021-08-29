@@ -1,0 +1,62 @@
+[
+    {
+        "key": "ctrl+shift+b",
+        "command": "editor.debug.action.toggleBreakpoint",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "f9",
+        "command": "-editor.debug.action.toggleBreakpoint",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+k cmd+u",
+        "command": "git.revertSelectedRanges",
+        "when": "isInDiffEditor"
+    },
+    {
+        "key": "cmd+k cmd+r",
+        "command": "-git.revertSelectedRanges",
+        "when": "isInDiffEditor"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.previousEditor",
+    },
+    {
+        "key": "ctrl+space l",
+        "command": "workbench.action.focusNextGroup"
+    },
+    {
+        "key": "ctrl+space h",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": ".",
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "acceptSelectedSuggestion",
+                {
+                    "command": "type",
+                    "args": {
+                        "text": "."
+                    }
+                }
+            ]
+        },
+        "when": "editorTextFocus && suggestWidgetVisible && editorLangId == html"
+    },
+]

@@ -20,12 +20,6 @@
       "after": ["<Esc>"]
     }
   ],
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<C-h>"],
-      "after": ["workbench.action.previousEditor"]
-    }
-  ],
   "vim.useSystemClipboard": false,
   "vim.disableExtension": false,
   "editor.renderLineHighlight": "gutter",
@@ -234,9 +228,6 @@
   "emmet.showExpandedAbbreviation": "never",
   "terminal.integrated.rendererType": "dom",
   "terminal.integrated.shellArgs.osx": [],
-  // "vscode_custom_css.imports": [
-  //   "file:///Users/sarmijo/synthwave84.css"
-  // ],
   "terminal.explorerKind": "external",
   "extensions.ignoreRecommendations": false,
   "linesinfostatusbar.totalDisplayFormat": "T: %d",
@@ -289,5 +280,7 @@
   "editor.detectIndentation": false,
 "html.format.indentInnerHtml": true,
 "editor.renderLineHighlightOnlyWhenFocus": true,
-"window.zoomLevel": -1
+"window.zoomLevel": -1,
+"markdown-header-coloring.backgroundColorOpacity": 2,
+"python.defaultInterpreterPath": "/usr/bin/python3"
 }

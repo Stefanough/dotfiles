@@ -28,12 +28,13 @@
         "command": "workbench.action.previousEditorInGroup"
     },
     {
-        "key": "ctrl+k",
+        "key": "ctrl+l",
         "command": "workbench.action.nextEditorInGroup"
     },
     {
-        "key": "ctrl+j",
+        "key": "ctrl+h",
         "command": "workbench.action.previousEditorInGroup",
+        "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
     },
     {
         "key": "ctrl+space l",
@@ -41,7 +42,8 @@
     },
     {
         "key": "ctrl+space h",
-        "command": "workbench.action.focusPreviousGroup"
+        "command": "workbench.action.focusPreviousGroup",
+        "when": "vim.mode == 'Normal'"
     },
     {
         "key": "ctrl+space l",
@@ -68,30 +70,35 @@
         "command": "search.action.openNewEditor",
         "when": "inQuickOpen"
     },
-    {
-        "key": ".",
-        "command": "extension.multiCommand.execute",
-        "args": {
-            "sequence": [
-                "acceptSelectedSuggestion",
-                {
-                    "command": "type",
-                    "args": {
-                        "text": "."
-                    }
-                }
-            ]
-        },
-        "when": "editorTextFocus && suggestWidgetVisible && editorLangId == html"
-    },
+    // {
+    //     "key": ".",
+    //     "command": "extension.multiCommand.execute",
+    //     "args": {
+    //         "sequence": [
+    //             "acceptSelectedSuggestion",
+    //             {
+    //                 "command": "type",
+    //                 "args": {
+    //                     "text": "."
+    //                 }
+    //             }
+    //         ]
+    //     },
+    //     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == html"
+    // },
     {
         "key": "ctrl+p",
         "command": "workbench.action.quickOpen",
-        "when": "editorTextFocus && !suggestWidgetVisible"
+        "when": "editorTextFocus && !suggestWidgetVisible && vim.active && vim.mode != 'CommandlineInProgress'"
     },
     {
         "key": "ctrl+[",
         "command": "workbench.action.closeQuickOpen",
         "when": "inQuickOpen"
-    }
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "editor.action.openLink",
+        "when": "editorTextFocus"
+    },
 ]

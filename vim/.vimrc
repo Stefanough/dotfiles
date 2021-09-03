@@ -387,6 +387,10 @@ let g:ycm_autoclose_preview_window_after_completion=1
 " Use tags file for identifier lookup. Does this work??
 let g:ycm_collect_identifiers_from_tags_files=1
 
+" white list ycm_extra_conf files
+let g:ycm_extra_conf_globlist = ['~/Source/*']
+
+
 " GitGutter
 
 " sign column color for solarized-light themes in Alacritty

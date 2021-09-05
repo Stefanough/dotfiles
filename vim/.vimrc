@@ -314,6 +314,19 @@ endif
 set background=light
 colorscheme solarized
 
+" conditionally set undercurl mode when using solarized
+function! GetColorSchemeName()
+    try
+        return g:colors_name
+    catch /^Vim:E121/
+        return "default"
+    endtry
+endfunction
+
+if GetColorSchemeName() == 'solarized'
+  set t_Cs=",underline"
+endif
+
 " Airline theme
 " let g:airline_theme='solarized_flood'
 

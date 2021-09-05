@@ -77,9 +77,6 @@ Plugin 'loremipsum'
 " commentary.vim: comment stuff out
 Plugin 'tpope/vim-commentary'
 
-" Make terminal vim and tmux work better together.
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-
 " A Vim plugin for TypeScript
 Plugin 'quramy/tsuquyomi'
 
@@ -286,6 +283,9 @@ set linebreak
 
 
 " STYLING
+
+" spellcheck by default
+set spell
 
 " show line numbers by default
 set number

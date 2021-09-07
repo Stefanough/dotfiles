@@ -29,23 +29,23 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" A solid language pack for Vim.
+Plugin 'sheerun/vim-polyglot'
+
 " fugitive.vim: A Git wrapper so awesome, it should be illegal
 Plugin 'https://github.com/tpope/vim-fugitive'
 
 " rhubarb.vim: GitHub extension for fugitive.vim
 Plugin 'https://github.com/tpope/vim-rhubarb'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
 " A Vim plugin that provides GraphQL file detection, syntax highlighting, and indentation.
 Plugin 'jparise/vim-graphql'
 
 " Typescript syntax files for Vim
-Plugin 'leafgarland/typescript-vim'
-
-" vim-javascript installed 2018-04-29
-Plugin 'https://github.com/pangloss/vim-javascript'
+" Plugin 'leafgarland/typescript-vim'
 
 " surround.vim: quoting/parenthesizing made simple
 Plugin 'tpope/vim-surround'
@@ -65,9 +65,6 @@ Plugin 'vim-airline/vim-airline-themes'
 " Vim script for text filtering and alignment
 Plugin 'godlygeek/tabular'
 
-" For vim-markdown
-Plugin 'plasticboy/vim-markdown'
-
 " Syntax checking hacks for vim
 Plugin 'scrooloose/syntastic'
 
@@ -81,7 +78,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'quramy/tsuquyomi'
 
 " abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
-" https://github.com/tpope/vim-abolish
 Plugin 'tpope/vim-abolish'
 
 " A code-completion engine for Vim
@@ -89,9 +85,6 @@ Plugin 'ycm-core/YouCompleteMe'
 
 " ???
 Plugin 'koron/nyancat-vim'
-
-" precision colorscheme for the vim text editor
-Plugin 'altercation/vim-colors-solarized'
 
 " Run your tests at the speed of thought
 Plugin 'vim-test/vim-test'

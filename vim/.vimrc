@@ -1,7 +1,7 @@
 " be iMproved, required. Do not allow compatibility with Vi style APIs.
 set nocompatible
 
-filetype off                  " required
+filetype off " required
 
 " When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again.
 set autoread
@@ -94,6 +94,14 @@ Plugin 'raimondi/delimitmate'
 
 " Auto close (X)HTML tags
 Plugin 'alvan/vim-closetag'
+
+Plugin 'andrewradev/tagalong.vim'
+
+" precision colorscheme for the vim text editor
+Plugin 'altercation/vim-colors-solarized'
+
+" An arctic, north-bluish clean and elegant Vim theme.
+Plugin 'arcticicestudio/nord-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

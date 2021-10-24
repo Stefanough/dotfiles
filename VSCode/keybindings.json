@@ -87,9 +87,25 @@
     //     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == html"
     // },
     {
+        "key": ".",
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "acceptSelectedSuggestion",
+                {
+                    "command": "type",
+                    "args": {
+                        "text": "."
+                    }
+                }
+            ]
+        },
+        "when": "editorTextFocus && suggestWidgetVisible && editorLangId == javascript"
+    },
+    {
         "key": "ctrl+p",
         "command": "workbench.action.quickOpen",
-        "when": "editorTextFocus && !suggestWidgetVisible && vim.active && vim.mode != 'CommandlineInProgress'"
+        "when": "editorTextFocus && !suggestWidgetVisible && vim.active && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
     },
     {
         "key": "ctrl+[",
@@ -99,6 +115,11 @@
     {
         "key": "ctrl+shift+l",
         "command": "editor.action.openLink",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "\\ s",
+        "command": "git.Stage",
         "when": "editorTextFocus"
     },
 ]

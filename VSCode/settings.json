@@ -264,7 +264,6 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-  "workbench.activityBar.visible": false,
   "redhat.telemetry.enabled": false,
   "editor.cursorStyle": "line",
   "editor.insertSpaces": true,
@@ -277,10 +276,20 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.linkedEditing": true,
-  "editor.detectIndentation": false,
+  "editor.detectIndentation": true,
 "html.format.indentInnerHtml": true,
 "editor.renderLineHighlightOnlyWhenFocus": true,
-"window.zoomLevel": -1,
 "markdown-header-coloring.backgroundColorOpacity": 2,
-"python.defaultInterpreterPath": "/usr/bin/python3"
+"python.defaultInterpreterPath": "/usr/bin/python3",
+"[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"workbench.activityBar.visible": false,
+"window.zoomLevel": -1
 }

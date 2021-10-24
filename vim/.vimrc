@@ -478,7 +478,8 @@ let g:syntastic_check_on_wq = 0
 
 " checkers
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_md_checkers = ['mdl']
+" let g:syntastic_md_checkers = []
+let g:syntastic_markdown_checkers = []
 let g:syntastic_sh_checkers = ["shellcheck", "sh"]
 let g:syntastic_sh_shellcheck_args = '-x'
 " let g:syntastic_javascript_checkers = ['eslint']

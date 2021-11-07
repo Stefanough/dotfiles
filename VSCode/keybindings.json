@@ -103,6 +103,19 @@
         "when": "editorTextFocus && suggestWidgetVisible && editorLangId == javascript"
     },
     {
+        "key": "ctrl+[",
+        "command": "extension.multiCommand.execute",
+        "args": {
+            "sequence": [
+                "acceptSelectedSuggestion",
+                {
+                    "command": "extension.vim_escape",
+                }
+            ]
+        },
+        "when": "editorTextFocus && suggestWidgetVisible"
+    },
+    {
         "key": "ctrl+p",
         "command": "workbench.action.quickOpen",
         "when": "editorTextFocus && !suggestWidgetVisible && vim.active && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"

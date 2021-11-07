@@ -277,19 +277,39 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "editor.linkedEditing": true,
   "editor.detectIndentation": true,
-"html.format.indentInnerHtml": true,
-"editor.renderLineHighlightOnlyWhenFocus": true,
-"markdown-header-coloring.backgroundColorOpacity": 2,
-"python.defaultInterpreterPath": "/usr/bin/python3",
-"[javascript]": {
+  "html.format.indentInnerHtml": true,
+  "editor.renderLineHighlightOnlyWhenFocus": true,
+  "markdown-header-coloring.backgroundColorOpacity": 2,
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[typescript]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"[typescriptreact]": {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"workbench.activityBar.visible": false,
-"window.zoomLevel": -1
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.activityBar.visible": false,
+  "editor.inlineSuggest.enabled": true,
+  "rewrap.autoWrap.enabled": true,
+  "rewrap.wrappingColumn": 80,
+  "mssql.connections": [
+    {
+      "server": "{{put-server-name-here}}",
+      "database": "{{put-database-name-here}}",
+      "user": "{{put-username-here}}",
+      "password": "{{put-password-here}}"
+    }
+  ],
+  "window.zoomLevel": -1,
+  "github.copilot.enable": {
+    "*": false,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -1,7 +1,4 @@
 {
-  "window.titleBarStyle": "native",
-  "customizeUI.titleBar": "inline",
-  "customizeUI.activityBar": "regular",
   "emmet.excludeLanguages": ["markdown", "javascript"],
   "editor.minimap.enabled": false,
   "zenMode.fullScreen": true,

@@ -151,4 +151,8 @@
         "command": "git.Stage",
         "when": "editorTextFocus"
     },
+    {
+        "key": "ctrl+cmd+0",
+        "command": "zoombar-vscode.resetZoom"
+    }
 ]

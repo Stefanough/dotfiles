@@ -235,7 +235,7 @@
   "linesinfostatusbar.selectedDisplayFormat": " (%d)",
   "linesinfostatusbar.statusbarPriority": 500,
   "ActiveFileInStatusBar.revealFile": true,
-  "zoombar.uiDiGkGsplayOrder": "",
+  "zoombar.defaultZoom": 79,
   "nasc-touchbar.addCursorBelow": false,
   "nasc-touchbar.toggleSidebar": true,
   "vscode_custom_css.statusbar": false,

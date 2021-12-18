@@ -103,18 +103,34 @@
         "when": "editorTextFocus && suggestWidgetVisible && editorLangId == javascript"
     },
     {
-        "key": "ctrl+[",
+        "key": ",",
         "command": "extension.multiCommand.execute",
         "args": {
             "sequence": [
                 "acceptSelectedSuggestion",
                 {
-                    "command": "extension.vim_escape",
+                    "command": "type",
+                    "args": {
+                        "text": ","
+                    }
                 }
             ]
         },
-        "when": "editorTextFocus && suggestWidgetVisible"
+        "when": "editorTextFocus && suggestWidgetVisible && editorLangId == typescriptreact"
     },
+    // {
+    //     "key": "ctrl+[",
+    //     "command": "extension.multiCommand.execute",
+    //     "args": {
+    //         "sequence": [
+    //             "acceptSelectedSuggestion",
+    //             {
+    //                 "command": "extension.vim_escape",
+    //             }
+    //         ]
+    //     },
+    //     "when": "editorTextFocus && suggestWidgetVisible"
+    // },
     {
         "key": "ctrl+p",
         "command": "workbench.action.quickOpen",

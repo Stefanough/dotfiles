@@ -433,8 +433,9 @@ nnoremap [c :GitGutterPrevHunk<CR>
 
 " Vim Markdown
 
-" To disable the folding configuration for the vim-markdown plugin:
-let g:vim_markdown_folding_disabled = 1
+" To disable the folding configuration for the ft-markdown-plugin:
+" let g:vim_markdown_folding_disabled = 1
+" let g:markdown_folding = 1
 
 
 " CtrlP

@@ -13,12 +13,15 @@ fi
 echo 'Installing Homebrew...'
 
 echo 'Downloading Homebrew installer...'
-# -f fail silently,
-# -L redo request with returned location (server indicates that requested
-# resource has moved
-# -s silent. Don't show progress meters
-# -S show error. When used with -s will still show errors.
-# -o output to file instead of stdout
+# curl flags:
+#   -f fail silently,
+#   -L redo request with returned location (server indicates that requested
+#   resource has moved
+#   -s silent. Don't show progress meters
+#   -S show error. When used with -s will still show errors.
+#   -o output to file instead of stdout
+# bash flags:
+#   -c read command from the given string
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew bundle --verbose --no-lock --file="packages.personal.Brewfile"

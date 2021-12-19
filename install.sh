@@ -5,6 +5,7 @@
 # TODO:
 # set faster scroll speed for mac if possible
 # set default shell to bash
+# arg for dryrun
 
 # Check if Brew is installed. If it is, exit with 0.
 # The command builtin runs commands.

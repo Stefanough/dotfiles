@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Install HomeBrew and packages.
+# Interactive-ish installer for HomeBrew and packages, setup.
 #
 # options:
 #   -d dry run
@@ -9,8 +9,8 @@
 # set faster scroll speed for mac if possible
 # set default shell to bash
 
-# set variable for dry run
-D='false'
+D='false' # variable for dry run
+
 while getopts 'd' flag; do
   case "${flag}" in
     d) D='true' ;;
@@ -46,9 +46,18 @@ else
 fi
 
 # Install packages listed in the provided Brewfile.
-echo 'installing packages using brew bundle...'
-if [ "$D" = 'true' ]; then
-  echo 'Dry run, skipping install of packages.'
-else
-  brew bundle --verbose --no-lock --file="packages.personal.Brewfile"
-fi
+while true; do
+  echo 'Would you like to install packages with brew bundle? y/n'
+  read -r input
+  case "$input" in
+    y) if [ "$D" = 'true' ]; then
+         echo 'Dry run, skipping install of packages.'
+       else
+         brew bundle --verbose --no-lock --file="packages.personal.Brewfile"
+       fi
+       break
+       ;;
+    n) break ;;
+    *) echo 'y or n' ;;
+  esac
+done

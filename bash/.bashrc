@@ -44,6 +44,7 @@ export NVM_DIR="$HOME/.nvm"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
+  eval "$(pyenv init --path)" # pyenv not working without second line on Better comp. Remove on other systems?
 fi
 
 

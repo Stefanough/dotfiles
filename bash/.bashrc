@@ -26,7 +26,7 @@ export PS1="\[\e[00;36m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
 # Git autocompletion
 # source ~/.git-completion.bash
 if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
+  source ~/.git-completion.bash
 fi
 
 # nvm

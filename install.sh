@@ -2,9 +2,14 @@
 
 # Install HomeBrew and listed packages.
 
-# Check if Brew is installed. If it is, exit with 0. The command builtin runs
-# commands. With the -v flag it writes the pathname or name of the command that
-# would be executed. 
+# TODO:
+# set faster scroll speed for mac if possible
+# set default shell to bash
+
+# Check if Brew is installed. If it is, exit with 0.
+# The command builtin runs commands.
+# flags:
+#   -v writes the pathname or name of the command that would be executed. 
 if command -v brew &> /dev/null; then
   echo "Brew appears to be installed already."
   exit 0

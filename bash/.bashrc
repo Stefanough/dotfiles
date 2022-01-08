@@ -32,9 +32,11 @@ fi
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # This loads nvm
+# shellcheck disable=SC1091
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # This loads nvm bash_completion
+# shellcheck disable=SC1091
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # bash completions installed with homebrew
@@ -72,6 +74,8 @@ alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
 # pip = pip3
 alias pip=pip3
 
+thing() { echo "do not leave your computer unlocked, nerd." && \cd "$@" || exit; }
+
 # Git aliases. Move to .gitconfig?
 alias gs='git status -s'
 alias gl='git log --abbrev-commit'
@@ -85,8 +89,7 @@ alias grv='git remote -v'
 alias gsl='git stash list'
 alias gsp='git stash pop'
 alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
-alias cd='echo "do not leave your computer unlocked nerd." && cd $*'
-
+alias cd=thing
 __git_complete gs _git_status
 __git_complete gc _git_checkout
 __git_complete ga _git_add

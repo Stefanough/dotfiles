@@ -23,6 +23,9 @@ export PS1="\[\e[00;36m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# bat
+export BAT_THEME="Solarized (light)"
+
 # Git autocompletion
 # source ~/.git-completion.bash
 if [ -f ~/.git-completion.bash ]; then

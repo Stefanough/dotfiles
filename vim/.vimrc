@@ -50,9 +50,6 @@ Plugin 'jparise/vim-graphql'
 " surround.vim: quoting/parenthesizing made simple
 Plugin 'tpope/vim-surround'
 
-" Fuzzy file, buffer, mru, tag, etc finder
-Plugin 'https://github.com/ctrlpvim/ctrlp.vim.git'
-
 " Shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
 
@@ -442,33 +439,20 @@ nnoremap [c :GitGutterPrevHunk<CR>
 " let g:markdown_folding = 1
 
 
-" CtrlP
+" fzf
 
-" Open new files in a new tab
-let g:ctrlp_open_new_file = 't'
+nmap <C-P> :Files<CR>
 
-" Open new files in a new tab. Ctrl-z to select and ctrl-o to open.
-let g:ctrlp_open_multiple_files = 'tj'
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
 
-" Use this option to change the mapping to invoke CtrlP in |Normal| mode
-let g:ctrlp_map = '<c-p>'
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
-" Set the default opening command to use when pressing the above mapping
-let g:ctrlp_cmd = 'CtrlP'
-
-" Ignore node_modules, dist directories
-let g:ctrlp_custom_ignore = {
-      \ 'dir': '\v[\/](node_modules|dist|site-packages|__pycache__)$',
-      \ }
-
-" Use pwd (location where Vim was opened)
-let g:ctrlp_working_path_mode=0
-
-" all the files
-let g:ctrlp_max_files=0
-
-" show hidden files
-let g:ctrlp_show_hidden = 1
 
 " SYNTAX/SYNTASTIC/EXTERNAL SYNTAX SETTINGS
 

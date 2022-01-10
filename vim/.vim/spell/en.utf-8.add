@@ -133,3 +133,6 @@ serializable
 Serializability
 serializability
 Destructured
+Memoization
+memoization
+subtree

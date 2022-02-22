@@ -47,23 +47,23 @@
     },
     {
         "key": "ctrl+space l",
-        "command": "workbench.explorer.fileView.focus",
-        "when": "activeEditorGroupLast"
+        "command": "workbench.action.focusSideBar",
+        "when": "activeEditorGroupLast && sideBarVisible"
     },
     {
         "key": "ctrl+space h",
-        "command": "workbench.explorer.fileView.focus",
-        "when": "activeEditorGroupIndex == 1"
+        "command": "workbench.action.focusSideBar",
+        "when": "activeEditorGroupIndex == 1 && sideBarVisible"
     },
     {
         "key": "ctrl+space l",
         "command": "workbench.action.focusFirstEditorGroup",
-        "when": "explorerViewletFocus"
+        "when": "sideBarFocus"
     },
     {
         "key": "ctrl+space h",
         "command": "workbench.action.focusLastEditorGroup",
-        "when": "explorerViewletFocus"
+        "when": "sideBarFocus"
     },
     {
         "key": "ctrl+t",

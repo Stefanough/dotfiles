@@ -70,6 +70,10 @@
         "command": "search.action.openNewEditor",
         "when": "inQuickOpen"
     },
+    {
+        "key": "ctrl+space z",
+        "command": "workbench.action.toggleEditorWidths",
+    },
     // {
     //     "key": ".",
     //     "command": "extension.multiCommand.execute",

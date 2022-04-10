@@ -1,4 +1,5 @@
 {
+  "jest.autoRun": false,
   "emmet.excludeLanguages": ["markdown", "javascript"],
   "editor.minimap.enabled": false,
   "zenMode.fullScreen": true,
@@ -304,13 +305,14 @@
     }
   ],
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "yaml": false,
     "plaintext": false,
-    "markdown": false
+    "markdown": false,
+    "jsonc": false
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.zoomLevel": -1.292893378414186
+  "window.zoomLevel": -1
 }

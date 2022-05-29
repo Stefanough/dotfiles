@@ -224,8 +224,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "editor.largeFileOptimizations": false,
   "yaml.format.enable": true,
-  "editor.highlightActiveIndentGuide": false,
-  "editor.renderIndentGuides": false,
   "emmet.showAbbreviationSuggestions": false,
   "emmet.showExpandedAbbreviation": "never",
   "terminal.integrated.rendererType": "dom",
@@ -314,5 +312,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.guides.indentation": false,
+  "editor.guides.highlightActiveIndentation": false,
   "window.zoomLevel": -1
 }

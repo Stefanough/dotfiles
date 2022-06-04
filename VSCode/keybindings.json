@@ -38,11 +38,11 @@
     },
     {
         "key": "ctrl+space l",
-        "command": "workbench.action.focusNextGroup"
+        "command": "workbench.action.navigateRight"
     },
     {
         "key": "ctrl+space h",
-        "command": "workbench.action.focusPreviousGroup",
+        "command": "workbench.action.navigateLeft",
         "when": "vim.mode == 'Normal'"
     },
     {
@@ -64,6 +64,14 @@
         "key": "ctrl+space h",
         "command": "workbench.action.focusLastEditorGroup",
         "when": "sideBarFocus"
+    },
+    {
+        "key": "ctrl+space k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+space j",
+        "command": "workbench.action.navigateDown"
     },
     {
         "key": "ctrl+t",

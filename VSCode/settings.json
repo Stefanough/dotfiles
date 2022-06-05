@@ -48,7 +48,7 @@
   "scm.diffDecorationsGutterWidth": 2,
   "scm.diffDecorations": "gutter",
   "editor.formatOnSaveTimeout": 750,
-  "editor.fontFamily": "Iosevka, 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "terminal.integrated.scrollback": 100000,
   "explorer.confirmDragAndDrop": false,
   "[markdown]": {},
@@ -243,7 +243,7 @@
     "**/.next": true,
     "**/site-packages": true
   },
-  "editor.fontWeight": "500",
+  "editor.fontWeight": "600",
   "editor.lineHeight": 20,
   "vs-kubernetes": {
     "vs-kubernetes.minikube-path": "/Users/sarmijo/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",

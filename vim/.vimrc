@@ -162,11 +162,11 @@ if has('langmap') && exists('+langnoremap')
   set langnoremap
 endif
 
-"   ***********
-"  *************
-" ** MY CONFIG **
-"  *************
-"   ***********
+"      ********************************************************************
+"    *************************************************************************
+"  ********************************* MY CONFIG *********************************
+"    *************************************************************************
+"      ********************************************************************
 
 " CONFIG
 
@@ -273,6 +273,9 @@ nmap ,cl :let @+=expand("%:p")<CR>
 
 " tab for native autocomplete selection
 imap <expr> <Tab> ((pumvisible())?("\<C-y>"):("<Tab>"))
+
+" delete next character in insert mode (delete forward)
+inoremap <C-d> <Del>
 
 " set something something register to copy to system clipboard
 set clipboard=unnamed

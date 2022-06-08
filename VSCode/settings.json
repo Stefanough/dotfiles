@@ -307,4 +307,5 @@
   "workbench.tree.renderIndentGuides": "always",
   "window.zoomLevel": -1,
   "workbench.activityBar.visible": false,
+  "diffEditor.ignoreTrimWhitespace": false,
 }

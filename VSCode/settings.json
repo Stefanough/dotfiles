@@ -243,7 +243,7 @@
     "**/.next": true,
     "**/site-packages": true
   },
-  "editor.fontWeight": "600",
+  "editor.fontWeight": "normal",
   "editor.lineHeight": 20,
   "vs-kubernetes": {
     "vs-kubernetes.minikube-path": "/Users/sarmijo/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",

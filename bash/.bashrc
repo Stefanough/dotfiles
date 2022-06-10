@@ -105,3 +105,20 @@ __git_complete ga _git_add
 ##########################
 
 export PATH="/usr/local/sbin:$PATH"
+
+
+################################################################################
+#
+# Company Specific Config sourced from ~/companySpecificShellConfig
+#
+################################################################################
+
+readonly COMPANY_SPECIFIC_SHELL_CONFIG="$HOME/companySpecificShellConfig"
+
+if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
+    company_config_files=$(ls "${COMPANY_SPECIFIC_SHELL_CONFIG}")
+
+    for i in $company_config_files; do
+      source "${COMPANY_SPECIFIC_SHELL_CONFIG}/${i}"
+    done
+ fi

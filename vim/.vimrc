@@ -19,7 +19,11 @@ set noswapfile
 set updatetime=10
 
 
-" PLUGINS
+"      ********************************************************************
+"    *************************************************************************
+"  ********************************** PLUGINS **********************************
+"    *************************************************************************
+"      ********************************************************************
 
 " set the runtime path to include Vundle and initialize. View with `:set
 " runtimepath`
@@ -41,7 +45,8 @@ Plugin 'https://github.com/tpope/vim-fugitive'
 " rhubarb.vim: GitHub extension for fugitive.vim
 Plugin 'https://github.com/tpope/vim-rhubarb'
 
-" A Vim plugin that provides GraphQL file detection, syntax highlighting, and indentation.
+" A Vim plugin that provides GraphQL file detection, syntax highlighting, and
+" indentation.
 Plugin 'jparise/vim-graphql'
 
 " Typescript syntax files for Vim
@@ -50,7 +55,8 @@ Plugin 'jparise/vim-graphql'
 " surround.vim: quoting/parenthesizing made simple
 Plugin 'tpope/vim-surround'
 
-" Shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
+" Shows git diff markers in the sign column and stages/previews/undoes hunks and
+" partial hunks.
 Plugin 'https://github.com/airblade/vim-gitgutter.git'
 
 " lean & mean status/tabline for vim that's light as air
@@ -74,7 +80,8 @@ Plugin 'tpope/vim-commentary'
 " A Vim plugin for TypeScript
 Plugin 'quramy/tsuquyomi'
 
-" abolish.vim: easily search for, substitute, and abbreviate multiple variants of a word
+" abolish.vim: easily search for, substitute, and abbreviate multiple variants
+" of a word
 Plugin 'tpope/vim-abolish'
 
 " A code-completion engine for Vim
@@ -86,7 +93,8 @@ Plugin 'koron/nyancat-vim'
 " Run your tests at the speed of thought
 Plugin 'vim-test/vim-test'
 
-" Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
+" Vim plugin, provides insert mode auto-completion for quotes, parens, brackets,
+" etc.
 Plugin 'raimondi/delimitmate'
 
 " Auto close (X)HTML tags

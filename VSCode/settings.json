@@ -281,7 +281,6 @@
   },
   "vscode_custom_css.statusbar": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "window.zoomLevel": -1,
   "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "[Charcoal Oceanic Next]": {
@@ -303,8 +302,9 @@
   "workbench.iconTheme": null,
   "workbench.list.horizontalScrolling": false,
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.tree.renderIndentGuides": "always",
   "yaml.format.enable": true,
   "zenMode.fullScreen": true,
-  "zoombar.defaultZoom": 79
+  "zoombar.defaultZoom": 79,
+  "editor.guides.highlightActiveIndentation": false,
+  "window.zoomLevel": 1
 }

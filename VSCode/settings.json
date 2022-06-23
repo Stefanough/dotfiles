@@ -295,7 +295,7 @@
     "statusBar.debuggingBackground": "#005f5f",
     "statusBar.noFolderBackground": "#005f5f"
   },
-  "workbench.colorTheme": "Oceanic Next (dimmed bg)",
+  "workbench.colorTheme": "Monochrome Dark Cool Gray",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },

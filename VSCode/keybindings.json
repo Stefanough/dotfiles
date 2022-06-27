@@ -66,6 +66,16 @@
     "when": "sideBarFocus"
   },
   {
+    "key": "cmd+n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "cmd+shift+n",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus"
+  },
+  {
     "key": "ctrl+space k",
     "command": "workbench.action.focusAboveGroup"
   },

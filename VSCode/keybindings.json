@@ -106,7 +106,7 @@
         }
       ]
     },
-    "when": "editorTextFocus && suggestWidgetVisible && editorLangId == javascript"
+    "when": "editorTextFocus && suggestWidgetVisible && editorLangId == javascript || editorLangId == python"
   },
   {
     "key": ",",

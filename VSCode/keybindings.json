@@ -1,5 +1,6 @@
 [
   {
+    // toggle breakpoint
     "key": "ctrl+shift+b",
     "command": "editor.debug.action.toggleBreakpoint",
     "when": "editorTextFocus"
@@ -32,6 +33,7 @@
     "command": "workbench.action.nextEditorInGroup"
   },
   {
+    // previous editor (tab) in current panel
     "key": "ctrl+h",
     "command": "workbench.action.previousEditorInGroup",
     "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
@@ -93,6 +95,8 @@
     "command": "workbench.action.toggleEditorWidths"
   },
   {
+    // accept currently highlighted selection from auto suggest window and
+    // append a "." to the end of the accepted selection.
     "key": ".",
     "command": "extension.multiCommand.execute",
     "args": {

@@ -306,5 +306,7 @@
   "zenMode.fullScreen": true,
   "zoombar.defaultZoom": 79,
   "editor.guides.highlightActiveIndentation": false,
-  "window.zoomLevel": 1
+  "files.associations": {
+    "*.rmd": "markdown"
+  }
 }

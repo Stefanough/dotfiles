@@ -176,7 +176,7 @@
   {
     "key": "\\ s",
     "command": "git.Stage",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
   },
   {
     "key": "ctrl+cmd+0",

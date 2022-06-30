@@ -92,22 +92,6 @@
     "key": "ctrl+space z",
     "command": "workbench.action.toggleEditorWidths"
   },
-  // {
-  //     "key": ".",
-  //     "command": "extension.multiCommand.execute",
-  //     "args": {
-  //         "sequence": [
-  //             "acceptSelectedSuggestion",
-  //             {
-  //                 "command": "type",
-  //                 "args": {
-  //                     "text": "."
-  //                 }
-  //             }
-  //         ]
-  //     },
-  //     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == html"
-  // },
   {
     "key": ".",
     "command": "extension.multiCommand.execute",
@@ -140,19 +124,6 @@
     },
     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == typescriptreact"
   },
-  // {
-  //     "key": "ctrl+[",
-  //     "command": "extension.multiCommand.execute",
-  //     "args": {
-  //         "sequence": [
-  //             "acceptSelectedSuggestion",
-  //             {
-  //                 "command": "extension.vim_escape",
-  //             }
-  //         ]
-  //     },
-  //     "when": "editorTextFocus && suggestWidgetVisible"
-  // },
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",

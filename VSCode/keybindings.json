@@ -95,8 +95,9 @@
     "command": "workbench.action.toggleEditorWidths"
   },
   {
-    // accept currently highlighted selection from auto suggest window and
-    // append a "." to the end of the accepted selection.
+    // Accept currently highlighted selection from auto suggest window and
+    // append a "." to the end of the accepted selection. Do not trigget this
+    // keybinding while in debug mode.
     "key": ".",
     "command": "extension.multiCommand.execute",
     "args": {
@@ -110,7 +111,7 @@
         }
       ]
     },
-    "when": "editorTextFocus && suggestWidgetVisible && editorLangId == javascript || editorLangId == python"
+    "when": "editorLangId == javascript && !inDebugMode && editorTextFocus && suggestWidgetVisible || editorLangId == python && !inDebugMode && editorTextFocus && suggestWidgetVisible"
   },
   {
     "key": ",",

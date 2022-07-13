@@ -77,6 +77,19 @@ alias npmglobal='npm list -g --depth 0'
 # create a directory and enter
 mkcd() { mkdir -p "$1"; cd "$1" || return; }
 
+# create a new file and parent directories if they don't exist
+# check for directory in pwd
+# mktouch() {
+#   THING=()
+#   IFS=/ read -ra ADDR <<< "$IN"
+#   for i in "${ADDR[@]}"; do
+#     THING+=(i)
+#   done
+#   # IN="$1"
+#   # arrINPUT=("${IN//;/ }")
+#   echo "$THING"
+# }
+
 alias pgup='pg_ctl -D /usr/local/var/postgres start'
 alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
 
@@ -128,3 +141,5 @@ if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
       source "${COMPANY_SPECIFIC_SHELL_CONFIG}/${i}"
     done
  fi
+
+source $HOME/.plutus/*

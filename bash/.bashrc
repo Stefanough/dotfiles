@@ -32,6 +32,12 @@ if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
+# GitHub command line tool autocompletion
+# source ~/.gh-completion.bash
+if [ -f ~/.gh-completion.bash ]; then
+  source ~/.gh-completion.bash
+fi
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # This loads nvm

@@ -119,7 +119,7 @@ export PATH="/usr/local/sbin:$PATH"
 #
 ################################################################################
 
-readonly COMPANY_SPECIFIC_SHELL_CONFIG="$HOME/companySpecificShellConfig"
+COMPANY_SPECIFIC_SHELL_CONFIG="$HOME/companySpecificShellConfig"
 
 if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
     company_config_files=$(ls "${COMPANY_SPECIFIC_SHELL_CONFIG}")

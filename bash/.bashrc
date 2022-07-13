@@ -32,6 +32,12 @@ if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
+# GitHub command line tool autocompletion
+# source ~/.gh-completion.bash
+if [ -f ~/.gh-completion.bash ]; then
+  source ~/.gh-completion.bash
+fi
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # This loads nvm
@@ -126,7 +132,7 @@ export PATH="/usr/local/sbin:$PATH"
 #
 ################################################################################
 
-readonly COMPANY_SPECIFIC_SHELL_CONFIG="$HOME/companySpecificShellConfig"
+COMPANY_SPECIFIC_SHELL_CONFIG="$HOME/companySpecificShellConfig"
 
 if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
     company_config_files=$(ls "${COMPANY_SPECIFIC_SHELL_CONFIG}")

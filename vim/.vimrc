@@ -3,7 +3,8 @@ set nocompatible
 
 filetype off " required
 
-" When a file has been detected to have been changed outside of Vim and it has not been changed inside of Vim, automatically read it again.
+" When a file has been detected to have been changed outside of Vim and it has
+" not been changed inside of Vim, automatically read it again.
 set autoread
 
 " do not make a backup before overwriting a file.
@@ -177,6 +178,7 @@ endif
 "      ********************************************************************
 
 " CONFIG
+cnoreabbrev tn tabnew
 
 " Visual command line completion
 set wildmenu
@@ -255,6 +257,9 @@ nmap <leader>s :set spell!<CR>
 " NAVIGATION
 " easier switching between splits
 nmap <C-W> <C-W><C-W>
+
+" Navigate back to end of previous word
+nnoremap <S-B> gE
 
 " easier tab navigation with vim keybindings for let and right
 nmap <C-H> g<S-T>

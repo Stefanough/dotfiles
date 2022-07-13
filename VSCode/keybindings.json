@@ -1,5 +1,6 @@
 [
   {
+    // toggle breakpoint
     "key": "ctrl+shift+b",
     "command": "editor.debug.action.toggleBreakpoint",
     "when": "editorTextFocus"
@@ -32,6 +33,7 @@
     "command": "workbench.action.nextEditorInGroup"
   },
   {
+    // previous editor (tab) in current panel
     "key": "ctrl+h",
     "command": "workbench.action.previousEditorInGroup",
     "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
@@ -66,6 +68,16 @@
     "when": "sideBarFocus"
   },
   {
+    "key": "cmd+n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "cmd+shift+n",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus"
+  },
+  {
     "key": "ctrl+space k",
     "command": "workbench.action.focusAboveGroup"
   },
@@ -82,23 +94,10 @@
     "key": "ctrl+space z",
     "command": "workbench.action.toggleEditorWidths"
   },
-  // {
-  //     "key": ".",
-  //     "command": "extension.multiCommand.execute",
-  //     "args": {
-  //         "sequence": [
-  //             "acceptSelectedSuggestion",
-  //             {
-  //                 "command": "type",
-  //                 "args": {
-  //                     "text": "."
-  //                 }
-  //             }
-  //         ]
-  //     },
-  //     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == html"
-  // },
   {
+    // Accept currently highlighted selection from auto suggest window and
+    // append a "." to the end of the accepted selection. Do not trigget this
+    // keybinding while in debug mode.
     "key": ".",
     "command": "extension.multiCommand.execute",
     "args": {
@@ -112,7 +111,7 @@
         }
       ]
     },
-    "when": "editorTextFocus && suggestWidgetVisible && editorLangId == javascript"
+    "when": "editorLangId == javascript && !inDebugMode && editorTextFocus && suggestWidgetVisible || editorLangId == python && !inDebugMode && editorTextFocus && suggestWidgetVisible"
   },
   {
     "key": ",",
@@ -130,19 +129,6 @@
     },
     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == typescriptreact"
   },
-  // {
-  //     "key": "ctrl+[",
-  //     "command": "extension.multiCommand.execute",
-  //     "args": {
-  //         "sequence": [
-  //             "acceptSelectedSuggestion",
-  //             {
-  //                 "command": "extension.vim_escape",
-  //             }
-  //         ]
-  //     },
-  //     "when": "editorTextFocus && suggestWidgetVisible"
-  // },
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
@@ -166,7 +152,7 @@
   {
     "key": "\\ s",
     "command": "git.Stage",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
   },
   {
     "key": "ctrl+cmd+0",

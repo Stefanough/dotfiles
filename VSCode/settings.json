@@ -295,7 +295,6 @@
     "statusBar.debuggingBackground": "#005f5f",
     "statusBar.noFolderBackground": "#005f5f"
   },
-  "workbench.colorTheme": "Oceanic Next (dimmed bg)",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
@@ -308,5 +307,7 @@
   "editor.guides.highlightActiveIndentation": false,
   "files.associations": {
     "*.rmd": "markdown"
-  }
+  },
+  "workbench.colorTheme": "Visual Studio Dark",
+  "window.zoomLevel": -0.5778829311823857
 }

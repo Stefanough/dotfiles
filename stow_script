@@ -1,7 +1,12 @@
 #!/bin/bash
 
+###############################################################################
+# THIS SCRIPT IS A WIP. THERE ARE SOME ISSUES WITH STOWING FILES TO LOCATIONS
+# WHERE DEFAULT FILES HAVE BEEN CREATED.
+#
 # Stow packages to their specific locations
 # Run from within dotfiles directory
+###############################################################################
 
 if [ -d ./git/ ]; then
   echo "stowing git stuff"
@@ -10,6 +15,8 @@ else
   echo "git package not found"
 fi
 
+# This may require a strategy of running stow with "--adopt", then git restoring
+# the "addopted" file to it's state at the most recently committed change.
 if [ -d ./VSCode/ ]; then
   echo "stowing VSCode stuff"
   stow \

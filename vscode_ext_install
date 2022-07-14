@@ -4,7 +4,21 @@
 # TODO check for installed ext before installing
 #      option for dry-run?
 
-EXTENSIONS=(vscodevim.vim ryuta46.multi-command roscop.activefileinstatusbar streetsidesoftware.code-spell-checker wraith13.zoombar-vscode peterfh.linesinfostatusbar stkb.rewrap ms-python.python ms-python.vscode-pylance ms-toolsai.jupyter ms-toolsai.jupyter-keymap ms-toolsai.jupyter-renderers)
+EXTENSIONS=(
+  ms-python.python
+  ms-python.vscode-pylance
+  ms-toolsai.jupyter
+  ms-toolsai.jupyter-keymap
+  ms-toolsai.jupyter-renderers
+  peterfh.linesinfostatusbar
+  roscop.activefileinstatusbar
+  ryuta46.multi-command
+  stkb.rewrap
+  streetsidesoftware.code-spell-checker
+  vscodevim.vim
+  wraith13.zoombar-vscode
+)
+
 if ! command -v code &> /dev/null; then
   echo "It appears code is not installed or has not been added to PATH."
   echo "Install VS Code or add to PATH before installing extensions."

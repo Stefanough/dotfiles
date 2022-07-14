@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Stow packages to their specific locations
+# Run from within dotfiles directory
+
+if [ -d ./git/ ]; then
+  echo "stowing git stuff"
+  stow --verbose=2 --target="$HOME" git
+else
+  echo "git package not found"
+fi
+
+if [ -d ./VSCode/ ]; then
+  echo "stowing VSCode stuff"
+  stow \
+    --verbose=2 \
+    --target="$HOME/Library/Application Support/Code/User" \
+    VSCode
+else
+  echo "vscode package not found"
+fi

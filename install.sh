@@ -79,6 +79,7 @@ while true; do
     y) if [ "$D" = 'true' ]; then
          echo 'Dry run, skipping install of packages.'
        else
+	 echo 'Installing packages listed in packages.personal.Brewfile'
          brew bundle --verbose --no-lock --file="packages.personal.Brewfile"
        fi
        break

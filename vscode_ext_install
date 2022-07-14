@@ -36,7 +36,7 @@ installed_extensions=$(code --list-extensions)
 
 for i in $installed_extensions; do
   if [ "$i" == "vscodevim.vim" ]; then
-    echo "setting up repeat"
+    echo "configuring vs code vim to allow key repetition"
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
   fi
 done

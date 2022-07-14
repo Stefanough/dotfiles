@@ -1,5 +1,6 @@
 #!/bin/sh
 
+################################################################################
 # Interactive-ish installer for HomeBrew and packages, setup.
 #
 # options:
@@ -8,11 +9,15 @@
 # HomeBrew binary is installed to /opt/homebrew/bin/brew based on "which brew"
 #
 # TODO:
-# set faster scroll speed for mac if possible
-# set default shell to bash
-# run stow on (all?) stow packages after brew install
+#   set faster scroll speed for mac if possible
+#   set default shell to bash
+#   check for already stowed packages (necessary?)
+#   Is it dangerous to print command names as part of the stow prompt?
+################################################################################
 
 readonly HOMEBREW_INSTALL_LOCATION='/opt/homebrew/bin/brew'
+readonly STOW_WHITELIST=(MenuMeters VSCode alacritty bash ctags git npm ripgrep shellcheck tmux vim)
+
 
 D='false' # variable for dry run
 
@@ -24,12 +29,7 @@ while getopts 'd' flag; do
 done
 readonly D
 
-# Check if Brew is installed.
-#
-# TODO: Check for both installation and path. If not installed, ask to install
-#       If not in path, ask to add to path.
-#
-# check at /opt/homebrew/bin/brew
+# Check if Brew is installed. Check at /opt/homebrew/bin/brew
 if [ -f "$HOMEBREW_INSTALL_LOCATION" ]; then
   echo "Brew appears to be already installed."
 else
@@ -89,3 +89,44 @@ while true; do
 done
 
 # check for stowed packages and stow them if they do not exist
+#
+# get list of all directories applicable to stow
+  stow_files=$(ls "$PWD" )
+  i=1
+
+  for j in $stow_files; do
+
+    # if name in whitelist, add to list
+    for k in ${STOW_WHITELIST[@]}; do
+      if [[ $j == $k ]]; then
+        files[i]=$j
+        i=$(( i + 1 ))
+      fi
+    done
+  done
+
+while true; do
+  echo 'Would you like to stow the following packages? y/n'
+
+  for i in ${files[@]}; do
+    echo $i
+  done
+
+  read -r input
+  case "$input" in
+    y) if [ "$D" = 'true' ]; then
+         echo 'Dry run, skipping stow.'
+       else
+	 echo 'Using stow to symlink packages.'
+
+	 for i in ${files[@]}; do
+	   echo "stowing $i"
+	   stow $i
+         done
+       fi
+       break
+       ;;
+    n) break ;;
+    *) echo 'y or n' ;;
+  esac
+done

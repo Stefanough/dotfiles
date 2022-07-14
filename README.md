@@ -3,6 +3,9 @@ Maintained and versioned config across machines.
 
 ## Setup
 
+### clone
+Clone into your home directory. These files should be located at `~/dotfiles`.
+
 ### Brew
 Make `install.sh` executable and run. Installs HomeBrew and the packages
 defined in `packages.personal.Brewfile`.
@@ -10,6 +13,10 @@ defined in `packages.personal.Brewfile`.
 1. `cd dotfiles/`
 1. `chmod -R 777 install.sh`
 1. `./install.sh`
+
+The install script will attempt the following operations:
+1. check for and install HomeBrew
+1. install packages listed in `packages.personal.Brewfile`
 
 ### GNU stow
 `stow` is used to symlink files from the dotfiles directory. By default, stow

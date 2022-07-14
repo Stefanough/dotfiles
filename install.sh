@@ -8,6 +8,7 @@
 # TODO:
 # set faster scroll speed for mac if possible
 # set default shell to bash
+# run stow on (all?) stow packages after brew install
 
 D='false' # variable for dry run
 
@@ -24,6 +25,12 @@ readonly D
 # The command builtin runs commands.
 # flags:
 #   -v writes the pathname or name of the command that would be executed.
+#
+# TODO: check for actual files at their install location instead of the command
+#       in case it has not been added to path.
+#
+#       Check for both installation and path. If not installed, ask to install
+#       If not in path, ask to add to path.
 if command -v brew &> /dev/null; then
   echo "Brew appears to be already installed."
 else
@@ -32,7 +39,8 @@ else
   if [ "$D" = 'true' ]; then
     echo 'Dry run, skipping brew install script'
   else
-    # curl flags:
+    ##########################################################
+    # Explanation of curl flags in the following command:
     #   -f fail silently,
     #   -L redo request with returned location (server indicates that requested
     #   resource has moved
@@ -41,9 +49,20 @@ else
     #   -o output to file instead of stdout
     # bash flags:
     #   -c read command from the given string
+    #########################################################
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 fi
+
+# Add brew to path but do not write to config until stow has been installed
+# TODO: conditional for dry run
+# TODO: This file may not exist if dotfiles have not been stowed
+echo 'Adding brew to path.'
+  if [ "$D" = 'true' ]; then
+    echo 'Dry run, brew not installed. Do not add to path!'
+  else
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
 
 # Install packages listed in the provided Brewfile.
 while true; do

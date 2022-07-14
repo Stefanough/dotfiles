@@ -5,10 +5,14 @@
 # options:
 #   -d dry run
 #
+# HomeBrew binary is installed to /opt/homebrew/bin/brew based on "which brew"
+#
 # TODO:
 # set faster scroll speed for mac if possible
 # set default shell to bash
 # run stow on (all?) stow packages after brew install
+
+readonly HOMEBREW_INSTALL_LOCATION='/opt/homebrew/bin/brew'
 
 D='false' # variable for dry run
 
@@ -22,16 +26,11 @@ readonly D
 
 # Check if Brew is installed.
 #
-# The command builtin runs commands.
-# flags:
-#   -v writes the pathname or name of the command that would be executed.
-#
-# TODO: check for actual files at their install location instead of the command
-#       in case it has not been added to path.
-#
-#       Check for both installation and path. If not installed, ask to install
+# TODO: Check for both installation and path. If not installed, ask to install
 #       If not in path, ask to add to path.
-if command -v brew &> /dev/null; then
+#
+# check at /opt/homebrew/bin/brew
+if [ -f "$HOMEBREW_INSTALL_LOCATION" ]; then
   echo "Brew appears to be already installed."
 else
   echo 'Installing Homebrew...'
@@ -39,8 +38,10 @@ else
   if [ "$D" = 'true' ]; then
     echo 'Dry run, skipping brew install script'
   else
-    ##########################################################
-    # Explanation of curl flags in the following command:
+
+    # What do all these flags do?
+    #
+    # curl flags:
     #   -f fail silently,
     #   -L redo request with returned location (server indicates that requested
     #   resource has moved
@@ -49,19 +50,25 @@ else
     #   -o output to file instead of stdout
     # bash flags:
     #   -c read command from the given string
-    #########################################################
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 fi
 
-# Add brew to path but do not write to config until stow has been installed
-# TODO: conditional for dry run
-# TODO: This file may not exist if dotfiles have not been stowed
-echo 'Adding brew to path.'
+# Add brew to path but do not write to config until gnu stow has been installed
+#
+# The "command" builtin runs commands.
+# flags:
+#   -v writes the pathname or name of the command that would be executed.
+if ! command -v brew &> /dev/null; then
+  echo 'Adding brew to path.'
   if [ "$D" = 'true' ]; then
     echo 'Dry run, brew not installed. Do not add to path!'
   else
     eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+else
+  'Brew already added to path.'
+fi
 
 
 # Install packages listed in the provided Brewfile.
@@ -80,3 +87,5 @@ while true; do
     *) echo 'y or n' ;;
   esac
 done
+
+# check for stowed packages and stow them if they do not exist

@@ -67,7 +67,7 @@ if ! command -v brew &> /dev/null; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 else
-  'Brew already added to path.'
+  echo 'Brew already added to path.'
 fi
 
 
@@ -98,8 +98,8 @@ done
   for j in $stow_files; do
 
     # if name in whitelist, add to list
-    for k in ${STOW_WHITELIST[@]}; do
-      if [[ $j == $k ]]; then
+    for k in "${STOW_WHITELIST[@]}"; do
+      if [[ $j == "$k" ]]; then
         files[i]=$j
         i=$(( i + 1 ))
       fi
@@ -109,8 +109,8 @@ done
 while true; do
   echo 'Would you like to stow the following packages? y/n'
 
-  for i in ${files[@]}; do
-    echo $i
+  for i in "${files[@]}"; do
+    echo "$i"
   done
 
   read -r input
@@ -120,9 +120,9 @@ while true; do
        else
 	 echo 'Using stow to symlink packages.'
 
-	 for i in ${files[@]}; do
+	 for i in "${files[@]}"; do
 	   echo "stowing $i"
-	   stow $i
+	   stow "$i"
          done
        fi
        break

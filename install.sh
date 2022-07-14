@@ -84,7 +84,7 @@ while true; do
     y) if [ "$D" = 'true' ]; then
          echo 'Dry run, skipping install of packages.'
        else
-	 echo 'Installing packages listed in packages.personal.Brewfile'
+         echo 'Installing packages listed in packages.personal.Brewfile'
          brew bundle --verbose --no-lock --file="packages.personal.Brewfile"
        fi
        break
@@ -114,26 +114,27 @@ if [ "$S" == 'true' ]; then
       fi
     done
   done
-  
+
   while true; do
     echo 'Would you like to stow the following packages? y/n'
-  
+
     for i in "${files[@]}"; do
       echo "$i"
     done
-  
+
     read -r input
     case "$input" in
       y) if [ "$D" = 'true' ]; then
            echo 'Dry run, skipping stow.'
          else
-  	 echo 'Using stow to symlink packages.'
+           echo 'Using stow to symlink packages.'
   
-  	 for i in "${files[@]}"; do
-  	   echo "stowing $i"
-  	   stow "$i"
-           done
+           for i in "${files[@]}"; do
+             echo "stowing $i"
+             stow "$i"
+             done
          fi
+
          break
          ;;
       n) break ;;

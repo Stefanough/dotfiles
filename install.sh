@@ -4,7 +4,8 @@
 # Interactive-ish installer for HomeBrew and packages, setup.
 #
 # options:
-#   -d dry run
+#   -d dry-run. Defaults to false.
+#   -s attempt to execute stow Defaults to false.
 #
 # HomeBrew binary is installed to /opt/homebrew/bin/brew based on "which brew"
 #
@@ -20,14 +21,18 @@ readonly STOW_WHITELIST=(MenuMeters VSCode alacritty bash ctags git npm ripgrep 
 
 
 D='false' # variable for dry run
+S='false' # variable for executing stow
 
-while getopts 'd' flag; do
+while getopts 'ds' flag; do
   case "${flag}" in
     d) D='true' ;;
+    s) S='true' ;;
     *) echo "Unexpected option ${flag}" >&2; exit 1 ;;
   esac
 done
+
 readonly D
+readonly S
 
 # Check if Brew is installed. Check at /opt/homebrew/bin/brew
 if [ -f "$HOMEBREW_INSTALL_LOCATION" ]; then
@@ -89,14 +94,18 @@ while true; do
   esac
 done
 
-# check for stowed packages and stow them if they do not exist
+# AUTOMATED STOWING IS A WIP. UNSURE IF STOWING PACKAGES WILL BE DONE INSIDE
+# THIS INSTALL SCRIPT, A SEPARATE SCRIPT, OR MANUALLY.
 #
-# get list of all directories applicable to stow
+# GATE BEHIND OPTIONAL FLAG FOR NOW
+if [ "$S" == 'true' ]; then
+  echo "Attempting to execute stow on applicable packages..."
+  # check for stowed packages and stow them if they do not exist
+  # get list of all directories applicable to stow
   stow_files=$(ls "$PWD" )
   i=1
 
   for j in $stow_files; do
-
     # if name in whitelist, add to list
     for k in "${STOW_WHITELIST[@]}"; do
       if [[ $j == "$k" ]]; then
@@ -105,29 +114,30 @@ done
       fi
     done
   done
-
-while true; do
-  echo 'Would you like to stow the following packages? y/n'
-
-  for i in "${files[@]}"; do
-    echo "$i"
+  
+  while true; do
+    echo 'Would you like to stow the following packages? y/n'
+  
+    for i in "${files[@]}"; do
+      echo "$i"
+    done
+  
+    read -r input
+    case "$input" in
+      y) if [ "$D" = 'true' ]; then
+           echo 'Dry run, skipping stow.'
+         else
+  	 echo 'Using stow to symlink packages.'
+  
+  	 for i in "${files[@]}"; do
+  	   echo "stowing $i"
+  	   stow "$i"
+           done
+         fi
+         break
+         ;;
+      n) break ;;
+      *) echo 'y or n' ;;
+    esac
   done
-
-  read -r input
-  case "$input" in
-    y) if [ "$D" = 'true' ]; then
-         echo 'Dry run, skipping stow.'
-       else
-	 echo 'Using stow to symlink packages.'
-
-	 for i in "${files[@]}"; do
-	   echo "stowing $i"
-	   stow "$i"
-         done
-       fi
-       break
-       ;;
-    n) break ;;
-    *) echo 'y or n' ;;
-  esac
-done
+fi

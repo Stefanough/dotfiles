@@ -36,7 +36,7 @@
     // previous editor (tab) in current panel
     "key": "ctrl+h",
     "command": "workbench.action.previousEditorInGroup",
-    "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
+    "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode' || imagePreviewFocus == true"
   },
   {
     "key": "ctrl+space l",

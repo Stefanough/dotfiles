@@ -88,6 +88,7 @@
     "hmac",
     "homescreen",
     "ideos",
+    "idx",
     "imgix",
     "infantilized",
     "inmemory",
@@ -308,6 +309,5 @@
   "files.associations": {
     "*.rmd": "markdown"
   },
-  "workbench.colorTheme": "Visual Studio Dark",
-  "window.zoomLevel": -0.5778829311823857
+  "workbench.colorTheme": "Visual Studio Dark"
 }

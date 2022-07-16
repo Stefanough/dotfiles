@@ -177,14 +177,19 @@ endif
 "    *************************************************************************
 "      ********************************************************************
 
-" CONFIG
+" insert single space after ".", "?", or "!" when joining lines
+set nojoinspaces
+
+" alias "tabnew" to "tn"
 cnoreabbrev tn tabnew
 
 " Visual command line completion
 set wildmenu
 
-" ignorecase, smartcase
+" ignore case when matching patterns supplied to find, find/replace
 set ignorecase
+
+" character case is considered if pattern contains any upper case characters
 set smartcase
 
 " set history table to 1000 entries

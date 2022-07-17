@@ -180,5 +180,14 @@
     "key": "ctrl+shift+g",
     "command": "-workbench.view.scm",
     "when": "workbench.scm.active"
+  },
+  {
+    // insert link at selected text inside markdown files.
+    "key": "ctrl+shift+l",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "[${TM_SELECTED_TEXT}]($0)"
+    },
+    "when": "editorHasSelection && editorLangId == markdown "
   }
 ]

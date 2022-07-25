@@ -113,19 +113,19 @@
     },
     "when": "editorLangId == javascript && !inDebugMode && editorTextFocus && suggestWidgetVisible || editorLangId == python && !inDebugMode && editorTextFocus && suggestWidgetVisible"
   },
-  {
-    // Accept currently highlighted selection from auto suggest window and exit
-    // insert mode. Do not trigget this keybinding while in debug mode.
-    "key": "ctrl+[",
-    "command": "extension.multiCommand.execute",
-    "args": {
-      "sequence": [
-        "acceptSelectedSuggestion",
-        "extension.vim_escape"
-      ]
-    },
-    "when": "editorLangId == typescript && !inDebugMode && editorTextFocus && suggestWidgetVisible || javascript && !inDebugMode && editorTextFocus && suggestWidgetVisible || editorLangId == python && !inDebugMode && editorTextFocus && suggestWidgetVisible"
-  },
+  // {
+  //   Accept currently highlighted selection from auto suggest window and exit
+  //   insert mode. Do not trigget this keybinding while in debug mode.
+  //   "key": "ctrl+[",
+  //   "command": "extension.multiCommand.execute",
+  //   "args": {
+  //     "sequence": [
+  //       "acceptSelectedSuggestion",
+  //       "extension.vim_escape"
+  //     ]
+  //   },
+  //   "when": "editorLangId == typescript && !inDebugMode && editorTextFocus && suggestWidgetVisible || javascript && !inDebugMode && editorTextFocus && suggestWidgetVisible || editorLangId == python && !inDebugMode && editorTextFocus && suggestWidgetVisible"
+  // },
   {
     "key": ",",
     "command": "extension.multiCommand.execute",

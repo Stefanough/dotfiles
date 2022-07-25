@@ -1,4 +1,5 @@
 [
+  // debugging
   {
     // toggle breakpoint
     "key": "ctrl+shift+b",
@@ -6,9 +7,22 @@
     "when": "editorTextFocus"
   },
   {
+    // toggle breakpoint
     "key": "f9",
     "command": "-editor.debug.action.toggleBreakpoint",
     "when": "editorTextFocus"
+  },
+  {
+    // step into
+    "key": "ctrl+shift+s",
+    "command": "workbench.action.debug.stepInto",
+    "when": "inDebugMode"
+  },
+  {
+    // step over
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.debug.stepOver",
+    "when": "inDebugMode"
   },
   {
     "key": "cmd+k cmd+u",

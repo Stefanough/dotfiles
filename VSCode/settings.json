@@ -198,6 +198,7 @@
   "editor.roundedSelection": false,
   "editor.rulers": [80],
   "editor.semanticHighlighting.enabled": true,
+  "editor.acceptSuggestionOnCommitCharacter": true,
   "editor.suggestSelection": "first",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",

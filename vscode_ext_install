@@ -1,8 +1,9 @@
 #! /bin/bash
 
 # Track and install extensions for vs code
-# TODO check for installed ext before installing
-#      option for dry-run?
+# TODO: check for installed ext before installing
+# TODO: option for dry-run
+# TODO: read extensions list from external file VSCode/extensions.txt
 
 EXTENSIONS=(
   ms-python.python

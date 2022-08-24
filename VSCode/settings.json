@@ -152,6 +152,7 @@
     "TIMESTAMPTZ",
     "titleize",
     "TLDR",
+    "transactionality",
     "truthy",
     "tsubo",
     "typedefs",
@@ -310,5 +311,8 @@
   "files.associations": {
     "*.rmd": "markdown"
   },
-  "workbench.colorTheme": "Visual Studio Dark"
+  "workbench.colorTheme": "GitHub Dark Default",
+  "window.zoomLevel": -0.5778829311823857,
+  "window.nativeTabs": true,
+  "window.titleBarStyle": "native"
 }

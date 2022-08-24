@@ -15,6 +15,12 @@ while getopts 'd' flag; do
   esac
 done
 
+if [ ! -f "$EXTENSION_FILE" ]; then
+  echo "No extension file found at default location $EXTENSION_FILE."
+  echo "Please create an extensions file."
+  exit
+fi
+
 # read extensions from file
 IFS=$'\n' read -d '' -r -a EXTENSIONS < "$EXTENSION_FILE"
 

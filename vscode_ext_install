@@ -2,23 +2,21 @@
 
 # Track and install extensions for vs code
 # TODO: check for installed ext before installing
-# TODO: option for dry-run
-# TODO: read extensions list from external file VSCode/extensions.txt
+# TODO: option to pass in non-default extension file.
 
-EXTENSIONS=(
-  ms-python.python
-  ms-python.vscode-pylance
-  ms-toolsai.jupyter
-  ms-toolsai.jupyter-keymap
-  ms-toolsai.jupyter-renderers
-  peterfh.linesinfostatusbar
-  roscop.activefileinstatusbar
-  ryuta46.multi-command
-  stkb.rewrap
-  streetsidesoftware.code-spell-checker
-  vscodevim.vim
-  wraith13.zoombar-vscode
-)
+readonly EXTENSION_FILE="$HOME/dotfiles/VSCode/extensions.txt"
+
+D='false' # for dry-run
+
+while getopts 'd' flag; do
+  case "${flag}" in
+    d) D='true' ;;
+    *) echo "Unexpected option ${flag}" >&2; exit 1 ;;
+  esac
+done
+
+# read extensions from file
+IFS=$'\n' read -d '' -r -a EXTENSIONS < "$EXTENSION_FILE"
 
 if ! command -v code &> /dev/null; then
   echo "It appears code is not installed or has not been added to PATH."
@@ -28,7 +26,11 @@ fi
 
 for i in "${EXTENSIONS[@]}"; do
   echo "script is attempting to install $i"
-  code --install-extension "$i"
+  if [ "$D" = 'true' ]; then
+    echo "Dry-run, extension $i will not be installed."
+  else
+    code --install-extension "$i"
+  fi
 done
 
 # one off for setting up proper key repetition for vim vscode
@@ -37,7 +39,11 @@ installed_extensions=$(code --list-extensions)
 
 for i in $installed_extensions; do
   if [ "$i" == "vscodevim.vim" ]; then
-    echo "configuring vs code vim to allow key repetition"
-    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+    if [ "$D" = 'true' ]; then
+      echo "Dry-run."
+    else
+      echo "configuring vs code vim to allow key repetition"
+      defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+    fi
   fi
 done

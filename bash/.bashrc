@@ -20,6 +20,11 @@ export PS1="\[\e[00;36m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
 #
 ################################################################################
 
+# brew installations
+# PATH="/usr/local/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

@@ -65,6 +65,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)" # pyenv not working without second line on Better comp. Remove on other systems?
 fi
 
+# pnpm
+export PNPM_HOME="/Users/stefan.armijo/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 
 ################################################################################
 #

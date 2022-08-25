@@ -22,8 +22,10 @@ export PS1="\[\e[00;36m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
 
 # brew installations
 # PATH="/usr/local/bin:$PATH"
+# Do these need to be exported?
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
+# PATH="/opt/homebrew/bin:$PATH"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -146,5 +148,3 @@ if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
       source "${COMPANY_SPECIFIC_SHELL_CONFIG}/${i}"
     done
  fi
-
-source $HOME/.plutus/*

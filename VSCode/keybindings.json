@@ -139,7 +139,7 @@
   },
   {
     // Accept currently highlighted selection from auto suggest window and
-    // append a "." to the end of the accepted selection. Do not trigget this
+    // append a "." to the end of the accepted selection. Do not trigger this
     // keybinding while in debug mode.
     "key": ".",
     "command": "extension.multiCommand.execute",
@@ -206,7 +206,7 @@
     "when": "editorTextFocus"
   },
   {
-    // stage hunk
+    // Stage hunk
     "key": "\\ s",
     "command": "git.Stage",
     "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
@@ -226,7 +226,7 @@
     "when": "workbench.scm.active"
   },
   {
-    // insert link at selected text inside markdown files.
+    // Insert link at selected text inside markdown files.
     "key": "ctrl+shift+l",
     "command": "editor.action.insertSnippet",
     "args": {

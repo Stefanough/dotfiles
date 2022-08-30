@@ -1,5 +1,7 @@
 [
-  // debugging
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN DEBUG KEYBINDINGS
+  //
   {
     // toggle breakpoint
     "key": "ctrl+shift+b",
@@ -24,6 +26,10 @@
     "command": "workbench.action.debug.stepOver",
     "when": "inDebugMode"
   },
+  //
+  // END DEBUG KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+
   {
     "key": "cmd+k cmd+u",
     "command": "git.revertSelectedRanges",
@@ -34,6 +40,10 @@
     "command": "-git.revertSelectedRanges",
     "when": "isInDiffEditor"
   },
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN NAVIGATION BETWEEN EDITORS IN A SINGLE GROUP
+  //
   {
     "key": "ctrl+tab",
     "command": "workbench.action.nextEditor"
@@ -52,6 +62,13 @@
     "command": "workbench.action.previousEditorInGroup",
     "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode' || imagePreviewFocus == true"
   },
+  //
+  // END NAVIGATION BETWEEN EDITORS IN A SINGLE GROUP
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN NAVIGATION BETWEEN EDITOR GROUPS
+  //
   {
     "key": "ctrl+space l",
     "command": "workbench.action.navigateRight"
@@ -81,6 +98,9 @@
     "command": "workbench.action.focusLastEditorGroup",
     "when": "sideBarFocus"
   },
+  //
+  // END NAVIGATION BETWEEN EDITOR GROUPS
+  //////////////////////////////////////////////////////////////////////////////
   {
     "key": "cmd+n",
     "command": "explorer.newFile",

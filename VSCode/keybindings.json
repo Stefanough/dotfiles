@@ -45,19 +45,22 @@
   // BEGIN NAVIGATION BETWEEN EDITORS IN A SINGLE GROUP
   //
   {
+    // Navigate to next editor including all editors in all editor groups
     "key": "ctrl+tab",
     "command": "workbench.action.nextEditor"
   },
   {
+    // Navigate to prev editor including all editors in all editor groups
     "key": "ctrl+shift+tab",
     "command": "workbench.action.previousEditorInGroup"
   },
   {
+    // Navigate to next editor in current editor group
     "key": "ctrl+l",
     "command": "workbench.action.nextEditorInGroup"
   },
   {
-    // previous editor (tab) in current panel
+    // Navigate to prev editor in current editor group
     "key": "ctrl+h",
     "command": "workbench.action.previousEditorInGroup",
     "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode' || imagePreviewFocus == true"
@@ -70,30 +73,36 @@
   // BEGIN NAVIGATION BETWEEN EDITOR GROUPS
   //
   {
+    // Navigate to editor group right of the current editor group. Will cycle
     "key": "ctrl+space l",
     "command": "workbench.action.navigateRight"
   },
   {
+    // Navigate to editor group left of the current editor group. Will cycle
     "key": "ctrl+space h",
     "command": "workbench.action.navigateLeft",
     "when": "vim.mode == 'Normal'"
   },
   {
+    // Navigate to sidebar when the last editor group has focus
     "key": "ctrl+space l",
     "command": "workbench.action.focusSideBar",
     "when": "activeEditorGroupLast && sideBarVisible"
   },
   {
+    // Navigate to sidebar when the first editor group has focus
     "key": "ctrl+space h",
     "command": "workbench.action.focusSideBar",
     "when": "activeEditorGroupIndex == 1 && sideBarVisible"
   },
   {
+    // Navigate to first editor group when sidebar has focus
     "key": "ctrl+space l",
     "command": "workbench.action.focusFirstEditorGroup",
     "when": "sideBarFocus"
   },
   {
+    // Navigate to last editor group when sidebar has focus
     "key": "ctrl+space h",
     "command": "workbench.action.focusLastEditorGroup",
     "when": "sideBarFocus"
@@ -197,6 +206,7 @@
     "when": "editorTextFocus"
   },
   {
+    // stage hunk
     "key": "\\ s",
     "command": "git.Stage",
     "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"

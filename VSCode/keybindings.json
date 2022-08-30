@@ -209,7 +209,7 @@
     // Stage hunk
     "key": "\\ s",
     "command": "git.Stage",
-    "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode'"
+    "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
   },
   {
     "key": "ctrl+cmd+0",

@@ -75,12 +75,12 @@
   {
     // Navigate to editor group right of the current editor group. Will cycle
     "key": "ctrl+space l",
-    "command": "workbench.action.navigateRight"
+    "command": "workbench.action.focusNextGroup"
   },
   {
     // Navigate to editor group left of the current editor group. Will cycle
     "key": "ctrl+space h",
-    "command": "workbench.action.navigateLeft",
+    "command": "workbench.action.focusPreviousGroup",
     "when": "vim.mode == 'Normal'"
   },
   {

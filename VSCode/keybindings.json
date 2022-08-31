@@ -30,17 +30,6 @@
   // END DEBUG KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
 
-  {
-    "key": "cmd+k cmd+u",
-    "command": "git.revertSelectedRanges",
-    "when": "isInDiffEditor"
-  },
-  {
-    "key": "cmd+k cmd+r",
-    "command": "-git.revertSelectedRanges",
-    "when": "isInDiffEditor"
-  },
-
   //////////////////////////////////////////////////////////////////////////////
   // BEGIN NAVIGATION BETWEEN EDITORS IN A SINGLE GROUP
   //
@@ -107,9 +96,56 @@
     "command": "workbench.action.focusLastEditorGroup",
     "when": "sideBarFocus"
   },
+  {
+    // Navigate to editor group above current editor group
+    "key": "ctrl+space k",
+    "command": "workbench.action.focusAboveGroup"
+  },
+  {
+    // Navigate to editor group below current editor group
+    "key": "ctrl+space j",
+    "command": "workbench.action.navigateDown"
+  },
   //
   // END NAVIGATION BETWEEN EDITOR GROUPS
   //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN EDITOR GROUP SIZE KEYBINDINGS
+  //
+  {
+    // Toggle increased size of current editor group
+    "key": "ctrl+space z",
+    "command": "workbench.action.toggleEditorWidths"
+  },
+  {
+    // Reset size of all editor groups
+    "key": "ctrl+space shift+\\",
+    "command": "workbench.action.evenEditorWidths"
+  },
+  {
+    // Increase size of current editor group
+    "key": "ctrl+space shift+.",
+    "command": "workbench.action.increaseViewWidth"
+  },
+  {
+    // Increase size of current editor group
+    "key": "ctrl+space shift+,",
+    "command": "workbench.action.decreaseViewWidth"
+  },
+  //
+  // END EDITOR GROUP SIZE KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+  {
+    "key": "cmd+k cmd+u",
+    "command": "git.revertSelectedRanges",
+    "when": "isInDiffEditor"
+  },
+  {
+    "key": "cmd+k cmd+r",
+    "command": "-git.revertSelectedRanges",
+    "when": "isInDiffEditor"
+  },
   {
     "key": "cmd+n",
     "command": "explorer.newFile",
@@ -121,21 +157,9 @@
     "when": "filesExplorerFocus"
   },
   {
-    "key": "ctrl+space k",
-    "command": "workbench.action.focusAboveGroup"
-  },
-  {
-    "key": "ctrl+space j",
-    "command": "workbench.action.navigateDown"
-  },
-  {
     "key": "ctrl+t",
     "command": "search.action.openNewEditor",
     "when": "inQuickOpen"
-  },
-  {
-    "key": "ctrl+space z",
-    "command": "workbench.action.toggleEditorWidths"
   },
   {
     // Accept currently highlighted selection from auto suggest window and

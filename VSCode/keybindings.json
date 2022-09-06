@@ -136,6 +136,31 @@
   //
   // END EDITOR GROUP SIZE KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN CODE ACTION MENU KEYBINDINGS
+  //
+  {
+    // Hide quickfix/code action window
+    "key": "ctrl+[",
+    "command": "hideCodeActionWidget",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    // Next item in code action widget list
+    "key": "ctrl+n",
+    "command": "selectNextCodeAction",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    // Prev item in code action widget list
+    "key": "ctrl+p",
+    "command": "selectPrevCodeAction",
+    "when": "vim.mode == 'Normal'"
+  },
+  //
+  // END CODE ACTION MENU KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
   {
     "key": "cmd+k cmd+u",
     "command": "git.revertSelectedRanges",

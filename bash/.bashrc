@@ -88,6 +88,29 @@ alias npmglobal='npm list -g --depth 0'
 # create a directory and enter
 mkcd() { mkdir -p "$1"; cd "$1" || return; }
 
+# create (nested) directory and file.
+mktouch() { 
+  # split arg into an array. Flags; -r read raw input, -a read to array.
+  IFS='/' read -r -a PATH_ARRAY <<< "$1"
+  DIR_PATH="."
+
+  # Iter except last ele of PATH_ARRAY. Join with '/'. Last ele is file name.
+  # ((...)) notation allows for arithmetic. 
+  for part in "${PATH_ARRAY[@]}"; do
+    if [ "$part" == "${PATH_ARRAY[(("${#PATH_ARRAY[@]}" - 1))]}" ]; then
+      FILE_NAME="$part"
+    else
+      DIR_PATH="$DIR_PATH/$part"
+    fi
+  done
+
+  # # create directory from joined string
+  mkdir -p "$DIR_PATH";
+
+  # # touch file with name of last element of PATH_ARRAY
+  touch "$DIR_PATH/$FILE_NAME"
+}
+
 # create a new file and parent directories if they don't exist
 # check for directory in pwd
 # mktouch() {

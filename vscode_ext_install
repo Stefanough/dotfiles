@@ -21,7 +21,7 @@ if [ ! -f "$EXTENSION_FILE" ]; then
   exit
 fi
 
-# read extensions from file
+# Read extensions from file. Split string on newline characters.
 IFS=$'\n' read -d '' -r -a EXTENSIONS < "$EXTENSION_FILE"
 
 if ! command -v code &> /dev/null; then

@@ -144,19 +144,19 @@
     // Hide quickfix/code action window
     "key": "ctrl+[",
     "command": "hideCodeActionWidget",
-    "when": "vim.mode == 'Normal'"
+    "when": "codeActionMenuVisible"
   },
   {
     // Next item in code action widget list
     "key": "ctrl+n",
     "command": "selectNextCodeAction",
-    "when": "vim.mode == 'Normal' && !inQuickOpen"
+    "when": "codeActionMenuVisible"
   },
   {
     // Prev item in code action widget list
     "key": "ctrl+p",
     "command": "selectPrevCodeAction",
-    "when": "vim.mode == 'Normal' && !inQuickOpen"
+    "when": "codeActionMenuVisible"
   },
   //
   // END CODE ACTION MENU KEYBINDINGS

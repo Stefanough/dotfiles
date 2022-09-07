@@ -150,13 +150,13 @@
     // Next item in code action widget list
     "key": "ctrl+n",
     "command": "selectNextCodeAction",
-    "when": "vim.mode == 'Normal'"
+    "when": "vim.mode == 'Normal' && !inQuickOpen"
   },
   {
     // Prev item in code action widget list
     "key": "ctrl+p",
     "command": "selectPrevCodeAction",
-    "when": "vim.mode == 'Normal'"
+    "when": "vim.mode == 'Normal' && !inQuickOpen"
   },
   //
   // END CODE ACTION MENU KEYBINDINGS

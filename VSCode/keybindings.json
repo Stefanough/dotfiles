@@ -161,6 +161,26 @@
   //
   // END CODE ACTION MENU KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN FILE EXPLORER KEYBINDINGS
+  //
+  {
+    // Create new file
+    "key": "cmd+n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus"
+  },
+  {
+    // Create new directory
+    "key": "cmd+shift+n",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus"
+  },
+  //
+  // END FILE EXPLORER KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+
   {
     "key": "cmd+k cmd+u",
     "command": "git.revertSelectedRanges",
@@ -170,16 +190,6 @@
     "key": "cmd+k cmd+r",
     "command": "-git.revertSelectedRanges",
     "when": "isInDiffEditor"
-  },
-  {
-    "key": "cmd+n",
-    "command": "explorer.newFile",
-    "when": "filesExplorerFocus"
-  },
-  {
-    "key": "cmd+shift+n",
-    "command": "explorer.newFolder",
-    "when": "filesExplorerFocus"
   },
   {
     "key": "ctrl+t",

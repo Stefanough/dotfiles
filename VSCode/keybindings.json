@@ -292,5 +292,11 @@
       "snippet": "[${TM_SELECTED_TEXT}]($0)"
     },
     "when": "editorHasSelection && editorLangId == markdown "
+  },
+  {
+    // Show editor context menu
+    "key": "ctrl+i",
+    "command": "editor.action.showContextMenu",
+    "when": "vim.mode == 'Normal'"
   }
 ]

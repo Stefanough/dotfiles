@@ -307,7 +307,7 @@
   },
   {
     // Show editor context menu
-    "key": "ctrl+i",
+    "key": "ctrl+c",
     "command": "editor.action.showContextMenu",
     "when": "vim.mode == 'Normal'"
   }

@@ -259,6 +259,7 @@
   "terminal.integrated.scrollback": 100000,
   "terminal.integrated.shellArgs.osx": [],
   "vim.disableExtension": false,
+  "vim.joinspaces": false,
   "vim.useSystemClipboard": false,
   "vim.visualModeKeyBindingsNonRecursive": [
     {

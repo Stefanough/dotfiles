@@ -6,7 +6,7 @@
 #    name = Stefan Armijo
 #    email = stefan.armijo@gmail.com
 [core]
-    excludesfile = /Users/sarmijo/.gitignore_global
+	excludesfile = ~/.gitignore_global
     editor = vim
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -15,7 +15,7 @@
     cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
 [commit]
-    template = /Users/sarmijo/.stCommitMsg
+    template = ~/.stCommitMsg
 [push]
     default = current
 [pull]

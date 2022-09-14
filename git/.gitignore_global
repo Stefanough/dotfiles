@@ -1,12 +1,14 @@
 # ignore editor temp and swap files
 *~
+*.swp
+*.swo
 
 # no DS_Store
 .DS_Store
 
 # none of these
 node_modules/
-**/.vscode/
+.vscode/
 
 # no ctags files
 tags

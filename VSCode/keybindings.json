@@ -129,9 +129,21 @@
     "command": "workbench.action.increaseViewWidth"
   },
   {
-    // Increase size of current editor group
+    // Decrease size of current editor group
     "key": "ctrl+space shift+,",
     "command": "workbench.action.decreaseViewWidth"
+  },
+  {
+    // Increase size of sidebar if currently in focus
+    "key": "ctrl+space shift+.",
+    "command": "workbench.action.increaseViewSize",
+    "when": "sideBarFocus"
+  },
+  {
+    // Decrease size of sidebar if currently in focus
+    "key": "ctrl+space shift+,",
+    "command": "workbench.action.decreaseViewSize",
+    "when": "sideBarFocus"
   },
   //
   // END EDITOR GROUP SIZE KEYBINDINGS

@@ -155,3 +155,5 @@ linter
 subgraph
 Nullability
 Auth
+enums
+params

@@ -26,6 +26,27 @@
     "command": "workbench.action.debug.stepOver",
     "when": "inDebugMode"
   },
+  {
+    // Show previous entry in debug repl
+    "key": "ctrl+p",
+    "command": "history.showPrevious",
+    "when": "historyNavigationBackwardsEnabled && historyNavigationWidgetFocus && !suggestWidgetVisible"
+  },
+  {
+    // Show next entry in debug repl
+    "key": "ctrl+n",
+    "command": "history.showNext",
+    "when": "historyNavigationBackwardsEnabled && historyNavigationWidgetFocus && !suggestWidgetVisible"
+  },
+  {
+    // Accept selection AND execute in debug repl
+    "key": "Enter",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": ["acceptSelectedSuggestion", "repl.action.acceptInput"]
+    },
+    "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+  },
   //
   // END DEBUG KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////

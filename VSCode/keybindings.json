@@ -47,6 +47,18 @@
     },
     "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
   },
+  {
+    // Select next entry in debug config selection menu
+    "key": "ctrl+n",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    // Select prev entry in debug config selection menu
+    "key": "ctrl+p",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
   //
   // END DEBUG KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////

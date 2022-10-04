@@ -139,6 +139,18 @@
     "key": "ctrl+space j",
     "command": "workbench.action.navigateDown"
   },
+  {
+    // Move editor to editor group to the right
+    "key": "ctrl+space shift+l",
+    "command": "workbench.action.moveEditorToNextGroup",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    // Move editor to editor group to the left
+    "key": "ctrl+space shift+h",
+    "command": "workbench.action.moveEditorToPreviousGroup",
+    "when": "vim.mode == 'Normal'"
+  },
   //
   // END NAVIGATION BETWEEN EDITOR GROUPS
   //////////////////////////////////////////////////////////////////////////////

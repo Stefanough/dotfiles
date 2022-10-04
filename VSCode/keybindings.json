@@ -290,15 +290,15 @@
   // END SCM KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
   {
-    // Move editor to editor group to the right
-    "key": "ctrl+space shift+l",
-    "command": "workbench.action.moveEditorToNextGroup",
+    // Zoom out with zoombar extension
+    "key": "cmd+-",
+    "command": "zoombar-vscode.zoomOut",
     "when": "vim.mode == 'Normal'"
   },
   {
-    // Move editor to editor group to the left
-    "key": "ctrl+space shift+h",
-    "command": "workbench.action.moveEditorToPreviousGroup",
+    // Zoom in with zoombar extension
+    "key": "cmd+=",
+    "command": "zoombar-vscode.zoomIn",
     "when": "vim.mode == 'Normal'"
   },
   {

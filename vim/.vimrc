@@ -113,6 +113,9 @@ Plugin 'arcticicestudio/nord-vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
+" Markdown preview plugin for Vim
+Plugin 'skanehira/preview-markdown.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

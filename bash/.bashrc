@@ -89,13 +89,13 @@ alias npmglobal='npm list -g --depth 0'
 mkcd() { mkdir -p "$1"; cd "$1" || return; }
 
 # create (nested) directory and file.
-mktouch() { 
+mktouch() {
   # split arg into an array. Flags; -r read raw input, -a read to array.
   IFS='/' read -r -a PATH_ARRAY <<< "$1"
   DIR_PATH="."
 
   # Iter except last ele of PATH_ARRAY. Join with '/'. Last ele is file name.
-  # ((...)) notation allows for arithmetic. 
+  # ((...)) notation allows for arithmetic.
   for part in "${PATH_ARRAY[@]}"; do
     if [ "$part" == "${PATH_ARRAY[(("${#PATH_ARRAY[@]}" - 1))]}" ]; then
       FILE_NAME="$part"

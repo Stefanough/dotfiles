@@ -6,7 +6,7 @@
 #    name = Stefan Armijo
 #    email = stefan.armijo@gmail.com
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = /Users/stefan.armijo/.gitignore_global
     editor = vim
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"

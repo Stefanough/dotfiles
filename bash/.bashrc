@@ -34,15 +34,18 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export BAT_THEME="Solarized (light)"
 
 # Git autocompletion
-# source ~/.git-completion.bash
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
 # GitHub command line tool autocompletion
-# source ~/.gh-completion.bash
 if [ -f ~/.gh-completion.bash ]; then
   source ~/.gh-completion.bash
+fi
+
+# Apollo Rover
+if [ -f ~/.rover/env ]; then
+  source ~/.rover/env
 fi
 
 # nvm

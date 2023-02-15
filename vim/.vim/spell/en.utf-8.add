@@ -159,3 +159,15 @@ enums
 params
 callsite
 Dockerfile
+Dockerfiles
+Base64
+base64
+gRPC
+protobuf
+Deduplication
+Elasticsearch
+Kibana
+Enum
+Splunk
+Wildcards
+JWT

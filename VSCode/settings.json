@@ -116,6 +116,7 @@
     "msgpack",
     "multiline",
     "myhost",
+    "nestjs",
     "no",
     "numericality",
     "nums",
@@ -173,6 +174,7 @@
     "VARCHAR",
     "webfonts",
     "webkit",
+    "wework",
     "woff"
   ],
   "debug.showInStatusBar": "never",
@@ -180,7 +182,7 @@
   "editor.colorDecorators": false,
   "editor.cursorStyle": "line",
   "editor.detectIndentation": true,
-  "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback'",
+  "editor.fontFamily": "'Iosevka SS09', 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback'",
   "editor.fontSize": 14,
   "editor.fontWeight": "normal",
   "editor.formatOnSaveTimeout": 750,
@@ -222,7 +224,7 @@
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
-  "jest.autoRun": false,
+  "jest.autoRun": "off",
   "linesinfostatusbar.selectedDisplayFormat": " (%d)",
   "linesinfostatusbar.statusbarPriority": 500,
   "linesinfostatusbar.totalDisplayFormat": "T: %d",
@@ -285,7 +287,6 @@
   },
   "vscode_custom_css.statusbar": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "[Charcoal Oceanic Next]": {
       "editor.background": "#191919",
@@ -314,5 +315,14 @@
   },
   "workbench.colorTheme": "GitHub Dark Default",
   "window.nativeTabs": true,
-  "window.titleBarStyle": "native"
+  "window.titleBarStyle": "native",
+  "window.zoomLevel": 0.5682760965896694,
+  "workbench.activityBar.visible": false,
+  "go.toolsManagement.autoUpdate": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  }
 }

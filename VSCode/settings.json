@@ -316,7 +316,7 @@
   "workbench.colorTheme": "GitHub Dark Default",
   "window.nativeTabs": true,
   "window.titleBarStyle": "native",
-  "window.zoomLevel": 0.5682760965896694,
+  "window.zoomLevel": -1,
   "workbench.activityBar.visible": false,
   "go.toolsManagement.autoUpdate": true,
   "[json]": {

@@ -163,6 +163,10 @@ if has("autocmd")
 
   augroup END
 
+  " Set filetype specific indentation
+  autocmd FileType md setlocal shiftwidth=2 tabstop=2
+  autocmd FileType go setlocal shiftwidth=4 tabstop=4
+
 else
   set autoindent " always set autoindenting on
 endif " has("autocmd")

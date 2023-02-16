@@ -159,6 +159,7 @@ enums
 params
 callsite
 Dockerfile
+<<<<<<< HEAD
 Dockerfiles
 Base64
 base64
@@ -171,3 +172,5 @@ Enum
 Splunk
 Wildcards
 JWT
+wildcards
+hoc

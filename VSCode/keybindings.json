@@ -366,10 +366,11 @@
     },
     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == typescriptreact"
   },
+  // Open file finder with ctrl+p in addition to cmd+p
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
-    "when": "editorTextFocus && !suggestWidgetVisible && vim.active && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode' || imagePreviewFocus == true"
+    "when": "editorTextFocus && !suggestWidgetVisible && vim.active && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode' || imagePreviewFocus == true || !activeEditor"
   },
   {
     "key": "ctrl+[",

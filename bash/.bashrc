@@ -4,6 +4,15 @@
 # Format Bash prompt
 ################################################################################
 
+# Colors
+PURPLE="\[\e[00;35m\]"
+CYAN="\[\e[00;36m\]"
+ORANGE="\[\e[00;33m\]"
+RED="\[\e[00;31m\]"
+BLACK="\[\033[30m\]"
+# BLUE="\[\033[34m\]"
+COLOR_RESET="\[\e[0m\]"
+
 function is_git_repository {
   git branch > /dev/null 2>&1
 }
@@ -13,31 +22,20 @@ function parse_git_branch {
 }
 
 # https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
-#
-# PS1=
-# [cyan-color-code]user@hostname
-# [purple-color-code]"'> 'literal"
-# [cyan-color-code]working_directory
-# [blach-color-code]"(" literal
-# [red-color-code](git branch)
-# [blach-color-code]")" literal
-# [purple-color-code]"': 'literal"
-# [end-color-scheme]"'$ 'literal"
-
+# https://jdhao.github.io/2021/03/31/bash_prompt_config/
 function set_prompt {
-  PS1=""
-  PS1+="\[\e[00;36m\]\u"
-  PS1+="\[\e[00;33m\]@"
-  PS1+="\[\e[00;36m\]\h"
-  PS1+="\[\033[35m\]> "
-  PS1+="\[\033[36m\]\w"
+  PS1="${CYAN}\u${COLOR_RESET}"
+  PS1+="${ORANGE}@${CYAN}"
+  PS1+="${CYAN}\h${COLOR_RESET}"
+  PS1+="${PURPLE}|${COLOR_RESET}"
+  PS1+="${CYAN}\w${COLOR_RESET}"
   if is_git_repository; then
-    PS1+="\[\033[30m\]("
-    PS1+="\[\033[31m\]$(parse_git_branch)"
-    PS1+="\[\033[30m\])"
+    PS1+="${BLACK}(${COLOR_RESET}"
+    PS1+="${RED}$(parse_git_branch)${COLOR_RESET}"
+    PS1+="${BLACK})${COLOR_RESET}"
   fi
-  PS1+="\[\033[35m\]: "
-  PS1+="\[\e[0m\]\\$ "
+  PS1+="${PURPLE}: ${COLOR_RESET}"
+  PS1+="${COLOR_RESET}$ "
 }
 
 export PROMPT_COMMAND=set_prompt

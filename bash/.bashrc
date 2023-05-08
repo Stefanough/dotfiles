@@ -5,10 +5,27 @@
 ################################################################################
 
 function parse_git_branch {
-   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-export PS1="\[\e[00;36m\]\h: \w\$(parse_git_branch)> \\$ \[\e[0m\]"
+# PS1=
+# [cyan-color-code]user@hostname
+# [purple-color-code]"'> 'literal"
+# [cyan-color-code]working_directory
+# [blach-color-code]"(" literal
+# [red-color-code](git branch)
+# [blach-color-code]")" literal
+# [purple-color-code]"': 'literal"
+# [end-color-scheme]"'$ 'literal"
+export PS1='
+\[\e[00;36m\]\u@\h\
+\[\033[35m\]> \
+\[\033[36m\]\w\
+\[\033[30m\](\
+\[\033[31m\]$(parse_git_branch)\
+\[\033[30m\])\
+\[\033[35m\]: \
+\[\e[0m\]\\$ '
 
 
 ################################################################################

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ################################################################################
 # Interactive-ish installer for HomeBrew and packages, setup.
@@ -132,7 +132,7 @@ if [ "$S" == 'true' ]; then
            echo 'Dry run, skipping stow.'
          else
            echo 'Using stow to symlink packages.'
-  
+
            for i in "${files[@]}"; do
              echo "stowing $i"
              stow "$i"

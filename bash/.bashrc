@@ -1,13 +1,19 @@
 #!/bin/bash
 
 ################################################################################
-# Configure up prompt format
+# Format Bash prompt
 ################################################################################
 
-function parse_git_branch {
-   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+function is_git_repository {
+  git branch > /dev/null 2>&1
 }
 
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+# https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
+#
 # PS1=
 # [cyan-color-code]user@hostname
 # [purple-color-code]"'> 'literal"
@@ -17,21 +23,28 @@ function parse_git_branch {
 # [blach-color-code]")" literal
 # [purple-color-code]"': 'literal"
 # [end-color-scheme]"'$ 'literal"
-export PS1='
-\[\e[00;36m\]\u@\h\
-\[\033[35m\]> \
-\[\033[36m\]\w\
-\[\033[30m\](\
-\[\033[31m\]$(parse_git_branch)\
-\[\033[30m\])\
-\[\033[35m\]: \
-\[\e[0m\]\\$ '
+
+function set_prompt {
+  PS1=""
+  PS1+="\[\e[00;36m\]\u"
+  PS1+="\[\e[00;33m\]@"
+  PS1+="\[\e[00;36m\]\h"
+  PS1+="\[\033[35m\]> "
+  PS1+="\[\033[36m\]\w"
+  if is_git_repository; then
+    PS1+="\[\033[30m\]("
+    PS1+="\[\033[31m\]$(parse_git_branch)"
+    PS1+="\[\033[30m\])"
+  fi
+  PS1+="\[\033[35m\]: "
+  PS1+="\[\e[0m\]\\$ "
+}
+
+export PROMPT_COMMAND=set_prompt
 
 
 ################################################################################
-#
 # Integrations
-#
 ################################################################################
 
 # brew installations

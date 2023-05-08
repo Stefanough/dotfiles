@@ -1,17 +1,14 @@
 #!/bin/bash
 
 ################################################################################
-#
-# Set up prompt style
-#
+# Configure up prompt format
 ################################################################################
 
 function parse_git_branch {
    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-# Configure prompt format
-export PS1="\[\e[00;36m\]\w\$(parse_git_branch): \\$ \[\e[0m\]"
+export PS1="\[\e[00;36m\]\h: \w\$(parse_git_branch)> \\$ \[\e[0m\]"
 
 
 ################################################################################

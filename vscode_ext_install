@@ -1,8 +1,18 @@
-#! /bin/bash
+#!/bin/bash
 
+################################################################################
 # Track and install extensions for vs code
+#
+# execution:
+#    $ get-tokens [options]
+#
+# options:
+#   -d
+#   Dry-Run, no side effects
+#
 # TODO: check for installed ext before installing
 # TODO: option to pass in non-default extension file.
+################################################################################
 
 readonly EXTENSION_FILE="$HOME/dotfiles/VSCode/extensions.txt"
 

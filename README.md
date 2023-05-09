@@ -4,15 +4,26 @@ Maintained and versioned config across machines.
 ## Setup
 
 ### clone
-Clone into your home directory. These files should be located at `~/dotfiles`.
+Clone the repo into your home directory. These files should be located in
+`~/dotfiles`.
 
-### Brew
+### Install
 Make `install.sh` executable and run. Installs HomeBrew and the packages
 defined in `packages.personal.Brewfile`.
 
 1. `cd dotfiles/`
 1. `chmod -R 777 install.sh`
 1. `./install.sh`
+
+Options:
+ - `-d`   
+Dry-Run. No side effects.
+
+ - `-s`   
+ Attempt to `stow` packages using GNU stow. This will symlink defined packages
+ to your home directory if there is no existing file or directory with the same
+ name.
+ 
 
 The install script will attempt the following operations:
 1. check for and install HomeBrew
@@ -32,6 +43,14 @@ Vim has one extra dependency: after executing `$ stow vim`, clone the Vim
 package manager Vundle into `~/.vim/bundle` and run `:PluginInstall` on start.
 
 1. `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+
+### VS Code Extensions
+The `vscode_ext_install` script will install VS Code extensions stored in the
+`VSCode/extensions.txt` file using VS Code's `--install-extension` command.
+
+Options:
+ - `-d`   
+Dry-Run. No side effects.
 
 ### TODO
 * Better way to export PATH to bashrc.

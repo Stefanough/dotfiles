@@ -5,11 +5,13 @@
 #
 # options:
 #   -d dry-run. Defaults to false.
-#   -s attempt to execute stow Defaults to false.
+#   -s attempt to stow packages. Defaults to false.
+#      WIP and may not link packages if files/directories already exist.
 #
 # HomeBrew binary is installed to /opt/homebrew/bin/brew based on "which brew"
 #
 # TODO:
+#   include long flags as options
 #   set faster scroll speed for mac if possible
 #   set default shell to bash
 #   check for already stowed packages (necessary?)

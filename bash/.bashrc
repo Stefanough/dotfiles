@@ -8,6 +8,7 @@
 PURPLE="\[\e[00;35m\]"
 CYAN="\[\e[00;36m\]"
 ORANGE="\[\e[00;33m\]"
+GREEN="\[\e[00;32m\]"
 RED="\[\e[00;31m\]"
 BLACK="\[\033[30m\]"
 # BLUE="\[\033[34m\]"
@@ -31,7 +32,11 @@ function set_prompt {
   PS1+="${CYAN}\w${COLOR_RESET}"
   if is_git_repository; then
     PS1+="${BLACK}(${COLOR_RESET}"
-    PS1+="${RED}$(parse_git_branch)${COLOR_RESET}"
+    if [ -z "$(git status --porcelain)" ]; then 
+      PS1+="${GREEN}$(parse_git_branch)${COLOR_RESET}"
+    else 
+      PS1+="${RED}$(parse_git_branch)${COLOR_RESET}"
+    fi
     PS1+="${BLACK})${COLOR_RESET}"
   fi
   PS1+="${PURPLE}: ${COLOR_RESET}"

@@ -4,7 +4,7 @@
 # Format Bash prompt
 ################################################################################
 
-# Colors
+# Colors based on https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
 PURPLE="\[\e[00;35m\]"
 CYAN="\[\e[00;36m\]"
 ORANGE="\[\e[00;33m\]"
@@ -22,8 +22,6 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-# https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
-# https://jdhao.github.io/2021/03/31/bash_prompt_config/
 function set_prompt {
   PS1="${CYAN}\u${COLOR_RESET}"
   PS1+="${ORANGE}@${CYAN}"

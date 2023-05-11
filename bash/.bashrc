@@ -30,9 +30,9 @@ function set_prompt {
   PS1+="${CYAN}\w${COLOR_RESET}"
   if is_git_repository; then
     PS1+="${BLACK}(${COLOR_RESET}"
-    if [ -z "$(git status --porcelain)" ]; then 
+    if [ -z "$(git status --porcelain)" ]; then
       PS1+="${GREEN}$(parse_git_branch)${COLOR_RESET}"
-    else 
+    else
       PS1+="${RED}$(parse_git_branch)${COLOR_RESET}"
     fi
     PS1+="${BLACK})${COLOR_RESET}"

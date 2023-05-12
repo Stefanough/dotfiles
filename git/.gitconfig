@@ -2,9 +2,6 @@
 [user]
     name = Stefan Armijo
     email = stefan.armijo@gmail.com
-# Please adapt and uncomment the following lines:
-#    name = Stefan Armijo
-#    email = stefan.armijo@gmail.com
 [core]
     excludesfile = /Users/stefan.armijo/.gitignore_global
     editor = vim
@@ -27,3 +24,5 @@
     autoCorrect = 0
 [color]
     ui = auto
+[init]
+	defaultBranch = master

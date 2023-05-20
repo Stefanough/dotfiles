@@ -79,13 +79,14 @@
   {
     // Navigate to next editor in current editor group
     "key": "ctrl+l",
-    "command": "workbench.action.nextEditorInGroup"
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "vim.mode == 'Normal'"
   },
   {
     // Navigate to prev editor in current editor group
     "key": "ctrl+h",
     "command": "workbench.action.previousEditorInGroup",
-    "when": "editorTextFocus && vim.active && vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode' || imagePreviewFocus == true"
+    "when": "vim.mode == 'Normal'"
   },
   //
   // END NAVIGATION BETWEEN EDITORS IN A SINGLE GROUP

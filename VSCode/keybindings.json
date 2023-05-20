@@ -371,7 +371,7 @@
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
-    "when": "editorTextFocus && !suggestWidgetVisible && vim.active && vim.mode != 'CommandlineInProgress' && vim.mode != 'SearchInProgressMode' || imagePreviewFocus == true || !activeEditor"
+    "when": "editorTextFocus && !suggestWidgetVisible && vim.mode == 'Normal' || imagePreviewFocus == true || !activeEditor || activeWebviewPanelId == 'markdown.preview'"
   },
   {
     "key": "ctrl+[",

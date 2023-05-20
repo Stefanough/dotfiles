@@ -80,13 +80,13 @@
     // Navigate to next editor in current editor group
     "key": "ctrl+l",
     "command": "workbench.action.nextEditorInGroup",
-    "when": "vim.mode == 'Normal'"
+    "when": "editorTextFocus && vim.mode == 'Normal'"
   },
   {
     // Navigate to prev editor in current editor group
     "key": "ctrl+h",
     "command": "workbench.action.previousEditorInGroup",
-    "when": "vim.mode == 'Normal'"
+    "when": "editorTextFocus && vim.mode == 'Normal'"
   },
   //
   // END NAVIGATION BETWEEN EDITORS IN A SINGLE GROUP

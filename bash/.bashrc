@@ -5,14 +5,16 @@
 ################################################################################
 
 # Colors based on https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
+BLACK="\[\033[30m\]"
+RED="\[\e[00;31m\]"
+GREEN="\[\e[00;32m\]"
+# ORANGE="\[\e[00;33m\]"
+# BLUE="\[\033[34m\]"
 PURPLE="\[\e[00;35m\]"
 CYAN="\[\e[00;36m\]"
-ORANGE="\[\e[00;33m\]"
-GREEN="\[\e[00;32m\]"
-RED="\[\e[00;31m\]"
-BLACK="\[\033[30m\]"
-# BLUE="\[\033[34m\]"
+LIGHT_MAGENTA="\[\e[00;96m\]"
 COLOR_RESET="\[\e[0m\]"
+
 
 function is_git_repository {
   git branch > /dev/null 2>&1
@@ -24,7 +26,7 @@ function parse_git_branch {
 
 function set_prompt {
   PS1="${CYAN}\u${COLOR_RESET}"
-  PS1+="${ORANGE}@${CYAN}"
+  PS1+="${LIGHT_MAGENTA}@${COLOR_RESET}"
   PS1+="${CYAN}\h${COLOR_RESET}"
   PS1+="${PURPLE}|${COLOR_RESET}"
   PS1+="${CYAN}\w${COLOR_RESET}"

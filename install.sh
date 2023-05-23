@@ -18,6 +18,8 @@
 #   Is it dangerous to print command names as part of the stow prompt?
 ################################################################################
 
+set -eu
+
 readonly HOMEBREW_INSTALL_LOCATION='/opt/homebrew/bin/brew'
 readonly STOW_WHITELIST=(MenuMeters VSCode alacritty bash ctags git npm ripgrep shellcheck tmux vim)
 

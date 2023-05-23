@@ -8,6 +8,8 @@
 # Run from within dotfiles directory
 ###############################################################################
 
+set -eu
+
 if [ -d ./git/ ]; then
   echo "stowing git stuff"
   stow --verbose=2 --target="$HOME" git

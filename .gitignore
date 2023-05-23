@@ -5,3 +5,5 @@
 vim/.vim/bundle/*
 .netrwhist
 
+# do not track binary for Vim spellcheck
+*.spl

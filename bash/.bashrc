@@ -102,6 +102,10 @@ fi
 export PNPM_HOME="/Users/stefan.armijo/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
+# bash-completion https://salsa.debian.org/debian/bash-completion
+# test if exists and source file
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
 
 ################################################################################
 #

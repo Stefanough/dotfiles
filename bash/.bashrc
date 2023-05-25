@@ -41,9 +41,28 @@ function set_prompt {
   fi
   PS1+="${PURPLE}: ${COLOR_RESET}"
   PS1+="${COLOR_RESET}$ "
+
+  export PS1
 }
 
-export PROMPT_COMMAND=set_prompt
+# specific to Python venvs
+add_venv_info () {
+    set_prompt
+
+    if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ] ; then
+        _OLD_VIRTUAL_PS1="$PS1"
+        if [ "$(basename \""$VIRTUAL_ENV"\")" = "__" ] ; then
+            PS1="[$(basename \`dirname \""$VIRTUAL_ENV"\"\`)] $PS1"
+
+        elif [ "$VIRTUAL_ENV" != "" ]; then
+            PS1="($(basename \""$VIRTUAL_ENV"\"))$PS1"
+        fi
+    fi
+
+    export PS1
+}
+
+export PROMPT_COMMAND=add_venv_info
 
 
 ################################################################################

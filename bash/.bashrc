@@ -24,7 +24,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-function set_prompt {
+function compose_prompt {
   PS1="${CYAN}\u${COLOR_RESET}"
   PS1+="${LIGHT_MAGENTA}@${COLOR_RESET}"
   PS1+="${CYAN}\h${COLOR_RESET}"
@@ -45,24 +45,27 @@ function set_prompt {
   export PS1
 }
 
-# specific to Python venvs
-add_venv_info () {
-    set_prompt
-
+# Specific to Python venvs. See activate script.
+function add_venv_info {
     if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ] ; then
         _OLD_VIRTUAL_PS1="$PS1"
         if [ "$(basename \""$VIRTUAL_ENV"\")" = "__" ] ; then
             PS1="[$(basename \`dirname \""$VIRTUAL_ENV"\"\`)] $PS1"
 
         elif [ "$VIRTUAL_ENV" != "" ]; then
-            PS1="($(basename \""$VIRTUAL_ENV"\"))$PS1"
+            PS1="($(basename "$VIRTUAL_ENV"))$PS1"
         fi
     fi
 
     export PS1
 }
 
-export PROMPT_COMMAND=add_venv_info
+function set_prompt {
+  compose_prompt
+  add_venv_info
+}
+
+export PROMPT_COMMAND=set_prompt
 
 
 ################################################################################

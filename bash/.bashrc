@@ -95,6 +95,11 @@ if [ -f ~/.gh-completion.bash ]; then
   source ~/.gh-completion.bash
 fi
 
+# NPM bash completion
+if [ -f ~/.npm-completion.bash ]; then
+  source ~/.npm-completion.bash
+fi
+
 # Apollo Rover
 if [ -f ~/.rover/env ]; then
   source ~/.rover/env

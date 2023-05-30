@@ -28,7 +28,7 @@ function compose_prompt {
   PS1="${CYAN}\u${COLOR_RESET}"
   PS1+="${LIGHT_MAGENTA}@${COLOR_RESET}"
   PS1+="${CYAN}\h${COLOR_RESET}"
-  PS1+="${PURPLE}|${COLOR_RESET}"
+  PS1+="${PURPLE}:${COLOR_RESET}"
   PS1+="${CYAN}\w${COLOR_RESET}"
   if is_git_repository; then
     PS1+="${BLACK}(${COLOR_RESET}"
@@ -39,14 +39,13 @@ function compose_prompt {
     fi
     PS1+="${BLACK})${COLOR_RESET}"
   fi
-  PS1+="${PURPLE}: ${COLOR_RESET}"
-  PS1+="${COLOR_RESET}$ "
+  PS1+="${COLOR_RESET} $ "
 
   export PS1
 }
 
 # Specific to Python venvs. See activate script.
-function add_venv_info {
+function venv_prefix {
     if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ] ; then
         _OLD_VIRTUAL_PS1="$PS1"
         if [ "$(basename \""$VIRTUAL_ENV"\")" = "__" ] ; then
@@ -62,7 +61,7 @@ function add_venv_info {
 
 function set_prompt {
   compose_prompt
-  add_venv_info
+  venv_prefix
 }
 
 export PROMPT_COMMAND=set_prompt

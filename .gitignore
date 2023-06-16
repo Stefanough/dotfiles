@@ -7,3 +7,6 @@ vim/.vim/bundle/*
 
 # do not track binary for Vim spellcheck
 *.spl
+
+# do not track tmux plugins
+tmux/.tmux/plugins/*

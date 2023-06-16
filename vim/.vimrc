@@ -194,7 +194,7 @@ endfor
 " insert single space after ".", "?", or "!" when joining lines
 set nojoinspaces
 
-" alias "tabnew" to "tn"
+" alias tabnew to tn
 cnoreabbrev tn tabnew
 
 " Visual command line completion

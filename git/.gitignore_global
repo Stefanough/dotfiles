@@ -15,3 +15,6 @@ tags
 
 # rgignore files
 .rgignore
+
+# Hide stuff in here
+/__DO_NOT_TRACK/

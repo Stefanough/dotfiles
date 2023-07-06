@@ -269,18 +269,18 @@
   //////////////////////////////////////////////////////////////////////////////
   // BEGIN SCM KEYBINDINGS
   //
-  {
-    // Next hunk
-    "key": "] c",
-    "command": "workbench.action.editor.nextChange",
-    "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
-  },
-  {
-    // Prev hunk
-    "key": "[ c",
-    "command": "workbench.action.editor.previousChange",
-    "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
-  },
+  // {
+  //   // Next hunk
+  //   "key": "] c",
+  //   "command": "workbench.action.editor.nextChange",
+  //   "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
+  // },
+  // {
+  //   // Prev hunk
+  //   "key": "[ c",
+  //   "command": "workbench.action.editor.previousChange",
+  //   "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
+  // },
   {
     // Stage hunk
     "key": "\\ s",
@@ -289,6 +289,18 @@
   },
   //
   // END SCM KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN SETTINGS CYCLE KEYBINDINGS
+  //
+  {
+    "key": "\\ r",
+    "command": "settings.cycle.relativeLineNumbers",
+    "when": "editorFocus"
+  },
+  //
+  // END SETTINGS CYCLE KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
   {
     // Zoom out with zoombar extension

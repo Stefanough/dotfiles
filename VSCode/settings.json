@@ -1,4 +1,11 @@
 {
+  "settings.cycle": [{
+    "id": "relativeLineNumbers",
+    "values":[
+      {"editor.lineNumbers": "on"},
+      {"editor.lineNumbers": "relative"}
+    ]
+}],
   "ActiveFileInStatusBar.color": "#00FF00",
   "ActiveFileInStatusBar.fullpath": false,
   "ActiveFileInStatusBar.revealFile": true,
@@ -262,7 +269,7 @@
   "terminal.integrated.shellArgs.osx": [],
   "vim.disableExtension": false,
   "vim.joinspaces": false,
-  "vim.useSystemClipboard": false,
+  "vim.useSystemClipboard": true,
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["p"],

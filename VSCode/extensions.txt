@@ -16,6 +16,7 @@ gnhuy91.theme-oceanicnext-sublime
 golang.go
 GraphQL.vscode-graphql
 GraphQL.vscode-graphql-syntax
+hoovercj.vscode-settings-cycler
 huizhou.githd
 konstantin.plain
 makhan.epoch-converter

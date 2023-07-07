@@ -141,15 +141,41 @@
     "command": "workbench.action.navigateDown"
   },
   {
-    // Move editor to editor group to the right
+    // Move editor to existing editor group to the right
     "key": "ctrl+space shift+l",
     "command": "workbench.action.moveEditorToNextGroup",
     "when": "vim.mode == 'Normal'"
   },
   {
-    // Move editor to editor group to the left
+    // Move editor to existing editor group to the left
     "key": "ctrl+space shift+h",
     "command": "workbench.action.moveEditorToPreviousGroup",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    // Move editor to new editor group to the right
+    "key": "ctrl+space ctrl+l",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+        "workbench.action.newGroupRight",
+        "workbench.action.focusPreviousGroup",
+        "workbench.action.moveEditorToNextGroup"
+      ]
+    },
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    // Move editor to new editor group to the left
+    "key": "ctrl+space ctrl+h",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+        "workbench.action.newGroupLeft",
+        "workbench.action.focusNextGroup",
+        "workbench.action.moveEditorToPreviousGroup"
+      ]
+    },
     "when": "vim.mode == 'Normal'"
   },
   //
@@ -281,12 +307,12 @@
   //   "command": "workbench.action.editor.previousChange",
   //   "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
   // },
-  {
-    // Stage hunk
-    "key": "\\ s",
-    "command": "git.stageSelectedRanges",
-    "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
-  },
+  // {
+  //   // Stage hunk
+  //   "key": "\\ s",
+  //   "command": "git.stageSelectedRanges",
+  //   "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
+  // },
   //
   // END SCM KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
@@ -294,14 +320,20 @@
   //////////////////////////////////////////////////////////////////////////////
   // BEGIN SETTINGS CYCLE KEYBINDINGS
   //
-  {
-    "key": "\\ r",
-    "command": "settings.cycle.relativeLineNumbers",
-    "when": "editorFocus"
-  },
+  // {
+  //   "key": "\\ r",
+  //   "command": "settings.cycle.relativeLineNumbers",
+  //   "when": "vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress && !editorTextFocus"
+  // },
   //
   // END SETTINGS CYCLE KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
+  {
+    // readline style navigation while in Vim Insert mode
+    "key": "ctrl+n",
+    "command": "extension.vim_down",
+    "when": "vim.mode == 'Insert' && !codeActionMenuVisible && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
   {
     // Zoom out with zoombar extension
     "key": "cmd+-",

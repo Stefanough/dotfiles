@@ -1,11 +1,4 @@
 {
-  "settings.cycle": [{
-    "id": "relativeLineNumbers",
-    "values":[
-      {"editor.lineNumbers": "on"},
-      {"editor.lineNumbers": "relative"}
-    ]
-}],
   "ActiveFileInStatusBar.color": "#00FF00",
   "ActiveFileInStatusBar.fullpath": false,
   "ActiveFileInStatusBar.revealFile": true,
@@ -198,7 +191,7 @@
   "editor.insertSpaces": true,
   "editor.largeFileOptimizations": false,
   "editor.lineHeight": 20,
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "on",
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.renderControlCharacters": false,
@@ -268,8 +261,15 @@
   "terminal.integrated.scrollback": 100000,
   "terminal.integrated.shellArgs.osx": [],
   "vim.disableExtension": false,
+  "vim.foldfix": true,
   "vim.joinspaces": false,
   "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["leader", "r"],
+      "commands": [":set relativenumber!"]
+    }
+  ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["p"],

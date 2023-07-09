@@ -296,10 +296,10 @@
   // BEGIN SCM KEYBINDINGS
   //
   // {
-  //   // Next hunk
+  //  // Next hunk
   //   "key": "] c",
-  //   "command": "workbench.action.editor.nextChange",
-  //   "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal'"
+  //   "command": "editor.action.dirtydiff.next",
+  //   "when": "editorTextFocus && vim.mode != 'CommandlineInProgress' && vim.mode == 'Normal' vim.waiting"
   // },
   // {
   //   // Prev hunk

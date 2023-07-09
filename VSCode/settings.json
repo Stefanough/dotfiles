@@ -268,7 +268,27 @@
     {
       "before": ["leader", "r"],
       "commands": [":set relativenumber!"]
-    }
+    },
+    {
+      "before": ["]", "c"],
+      "commands": ["workbench.action.editor.nextChange"]
+    },
+    {
+      "before": ["[", "c"],
+      "commands": ["workbench.action.editor.previousChange"]
+    },
+    // {
+    //   "before": ["leader", "s"],
+    //   "commands": ["git.stageSelectedRanges"]
+    // },
+    // {
+    //   "before": ["]", "c"],
+    //   "commands": ["editor.action.dirtydiff.next"]
+    // },
+    // {
+    //   "before": ["[", "c"],
+    //   "commands": ["editor.action.dirtydiff.previous"]
+    // }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {

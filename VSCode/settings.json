@@ -266,6 +266,14 @@
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    {
+      "before": ["<C-r>"],
+      "commands": ["redo"]
+    },
+    {
       "before": ["leader", "r"],
       "commands": [":set relativenumber!"]
     },
@@ -277,6 +285,10 @@
       "before": ["[", "c"],
       "commands": ["workbench.action.editor.previousChange"]
     },
+    {
+      "before": ["leader", "a"],
+      "commands": ["workbench.action.toggleActivityBarVisibility"]
+    }
     // {
     //   "before": ["leader", "s"],
     //   "commands": ["git.stageSelectedRanges"]

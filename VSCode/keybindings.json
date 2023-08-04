@@ -153,6 +153,18 @@
     "when": "vim.mode == 'Normal'"
   },
   {
+    // Move editor to last existing editor group (left) if in group one
+    "key": "ctrl+space shift+l",
+    "command": "workbench.action.moveEditorToFirstGroup",
+    "when": "activeEditorGroupLast && vim.mode == 'Normal'"
+  },
+  {
+    // Move editor to first existing editor group (right) if in last group
+    "key": "ctrl+space shift+h",
+    "command": "workbench.action.moveEditorToLastGroup",
+    "when": "activeEditorGroupIndex == 1 && vim.mode == 'Normal'"
+  },
+  {
     // Move editor to new editor group to the right
     "key": "ctrl+space ctrl+l",
     "command": "extension.multiCommand.execute",

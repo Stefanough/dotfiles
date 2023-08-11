@@ -1,5 +1,5 @@
 {
-  "ActiveFileInStatusBar.color": "#00FF00",
+  "ActiveFileInStatusBar.color": "#ff00c3",
   "ActiveFileInStatusBar.fullpath": false,
   "ActiveFileInStatusBar.revealFile": true,
   "[html]": {
@@ -264,6 +264,12 @@
   "vim.foldfix": true,
   "vim.joinspaces": false,
   "vim.useSystemClipboard": true,
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-d>"],
+      "commands": ["deleteRight"]
+    }
+  ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["u"],

@@ -284,6 +284,13 @@
       "commands": [":set relativenumber!"]
     },
     {
+      "before": ["leader", "z"],
+      "commands": [
+        "breadcrumbs.toggle",
+        "workbench.action.toggleStatusbarVisibility",
+      ]
+    },
+    {
       "before": ["]", "c"],
       "commands": ["workbench.action.editor.nextChange"]
     },

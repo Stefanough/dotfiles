@@ -3,7 +3,7 @@
     name = Stefan Armijo
     email = stefan.armijo@gmail.com
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
     editor = vim
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -25,4 +25,4 @@
 [color]
     ui = auto
 [init]
-	defaultBranch = master
+    defaultBranch = master

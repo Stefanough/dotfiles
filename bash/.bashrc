@@ -76,6 +76,7 @@ export PROMPT_COMMAND=set_prompt
 # Do these need to be exported?
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/Cellar/libpq/16.1/bin:$PATH"
 # PATH="/opt/homebrew/bin:$PATH"
 
 # fzf
@@ -193,8 +194,6 @@ alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
 # pip = pip3
 alias pip=pip3
 
-thing() { echo "do not leave your computer unlocked, nerd." && \cd "$@" || exit; }
-
 # Git aliases. Move to .gitconfig?
 alias gs='git status -s'
 alias gl='git log --abbrev-commit'
@@ -209,7 +208,6 @@ alias grv='git remote -v'
 alias gsl='git stash list'
 alias gsp='git stash pop'
 alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
-alias cd=thing
 __git_complete gs _git_status
 __git_complete gc _git_checkout
 __git_complete ga _git_add
@@ -240,3 +238,4 @@ if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
       source "${COMPANY_SPECIFIC_SHELL_CONFIG}/${i}"
     done
  fi
+source "/Users/armitage/.rover/env"

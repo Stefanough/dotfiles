@@ -1,0 +1,12 @@
+#!/bin/bash
+
+################################################################################
+# Setup Bash autocompletion for select commands
+################################################################################
+
+NPM_COMPLETION_FILE=".npm-completion.bash"
+
+# NPM
+if which npm &> /dev/null && ! [ -f "$HOME/$NPM_COMPLETION_FILE" ]; then
+  npm completion > "$HOME/$NPM_COMPLETION_FILE"
+fi

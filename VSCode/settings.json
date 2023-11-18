@@ -215,9 +215,10 @@
   "git.ignoreLimitWarning": true,
   "github.copilot.enable": {
     "*": true,
-    "jsonc": false,
-    "markdown": false,
     "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "jsonc": false,
     "yaml": false
   },
   "html.format.indentInnerHtml": true,
@@ -226,6 +227,8 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.validate.enable": false,
   "jest.autoRun": "off",
+  // "jest.shell": "/bin/bash",
+  // "jest.jestCommandLine": "nvm use 18.12.1 && npm test",
   "linesinfostatusbar.selectedDisplayFormat": " (%d)",
   "linesinfostatusbar.statusbarPriority": 500,
   "linesinfostatusbar.totalDisplayFormat": "T: %d",
@@ -261,6 +264,7 @@
   "terminal.integrated.rendererType": "dom",
   "terminal.integrated.scrollback": 100000,
   "terminal.integrated.shellArgs.osx": [],
+  "vim.cursorStylePerMode.visual": "underline",
   "vim.disableExtension": false,
   "vim.foldfix": true,
   "vim.joinspaces": false,
@@ -340,19 +344,6 @@
   },
   "vscode_custom_css.statusbar": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "workbench.colorCustomizations": {
-    "[Charcoal Oceanic Next]": {
-      "editor.background": "#191919",
-      "editorRuler.foreground": "#163824",
-      "sideBar.background": "#191919",
-      "sideBar.border": "#163824",
-      "statusBar.background": "#191919",
-      "statusBar.border": "#163824"
-    },
-    "statusBar.background": "#000000",
-    "statusBar.debuggingBackground": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f"
-  },
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
@@ -366,16 +357,17 @@
   "files.associations": {
     "*.rmd": "markdown"
   },
-  "workbench.colorTheme": "GitHub Dark Default",
   "window.nativeTabs": true,
   "window.titleBarStyle": "native",
-  "window.zoomLevel": -1,
-  "workbench.activityBar.visible": false,
   "go.toolsManagement.autoUpdate": true,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[python]": {
-    "editor.formatOnType": true
-  }
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.activityBar.visible": false,
 }

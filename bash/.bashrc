@@ -76,7 +76,7 @@ export PROMPT_COMMAND=set_prompt
 # Do these need to be exported?
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/Cellar/libpq/16.1/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/libpq/**/bin:$PATH"
 # PATH="/opt/homebrew/bin:$PATH"
 
 # fzf
@@ -104,6 +104,9 @@ fi
 if [ -f ~/.rover/env ]; then
   source ~/.rover/env
 fi
+
+# Elastic Beanstalk CLI
+export PATH="/Users/armitage/.ebcli-virtual-env/executables:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

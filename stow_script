@@ -18,13 +18,13 @@ else
 fi
 
 # This may require a strategy of running stow with "--adopt", then git restoring
-# the "addopted" file to it's state at the most recently committed change.
+# the "adopted" file to it's state at the most recently committed change.
 if [ -d ./VSCode/ ]; then
-  echo "stowing VSCode stuff"
+  echo "stowing VS Code stuff"
   stow \
     --verbose=2 \
     --target="$HOME/Library/Application Support/Code/User" \
     VSCode
 else
-  echo "vscode package not found"
+  echo "VS Code package not found"
 fi

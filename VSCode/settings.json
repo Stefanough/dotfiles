@@ -290,10 +290,7 @@
     },
     {
       "before": ["leader", "z"],
-      "commands": [
-        "breadcrumbs.toggle",
-        "workbench.action.toggleStatusbarVisibility",
-      ]
+      "commands": ["tabs-toggle.cycleBar"]
     },
     {
       "before": ["]", "c"],
@@ -370,4 +367,6 @@
   "security.workspace.trust.untrustedFiles": "open",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Dive Bar",
+  "window.zoomLevel": -1
 }

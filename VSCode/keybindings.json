@@ -330,16 +330,30 @@
   //////////////////////////////////////////////////////////////////////////////
 
   //////////////////////////////////////////////////////////////////////////////
-  // BEGIN SETTINGS CYCLE KEYBINDINGS
+  // BEGIN VIM COMMAND MODE KEYBINDINGS
   //
-  // {
-  //   "key": "\\ r",
-  //   "command": "settings.cycle.relativeLineNumbers",
-  //   "when": "vim.mode != 'Insert' && vim.mode != 'CommandlineInProgress && !editorTextFocus"
-  // },
+  {
+    // navigate cursor right while in command mode
+    "key": "ctrl+f",
+    "command": "extension.vim_right",
+    "when": "vim.mode == 'CommandlineInProgress'"
+  },
+  {
+    // navigate cursor left while in command mode
+    "key": "ctrl+b",
+    "command": "extension.vim_left",
+    "when": "vim.mode == 'CommandlineInProgress'"
+  },
+  {
+    // navigate cursor to beginning of line while in command mode
+    "key": "ctrl+a",
+    "command": "extension.vim_ctrl+b",
+    "when": "vim.mode == 'CommandlineInProgress'"
+  },
   //
-  // END SETTINGS CYCLE KEYBINDINGS
+  // END VIM COMMAND MODE KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
+
   {
     // readline style navigation while in Vim Insert mode
     "key": "ctrl+n",

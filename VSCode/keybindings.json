@@ -273,6 +273,11 @@
     "command": "explorer.newFolder",
     "when": "filesExplorerFocus"
   },
+  {
+    "key": "ctrl+[",
+    "command": "list.closeFind",
+    "when": "listFocus && treeFindOpen"
+  },
   //
   // END FILE EXPLORER KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
@@ -441,7 +446,7 @@
   {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
-    "when": "editorTextFocus && !suggestWidgetVisible && vim.mode == 'Normal' || imagePreviewFocus == true || !activeEditor || activeWebviewPanelId == 'markdown.preview'"
+    "when": "editorTextFocus && !suggestWidgetVisible && vim.mode == 'Normal' || imagePreviewFocus == true || !activeEditor || activeWebviewPanelId == 'markdown.preview' || inExtensionEditor == true"
   },
   {
     "key": "ctrl+[",

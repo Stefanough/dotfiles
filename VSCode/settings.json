@@ -245,6 +245,9 @@
   "rewrap.autoWrap.enabled": true,
   "rewrap.wrappingColumn": 80,
   "ruby.useLanguageServer": true,
+  "shellcheck.ignorePatterns": {
+    "**/*.env.*": true
+  },
   "search.exclude": {
     "**/.next": true,
     "**/site-packages": true

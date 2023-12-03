@@ -28,3 +28,10 @@ if [ -d ./VSCode/ ]; then
 else
   echo "VS Code package not found"
 fi
+
+if [ -d ./kitty/ ]; then
+  echo "stowing kitty stuff"
+  stow --verbose=2 --target="$HOME/.config/kitty" --ignore="themes" kitty
+else
+  echo "kitty package not found"
+fi

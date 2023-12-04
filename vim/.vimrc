@@ -249,7 +249,7 @@ if has("autocmd")
 endif
 
 " change cursor in Alacritty
-if $COLORTERM =~ "truecolor"  " assume we're in Alacritty if this is in env
+if $COLORTERM =~ "truecolor"  " assume we're in Alacritty or kitty if this is in env
   let &t_SI = "\<esc>[6 q" "SI = INSERT mode
   let &t_SR = "\<esc>[4 q" "SR = REPLACE mode
   let &t_EI = "\<esc>[0 q" "EI = NORMAL mode (ELSE)
@@ -523,6 +523,20 @@ func! s:ToggleBreakpoint()
 endf
 
 nnoremap <C-B> :call <SID>ToggleBreakpoint()<CR>
+
+" kitty settings
+if $TERM =~ "xterm-kitty"
+  colorscheme solarized
+  set background=dark
+
+  let g:airline_theme='solarized_flood'
+ 
+  " colors for solarized dark
+  highlight SignColumn ctermbg=8
+  highlight GitGutterAdd ctermfg=34 ctermbg=8
+  highlight GitGutterChange ctermfg=208 ctermbg=8
+  highlight GitGutterDelete ctermfg=red ctermbg=8
+endif
 
 " enable exrc for project specific .vimrc files
 set exrc

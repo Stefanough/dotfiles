@@ -278,6 +278,11 @@
     "command": "list.closeFind",
     "when": "listFocus && treeFindOpen"
   },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.files.action.collapseExplorerFolders",
+    "when": "filesExplorerFocus"
+  },
   //
   // END FILE EXPLORER KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////

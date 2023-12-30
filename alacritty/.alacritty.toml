@@ -1,0 +1,18 @@
+# TERM = "xterm-256color"
+# blink_interval = 750
+import = ["/Users/armitage/dotfiles/alacritty/alacritty-theme/themes/solarized_light.toml"]
+# unfocussed_hollow = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[cursor.style]
+blinking = "Always"
+shape = "block"
+
+[font]
+size = 12.5
+
+[font.normal]
+family = "Iosevka"
+style = "Regular"

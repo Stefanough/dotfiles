@@ -242,3 +242,13 @@ if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
     done
  fi
 source "/Users/armitage/.rover/env"
+
+
+################################################################################
+#
+# mac os adjustments
+#
+################################################################################
+
+# Disable font smoothing for Alacritty
+# defaults write org.alacritty AppleFontSmoothing -int 0

@@ -116,6 +116,9 @@ Plugin 'junegunn/fzf.vim'
 " Markdown preview plugin for Vim
 Plugin 'skanehira/preview-markdown.vim'
 
+" Prisma support for Vim
+Plugin 'prisma/vim-prisma'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -530,7 +533,7 @@ if $TERM =~ "xterm-kitty"
   set background=dark
 
   let g:airline_theme='solarized_flood'
- 
+
   " colors for solarized dark
   highlight SignColumn ctermbg=8
   highlight GitGutterAdd ctermfg=34 ctermbg=8

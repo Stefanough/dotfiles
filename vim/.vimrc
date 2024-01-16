@@ -187,6 +187,10 @@ endif
 "    *************************************************************************
 "      ********************************************************************
 
+" Enable indentation in insert mode
+inoremap <C-T> <C-O>:><CR>
+inoremap <C-R> <C-O>:<<CR>
+
 " Regenerate *.spl binary if does not exist or modified time > *.add modified
 for d in glob('~/.vim/spell/*.add', 1, 1)
     if filereadable(d) && (!filereadable(d . '.spl') || getftime(d) > getftime(d . '.spl'))

@@ -250,5 +250,6 @@ source "/Users/armitage/.rover/env"
 #
 ################################################################################
 
+# TODO: Move to setup script?
 # Disable font smoothing for Alacritty
 # defaults write org.alacritty AppleFontSmoothing -int 0

@@ -186,7 +186,6 @@
   "editor.fontFamily": "'Iosevka SS09', 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback'",
   "editor.fontSize": 14,
   "editor.fontWeight": "normal",
-  "editor.formatOnSaveTimeout": 750,
   "editor.glyphMargin": true,
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
@@ -347,18 +346,9 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-  "workbench.iconTheme": null,
-  "workbench.list.horizontalScrolling": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "yaml.format.enable": true,
-  "zenMode.fullScreen": true,
-  "editor.guides.highlightActiveIndentation": false,
   "files.associations": {
     "*.rmd": "markdown"
   },
-  "window.nativeTabs": true,
-  "window.titleBarStyle": "native",
-  "go.toolsManagement.autoUpdate": true,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -376,7 +366,7 @@
   "window.titleBarStyle": "native",
   "window.zoomLevel": -1.0455173977264463,
   "workbench.activityBar.location": "hidden",
-  "workbench.colorTheme": "Solar Flare",
+  "workbench.colorTheme": "Dive Bar",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.showTabs": "multiple",
   "workbench.iconTheme": null,

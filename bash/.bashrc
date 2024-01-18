@@ -8,11 +8,7 @@
 BLACK="\[\033[30m\]"
 RED="\[\e[00;31m\]"
 GREEN="\[\e[00;32m\]"
-# ORANGE="\[\e[00;33m\]"
-# BLUE="\[\033[34m\]"
-PURPLE="\[\e[00;35m\]"
 CYAN="\[\e[00;36m\]"
-LIGHT_MAGENTA="\[\e[00;96m\]"
 COLOR_RESET="\[\e[0m\]"
 
 
@@ -25,10 +21,7 @@ function parse_git_branch {
 }
 
 function compose_prompt {
-  PS1="${CYAN}\u${COLOR_RESET}"
-  PS1+="${LIGHT_MAGENTA}@${COLOR_RESET}"
-  PS1+="${CYAN}\h${COLOR_RESET}"
-  PS1+="${PURPLE}:${COLOR_RESET}"
+  PS1="${PURPLE}〉${COLOR_RESET}"
   PS1+="${CYAN}\w${COLOR_RESET}"
   if is_git_repository; then
     PS1+="${BLACK}(${COLOR_RESET}"

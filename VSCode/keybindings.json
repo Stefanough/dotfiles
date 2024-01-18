@@ -80,13 +80,13 @@
     // Navigate to next editor in current editor group
     "key": "ctrl+l",
     "command": "workbench.action.nextEditorInGroup",
-    "when": "editorTextFocus && vim.mode == 'Normal'|| activeWebviewPanelId == 'markdown.preview'"
+    "when": "editorTextFocus && vim.mode == 'Normal'|| activeWebviewPanelId == 'markdown.preview' || activeEditor == 'workbench.editor.extension'"
   },
   {
     // Navigate to prev editor in current editor group
     "key": "ctrl+h",
     "command": "workbench.action.previousEditorInGroup",
-    "when": "editorTextFocus && vim.mode == 'Normal' || activeWebviewPanelId == 'markdown.preview'"
+    "when": "editorTextFocus && vim.mode == 'Normal' || activeWebviewPanelId == 'markdown.preview' || activeEditor == 'workbench.editor.extension'"
   },
   //
   // END NAVIGATION BETWEEN EDITORS IN A SINGLE GROUP
@@ -481,7 +481,7 @@
     "args": {
       "snippet": "[${TM_SELECTED_TEXT}]($0)"
     },
-    "when": "editorHasSelection && editorLangId == markdown "
+    "when": "editorHasSelection && editorLangId == markdown"
   },
   {
     // Show editor context menu

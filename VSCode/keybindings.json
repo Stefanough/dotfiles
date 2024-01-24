@@ -279,10 +279,16 @@
     "command": "list.closeFind",
     "when": "listFocus && treeFindOpen"
   },
-  // collapse all directories in explorer
+  // collapse all directories in file explorer view
   {
     "key": "ctrl+z",
-    "command": "workbench.files.action.collapseExplorerFolders",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+        "workbench.files.action.collapseExplorerFolders",
+        "list.focusFirst",
+      ]
+    },
     "when": "filesExplorerFocus"
   },
   //

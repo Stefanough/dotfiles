@@ -183,7 +183,7 @@
   "editor.colorDecorators": false,
   "editor.cursorStyle": "line",
   "editor.detectIndentation": true,
-  "editor.fontFamily": "'Iosevka SS09', 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback'",
+  "editor.fontFamily": "'Iosevka', 'Droid Sans Mono', 'monospace', 'Droid Sans Fallback'",
   "editor.fontSize": 14,
   "editor.fontWeight": "normal",
   "editor.glyphMargin": true,

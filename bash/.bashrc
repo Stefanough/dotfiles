@@ -6,6 +6,7 @@
 
 # Colors based on https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
 BLACK="\[\033[30m\]"
+PURPLE="\[\e[00;35m\]"
 RED="\[\e[00;31m\]"
 GREEN="\[\e[00;32m\]"
 CYAN="\[\e[00;36m\]"

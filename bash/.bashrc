@@ -205,6 +205,7 @@ alias grv='git remote -v'
 alias gsl='git stash list'
 alias gsp='git stash pop'
 alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
+[ -f ~/.fzf.bash ] && alias gcf='git checkout $(git branch --all | fzf)'
 __git_complete gs _git_status
 __git_complete gc _git_checkout
 __git_complete ga _git_add

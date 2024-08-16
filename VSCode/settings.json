@@ -347,7 +347,8 @@
     "*.ipynb": "jupyter.notebook.ipynb"
   },
   "files.associations": {
-    "*.rmd": "markdown"
+    "*.rmd": "markdown",
+    "*.env*": "properties"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"

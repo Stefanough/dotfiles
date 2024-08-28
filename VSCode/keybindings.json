@@ -80,13 +80,13 @@
     // Navigate to next editor in current editor group
     "key": "ctrl+l",
     "command": "workbench.action.nextEditorInGroup",
-    "when": "editorTextFocus && vim.mode == 'Normal'|| activeWebviewPanelId == 'markdown.preview' || activeEditor == 'workbench.editor.extension'"
+    "when": "editorTextFocus && vim.mode == 'Normal'|| activeWebviewPanelId == 'markdown.preview' || activeEditor == 'workbench.editor.extension' || activeEditor == 'workbench.editors.errorEditor'"
   },
   {
     // Navigate to prev editor in current editor group
     "key": "ctrl+h",
     "command": "workbench.action.previousEditorInGroup",
-    "when": "editorTextFocus && vim.mode == 'Normal' || activeWebviewPanelId == 'markdown.preview' || activeEditor == 'workbench.editor.extension'"
+    "when": "editorTextFocus && vim.mode == 'Normal'|| activeWebviewPanelId == 'markdown.preview' || activeEditor == 'workbench.editor.extension' || activeEditor == 'workbench.editors.errorEditor'"
   },
   //
   // END NAVIGATION BETWEEN EDITORS IN A SINGLE GROUP

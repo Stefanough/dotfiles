@@ -372,6 +372,62 @@
   // END VIM COMMAND MODE KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
 
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN TOOLTIP HOVER KEYBINDINGS
+  //
+  {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.showHover",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    "key": "h",
+    "command": "editor.action.scrollLeftHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "j",
+    "command": "editor.action.scrollDownHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "k",
+    "command": "editor.action.scrollUpHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "l",
+    "command": "editor.action.scrollRightHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "extension.vim_escape",
+    "when": "editorHoverFocused"
+  },
+  //
+  // END TOOLTIP HOVER KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN RENAME SYMBOL DIALOG KEYBINDINGS
+  //
+  {
+    // next item in suggestion list
+    "key": "ctrl+n",
+    "command": "focusNextRenameSuggestion",
+    "when": "renameInputVisible"
+  },
+  {
+    // previous item in suggestion list
+    "key": "ctrl+p",
+    "command": "focusPreviousRenameSuggestion",
+    "when": "renameInputVisible"
+  },
+  //
+  // END RENAME SYMBOL DIALOG KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+
   {
     // readline style navigation while in Vim Insert mode
     "key": "ctrl+n",

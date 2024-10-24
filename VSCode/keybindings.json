@@ -410,7 +410,7 @@
   //////////////////////////////////////////////////////////////////////////////
 
   //////////////////////////////////////////////////////////////////////////////
-  // BEGIN RENAME SYMBOL DIALOG KEYBINDINGS
+  // BEGIN RENAME SYMBOL INPUT KEYBINDINGS
   //
   {
     // next item in suggestion list
@@ -424,8 +424,14 @@
     "command": "focusPreviousRenameSuggestion",
     "when": "renameInputVisible"
   },
+  {
+    // exit rename input
+    "key": "ctrl+[",
+    "command": "cancelRenameInput",
+    "when": "renameInputVisible"
+  },
   //
-  // END RENAME SYMBOL DIALOG KEYBINDINGS
+  // END RENAME SYMBOL INPUT KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
 
   {

@@ -434,12 +434,37 @@
   // END RENAME SYMBOL INPUT KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
 
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN READLINE STYLE KEYBINDINGS
+  //
   {
-    // readline style navigation while in Vim Insert mode
+    // readline style navigate up while in Vim Insert mode
+    "key": "ctrl+p",
+    "command": "extension.vim_up",
+    "when": "vim.mode == 'Insert' && !codeActionMenuVisible && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  {
+    // readline style navigate down while in Vim Insert mode
     "key": "ctrl+n",
     "command": "extension.vim_down",
     "when": "vim.mode == 'Insert' && !codeActionMenuVisible && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
   },
+  {
+    // readline - go to end of line while in insert mode
+    "key": "ctrl+e",
+    "command": "cursorLineEnd",
+    "when": "vim.mode == 'Insert'"
+  },
+  {
+    // readline - go to beginning of line while in insert mode
+    "key": "ctrl+a",
+    "command": "cursorLineStart",
+    "when": "vim.mode == 'Insert'"
+  },
+  //
+  // END READLINE STYLE KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+
   {
     // Zoom out with zoombar extension
     "key": "cmd+-",

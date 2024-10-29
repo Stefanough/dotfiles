@@ -377,31 +377,37 @@
   // BEGIN TOOLTIP HOVER KEYBINDINGS
   //
   {
+    // show tooltip for symbol under cursor
     "key": "ctrl+shift+/",
     "command": "editor.action.showHover",
     "when": "vim.mode == 'Normal'"
   },
   {
+    // navigate left inside a tooltip
     "key": "h",
     "command": "editor.action.scrollLeftHover",
     "when": "editorHoverFocused"
   },
   {
+    // navigate left down a tooltip
     "key": "j",
     "command": "editor.action.scrollDownHover",
     "when": "editorHoverFocused"
   },
   {
+    // navigate up down a tooltip
     "key": "k",
     "command": "editor.action.scrollUpHover",
     "when": "editorHoverFocused"
   },
   {
+    // navigate right down a tooltip
     "key": "l",
     "command": "editor.action.scrollRightHover",
     "when": "editorHoverFocused"
   },
   {
+    // close tooltip
     "key": "ctrl+[",
     "command": "extension.vim_escape",
     "when": "editorHoverFocused"
@@ -466,6 +472,9 @@
   // END READLINE STYLE KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
 
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN ZOOMBAR KEYBINDINGS
+  //
   {
     // Zoom out with zoombar extension
     "key": "cmd+-",
@@ -485,16 +494,53 @@
     "when": "vim.mode == 'Normal'"
   },
   {
+    // Reset zoom with zoombar extension
+    "key": "ctrl+cmd+0",
+    "command": "zoombar-vscode.resetZoom"
+  },
+  //
+  // END ZOOMBAR KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  // BEGIN MISCELLANEOUS KEYBINDINGS
+  //
+  {
     // Close the code references sub-editor
     "key": "ctrl+[",
     "command": "closeReferenceSearch",
     "when": "referenceSearchVisible"
   },
   {
+  // Open file finder with ctrl+p in addition to cmd+p
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen",
+    "when": "editorTextFocus && !suggestWidgetVisible && vim.mode == 'Normal' || imagePreviewFocus == true || !activeEditor || activeWebviewPanelId == 'markdown.preview' || inExtensionEditor == true"
+  },
+  {
     "key": "ctrl+t",
     "command": "search.action.openNewEditor",
     "when": "inQuickOpen"
   },
+  {
+    // Insert link at selected text inside markdown files.
+    "key": "ctrl+shift+l",
+    "command": "editor.action.insertSnippet",
+    "args": {
+      "snippet": "[${TM_SELECTED_TEXT}]($0)"
+    },
+    "when": "editorHasSelection && editorLangId == markdown"
+  },
+  {
+    // Show editor context menu
+    "key": "ctrl+c",
+    "command": "editor.action.showContextMenu",
+    "when": "vim.mode == 'Normal' || vim.mode == 'VisualLine' || vim.mode == 'Visual"
+  },
+  //
+  // END MISCELLANEOUS KEYBINDINGS
+  //////////////////////////////////////////////////////////////////////////////
+
   {
     // Accept currently highlighted selection from auto suggest window and
     // append a "." to the end of the accepted selection. Do not trigger this
@@ -543,12 +589,6 @@
     },
     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == typescriptreact"
   },
-  // Open file finder with ctrl+p in addition to cmd+p
-  {
-    "key": "ctrl+p",
-    "command": "workbench.action.quickOpen",
-    "when": "editorTextFocus && !suggestWidgetVisible && vim.mode == 'Normal' || imagePreviewFocus == true || !activeEditor || activeWebviewPanelId == 'markdown.preview' || inExtensionEditor == true"
-  },
   {
     "key": "ctrl+[",
     "command": "workbench.action.closeQuickOpen",
@@ -563,24 +603,5 @@
     "key": "ctrl+shift+l",
     "command": "editor.action.openLink",
     "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+cmd+0",
-    "command": "zoombar-vscode.resetZoom"
-  },
-  {
-    // Insert link at selected text inside markdown files.
-    "key": "ctrl+shift+l",
-    "command": "editor.action.insertSnippet",
-    "args": {
-      "snippet": "[${TM_SELECTED_TEXT}]($0)"
-    },
-    "when": "editorHasSelection && editorLangId == markdown"
-  },
-  {
-    // Show editor context menu
-    "key": "ctrl+c",
-    "command": "editor.action.showContextMenu",
-    "when": "vim.mode == 'Normal' || vim.mode == 'VisualLine' || vim.mode == 'Visual"
   }
 ]

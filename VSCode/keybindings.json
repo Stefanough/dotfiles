@@ -98,7 +98,8 @@
   {
     // Navigate to editor group right of the current editor group. Will cycle
     "key": "ctrl+space l",
-    "command": "workbench.action.focusNextGroup"
+    "command": "workbench.action.focusNextGroup",
+    "when": "vim.mode == 'Normal'"
   },
   {
     // Navigate to editor group left of the current editor group. Will cycle
@@ -580,18 +581,6 @@
     // Show editor context menu
     "key": "ctrl+c",
     "command": "editor.action.showContextMenu",
-    "when": "vim.mode == 'Normal'"
-  },
-  {
-    // Go to end of line while in insert mode
-    "key": "ctrl+e",
-    "command": "cursorLineEnd",
-    "when": "vim.mode == 'Insert'"
-  },
-  {
-    // Go to beginning of line while in insert mode
-    "key": "ctrl+a",
-    "command": "cursorLineStart",
-    "when": "vim.mode == 'Insert'"
+    "when": "vim.mode == 'Normal' || vim.mode == 'VisualLine' || vim.mode == 'Visual"
   }
 ]

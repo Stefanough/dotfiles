@@ -210,15 +210,21 @@ alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
 # previous 40 checked out branches in desc order from most recently checked out
 gcr() {
   if is_git_repository; then
-    selected_branch=$(git reflog \
-      | grep -E 'checkout: moving from .+ to' \
-      | awk '{print $NF}' \
-      | awk '!seen[$0]++' \
-      | head -n 40 \
-      | fzf --height=42 --reverse \
+    selected_line=$(
+      git reflog --date=local |
+      grep -E 'checkout: moving from .+ to' |
+      sed 's/.*HEAD@{\([^}]*\)}: checkout: moving from .* to \(.*\)/\x1b[38;5;208m\2\x1b[0m [\1]/' |
+      awk '!seen[$1]++' |
+      head -n 40 |
+      fzf --height=42 --reverse --ansi
     )
-      history -s "git checkout $selected_branch"
-      git checkout "$selected_branch"
+
+    # The selected_line now looks like: "master [Sat Jan 1 00:00:00 2000]"
+    # Extract the branch name (the first field).
+    selected_branch=$(echo "$selected_line" | awk '{print $1}' | sed 's/\x1b\[[0-9;]*m//g')
+
+    history -s "git checkout $selected_branch"
+    git checkout "$selected_branch"
   else
     echo 'no gitty git git'
   fi

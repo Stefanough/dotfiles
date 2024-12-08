@@ -207,17 +207,18 @@ alias gsp='git stash pop'
 alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
 [ -f ~/.fzf.bash ] && alias gcf='git checkout $(git branch --all | fzf)'
 
-# previous 40 checked out branches and in descending order from most recently
-# checked out
+# previous 40 checked out branches in desc order from most recently checked out
 gcr() {
   if is_git_repository; then
-    git reflog \
+    selected_branch=$(git reflog \
       | grep -E 'checkout: moving from .+ to' \
       | awk '{print $NF}' \
       | awk '!seen[$0]++' \
       | head -n 40 \
       | fzf --height=42 --reverse \
-      | xargs git checkout
+    )
+      history -s "git checkout $selected_branch"
+      git checkout "$selected_branch"
   else
     echo 'no gitty git git'
   fi

@@ -259,6 +259,10 @@ gcr() {
       fzf --height=42 --reverse --ansi
     )
 
+    if [ -z "$selected_line" ]; then
+      return 1
+    fi
+
     # Extract just the branch name (first field) from the selected line
     # Remove ANSI escape sequences before extracting
     selected_branch=$(echo "$selected_line" | sed 's/\x1b\[[0-9;]*m//g' | awk '{print $1}')

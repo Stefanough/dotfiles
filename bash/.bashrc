@@ -210,18 +210,58 @@ alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
 # previous 40 checked out branches in desc order from most recently checked out
 gcr() {
   if is_git_repository; then
+    # Get the terminal width
+    term_width=$(tput cols)
+
     selected_line=$(
       git reflog --date=format-local:'%a %b %d %X %Y' |
       grep -E 'checkout: moving from .+ to' |
-      sed 's/.*HEAD@{\([^}]*\)}: checkout: moving from .* to \(.*\)/\x1b[38;5;208m\2\x1b[0m [\1]/' |
+      sed 's/.*HEAD@{\([^}]*\)}: checkout: moving from .* to \(.*\)/\2 [\1]/' |
+      awk -v w="$term_width" '
+        BEGIN {
+          # Color codes
+          branch_color = "\x1b[38;5;208m" # Orange-like color
+          reset_color  = "\x1b[0m"
+        }
+        # For each line: "branch_name [date]"
+        {
+          line=$0
+          # Find the index of " [" which leads to the date segment
+          idx = index(line, " [")
+          branch_col = substr(line, 1, idx-1)
+          date_part  = substr(line, idx+1)  # includes the leading space before '['
+
+          # Strip ANSI from branch_col for length calculation (there are none
+          # yet, but safe practice)
+          gsub(/\x1b\[[0-9;]*m/, "", branch_col)
+          gsub(/\x1b\[[0-9;]*m/, "", date_part)
+
+          blen = length(branch_col)
+          dlen = length(date_part)
+
+          # Calculate how many spaces we need so that date aligns to the right
+          # We want:
+          # branch + spaces + date
+          # and total length ~ term_width (or slightly less to not wrap)
+          spaces = w - blen - dlen - 4
+          if (spaces < 1) {
+            spaces = 1
+          }
+
+          # Print branch in color, then spaces, then date, reset color at end
+          # The branch part gets color, the date remains default color (or could
+          # also have color if you prefer).
+          printf("%s%s%s%*s%s%s\n", branch_color, branch_col, reset_color, spaces, "", date_part, reset_color)
+        }
+      ' |
       awk '!seen[$1]++' |
       head -n 40 |
       fzf --height=42 --reverse --ansi
     )
 
-    # The selected_line now looks like: "master [Sat Jan 1 00:00:00 2000]"
-    # Extract the branch name (the first field).
-    selected_branch=$(echo "$selected_line" | awk '{print $1}' | sed 's/\x1b\[[0-9;]*m//g')
+    # Extract just the branch name (first field) from the selected line
+    # Remove ANSI escape sequences before extracting
+    selected_branch=$(echo "$selected_line" | sed 's/\x1b\[[0-9;]*m//g' | awk '{print $1}')
 
     history -s "git checkout $selected_branch"
     git checkout "$selected_branch"

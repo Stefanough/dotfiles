@@ -211,7 +211,7 @@ alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
 gcr() {
   if is_git_repository; then
     selected_line=$(
-      git reflog --date=local |
+      git reflog --date=format-local:'%a %b %d %X %Y' |
       grep -E 'checkout: moving from .+ to' |
       sed 's/.*HEAD@{\([^}]*\)}: checkout: moving from .* to \(.*\)/\x1b[38;5;208m\2\x1b[0m [\1]/' |
       awk '!seen[$1]++' |

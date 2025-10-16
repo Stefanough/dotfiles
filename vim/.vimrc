@@ -316,6 +316,10 @@ imap <expr> <Tab> ((pumvisible())?("\<C-y>"):("<Tab>"))
 " delete next character in insert mode (delete forward)
 inoremap <C-d> <Del>
 
+" navigate characters in insert mode using readline binding
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+
 " set something something register to copy to system clipboard
 set clipboard=unnamed
 

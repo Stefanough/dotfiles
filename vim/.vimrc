@@ -119,6 +119,9 @@ Plugin 'skanehira/preview-markdown.vim'
 " Prisma support for Vim
 Plugin 'prisma/vim-prisma'
 
+" Polar Plugin for Oso policies
+Plugin 'osohq/polar.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

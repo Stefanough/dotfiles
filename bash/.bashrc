@@ -1,7 +1,9 @@
 #!/bin/bash
 
 ################################################################################
+#
 # Format Bash prompt
+#
 ################################################################################
 
 # Colors based on https://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
@@ -62,7 +64,9 @@ export PROMPT_COMMAND=set_prompt
 
 
 ################################################################################
+#
 # Integrations
+#
 ################################################################################
 
 # brew installations
@@ -97,6 +101,11 @@ fi
 # Apollo Rover
 if [ -f ~/.rover/env ]; then
   source ~/.rover/env
+fi
+
+# ngrok
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
 fi
 
 # Elastic Beanstalk CLI

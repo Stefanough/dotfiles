@@ -230,6 +230,16 @@
     "command": "workbench.action.decreaseViewSize",
     "when": "sideBarFocus"
   },
+  {
+    // Decrease size of the focused pane/sidebar:
+    "key": "alt+cmd+h",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    // Increase size of the focused pane/sidebar:
+    "key": "alt+cmd+l",
+    "command": "workbench.action.increaseViewSize"
+  },
   //
   // END EDITOR GROUP SIZE KEYBINDINGS
   //////////////////////////////////////////////////////////////////////////////
@@ -536,6 +546,18 @@
     "key": "ctrl+c",
     "command": "editor.action.showContextMenu",
     "when": "vim.mode == 'Normal' || vim.mode == 'VisualLine' || vim.mode == 'Visual"
+  },
+  {
+    // toggle fold
+    "key": "ctrl+g",
+    "command": "editor.toggleFold",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    // search open editors?
+    "key": "shift+cmd+k",
+    "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
+    "when": "!inQuickOpen"
   },
   //
   // END MISCELLANEOUS KEYBINDINGS

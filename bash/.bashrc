@@ -78,7 +78,7 @@ export PATH="/opt/homebrew/Cellar/libpq/**/bin:$PATH"
 # PATH="/opt/homebrew/bin:$PATH"
 
 # fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(fzf --bash)"
 
 # bat
 export BAT_THEME="Solarized (light)"
@@ -114,11 +114,9 @@ export PATH="/Users/armitage/.ebcli-virtual-env/executables:$PATH"
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # This loads nvm
-# shellcheck disable=SC1091
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # This loads nvm bash_completion
-# shellcheck disable=SC1091
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # bash completions installed with homebrew
@@ -136,8 +134,10 @@ export PNPM_HOME="/Users/stefan.armijo/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
 # bash-completion https://salsa.debian.org/debian/bash-completion
-# test if exists and source file
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+# requires bash 4.4+ for -o nosort
+if [[ ${BASH_VERSINFO[0]} -gt 4 ]] || [[ ${BASH_VERSINFO[0]} -eq 4 && ${BASH_VERSINFO[1]} -ge 4 ]]; then
+  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+fi
 
 
 ################################################################################
@@ -146,14 +146,13 @@ export PATH="$PNPM_HOME:$PATH"
 #
 ################################################################################
 
-# pass clipboard to jq
-alias pjq='pbpaste | jq'
+### ls
 
 # show trailing slash on directories
 alias ls='ls -F'
 
-# show globaly installed npm packages
-alias npmglobal='npm list -g --depth 0'
+
+### mkdir
 
 # create a directory and enter
 mkcd() { mkdir -p "$1"; cd "$1" || return; }
@@ -163,6 +162,47 @@ mktouch() {
   # split arg into an array. Flags; -r read raw input, -a read to array.
   IFS='/' read -r -a PATH_ARRAY <<< "$1"
   DIR_PATH="."
+
+
+### jq
+
+# pass clipboard to jq
+alias pjq='pbpaste | jq'
+
+# directory list as JSON
+alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
+
+
+### npm
+
+# show globaly installed npm packages
+slias npmglobal='npm list -g --depth 0'
+
+
+### pip
+
+# pip = pip3
+alias pip=pip3
+
+### Git
+
+# Git aliases. Move to .gitconfig?
+alias ga='git add'
+alias gan='git commit --amend --no-edit'
+alias gb='git branch'
+alias gc-='git checkout -'
+alias gcb='git checkout -b'
+alias gcm='git commit -m'
+alias gl='git log --abbrev-commit'
+alias glo='git log --oneline'
+alias grv='git remote -v'
+alias gs='git status -s'
+alias gsl='git stash list --format="%gd: %cd - %s"'
+alias gsp='git stash pop'
+
+__git_complete gs _git_status
+__git_complete gc _git_checkout
+__git_complete ga _git_add
 
   # Iter except last ele of PATH_ARRAY. Join with '/'. Last ele is file name.
   # ((...)) notation allows for arithmetic.

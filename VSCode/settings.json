@@ -308,6 +308,10 @@
     {
       "before": ["leader", "a"],
       "commands": ["workbench.action.toggleActivityBarVisibility"]
+    },
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"] // or editor.action.goToDeclaration
     }
     // {
     //   "before": ["leader", "s"],
@@ -381,7 +385,7 @@
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
   "workbench.colorTheme": "Spacemacs - dark",
-  "workbench.activityBar.location": "hidden",
+  "workbench.editor.revealIfOpen": true,
   "window.customTitleBarVisibility": "never",
   "prisma.showPrismaDataPlatformNotification": false,
   "github.copilot.editor.enableAutoCompletions": true,
@@ -402,5 +406,6 @@
   },
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
-  }
+  },
+  "typescript.experimental.useTsgo": true
 }

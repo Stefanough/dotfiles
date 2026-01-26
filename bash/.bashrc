@@ -139,7 +139,6 @@ if [[ ${BASH_VERSINFO[0]} -gt 4 ]] || [[ ${BASH_VERSINFO[0]} -eq 4 && ${BASH_VER
   [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 fi
 
-
 ################################################################################
 #
 # Aliases
@@ -186,6 +185,9 @@ alias pip=pip3
 
 ### Git
 
+# all branches in fzf
+[ -f ~/.fzf.bash ] && alias gcf='git checkout $(git branch --all | fzf)'
+
 # Git aliases. Move to .gitconfig?
 alias ga='git add'
 alias gan='git commit --amend --no-edit'
@@ -220,41 +222,6 @@ __git_complete ga _git_add
   # # touch file with name of last element of PATH_ARRAY
   touch "$DIR_PATH/$FILE_NAME"
 }
-
-# create a new file and parent directories if they don't exist
-# check for directory in pwd
-# mktouch() {
-#   THING=()
-#   IFS=/ read -ra ADDR <<< "$IN"
-#   for i in "${ADDR[@]}"; do
-#     THING+=(i)
-#   done
-#   # IN="$1"
-#   # arrINPUT=("${IN//;/ }")
-#   echo "$THING"
-# }
-
-alias pgup='pg_ctl -D /usr/local/var/postgres start'
-alias pgdown='pg_ctl -D /usr/local/var/postgres stop'
-
-# pip = pip3
-alias pip=pip3
-
-# Git aliases. Move to .gitconfig?
-alias gs='git status -s'
-alias gl='git log --abbrev-commit'
-alias glo='git log --oneline'
-# alias gc='git checkout'
-alias gcm='git commit -m'
-alias gan='git commit --amend --no-edit'
-alias ga='git add'
-alias gb='git branch'
-alias gcb='git checkout -b'
-alias grv='git remote -v'
-alias gsl='git stash list'
-alias gsp='git stash pop'
-alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
-[ -f ~/.fzf.bash ] && alias gcf='git checkout $(git branch --all | fzf)'
 
 # previous 40 checked out branches in desc order from most recently checked out
 gcr() {
@@ -292,6 +259,7 @@ gcr() {
           # We want:
           # branch + spaces + date
           # and total length ~ term_width (or slightly less to not wrap)
+          # Not sure why I need to subtract 4 here:
           spaces = w - blen - dlen - 4
           if (spaces < 1) {
             spaces = 1
@@ -323,9 +291,16 @@ gcr() {
   fi
 }
 
-__git_complete gs _git_status
-__git_complete gc _git_checkout
-__git_complete ga _git_add
+
+
+################################################################################
+#
+# secrets
+#
+################################################################################
+
+# Load secrets (API keys, tokens, etc.)
+[ -f ~/.secrets ] && source ~/.secrets
 
 
 ################################################################################

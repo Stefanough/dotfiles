@@ -191,7 +191,7 @@ alias lsjq='ls -A | jq -R "[.]" | jq -s "add"'
 ### npm
 
 # show globaly installed npm packages
-slias npmglobal='npm list -g --depth 0'
+alias npmglobal='npm list -g --depth 0'
 
 
 ### pip

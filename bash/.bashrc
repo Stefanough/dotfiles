@@ -161,6 +161,22 @@ mktouch() {
   # split arg into an array. Flags; -r read raw input, -a read to array.
   IFS='/' read -r -a PATH_ARRAY <<< "$1"
   DIR_PATH="."
+  # Iter except last ele of PATH_ARRAY. Join with '/'. Last ele is file name.
+  # ((...)) notation allows for arithmetic.
+  for part in "${PATH_ARRAY[@]}"; do
+    if [ "$part" == "${PATH_ARRAY[(("${#PATH_ARRAY[@]}" - 1))]}" ]; then
+      FILE_NAME="$part"
+    else
+      DIR_PATH="$DIR_PATH/$part"
+    fi
+  done
+
+  # # create directory from joined string
+  mkdir -p "$DIR_PATH";
+
+  # # touch file with name of last element of PATH_ARRAY
+  touch "$DIR_PATH/$FILE_NAME"
+}
 
 
 ### jq
@@ -206,22 +222,70 @@ __git_complete gs _git_status
 __git_complete gc _git_checkout
 __git_complete ga _git_add
 
-  # Iter except last ele of PATH_ARRAY. Join with '/'. Last ele is file name.
-  # ((...)) notation allows for arithmetic.
-  for part in "${PATH_ARRAY[@]}"; do
-    if [ "$part" == "${PATH_ARRAY[(("${#PATH_ARRAY[@]}" - 1))]}" ]; then
-      FILE_NAME="$part"
-    else
-      DIR_PATH="$DIR_PATH/$part"
-    fi
-  done
 
-  # # create directory from joined string
-  mkdir -p "$DIR_PATH";
+################################################################################
+#
+# secrets
+#
+################################################################################
 
-  # # touch file with name of last element of PATH_ARRAY
-  touch "$DIR_PATH/$FILE_NAME"
-}
+# Load secrets (API keys, tokens, etc.)
+[ -f ~/.secrets ] && source ~/.secrets
+
+
+################################################################################
+#
+# Exports
+#
+################################################################################
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# ???
+# export PROMPT_COMMAND="history -a; history -n"
+
+################################################################################
+#
+# Company Specific Config sourced from ~/companySpecificShellConfig
+#
+################################################################################
+
+COMPANY_SPECIFIC_SHELL_CONFIG="$HOME/companySpecificShellConfig"
+
+if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
+    company_config_files=$(ls "${COMPANY_SPECIFIC_SHELL_CONFIG}")
+
+    # Does not work for hidden (dot) files.
+    for i in $company_config_files; do
+      source "${COMPANY_SPECIFIC_SHELL_CONFIG}/${i}"
+    done
+ fi
+
+################################################################################
+#
+# mac os adjustments
+#
+################################################################################
+
+# TODO: Move to setup script?
+# Disable font smoothing for Alacritty
+# defaults write org.alacritty AppleFontSmoothing -int 0
+
+# export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+# export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Continuous-Claude OPC directory (for skills to find scripts)
+export CLAUDE_OPC_DIR="/Users/armitage/Source/Continuous-Claude-v3/opc"
+
+
+################################################################################
+#
+# utilities
+#
+################################################################################
 
 # previous 40 checked out branches in desc order from most recently checked out
 gcr() {
@@ -290,53 +354,3 @@ gcr() {
     echo 'no gitty git git'
   fi
 }
-
-
-
-################################################################################
-#
-# secrets
-#
-################################################################################
-
-# Load secrets (API keys, tokens, etc.)
-[ -f ~/.secrets ] && source ~/.secrets
-
-
-################################################################################
-#
-# Exports
-#
-################################################################################
-
-export PATH="/usr/local/sbin:$PATH"
-
-
-################################################################################
-#
-# Company Specific Config sourced from ~/companySpecificShellConfig
-#
-################################################################################
-
-COMPANY_SPECIFIC_SHELL_CONFIG="$HOME/companySpecificShellConfig"
-
-if [ -d "${COMPANY_SPECIFIC_SHELL_CONFIG}" ]; then
-    company_config_files=$(ls "${COMPANY_SPECIFIC_SHELL_CONFIG}")
-
-    # Does not work for hidden (dot) files.
-    for i in $company_config_files; do
-      source "${COMPANY_SPECIFIC_SHELL_CONFIG}/${i}"
-    done
- fi
-source "/Users/armitage/.rover/env"
-
-
-################################################################################
-#
-# mac os adjustments
-#
-################################################################################
-
-# TODO: Move to setup script?
-# Disable font smoothing for Alacritty
-# defaults write org.alacritty AppleFontSmoothing -int 0

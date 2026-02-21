@@ -34,31 +34,47 @@ if git -c advice.detachedHead=false -c core.fileMode=false branch > /dev/null 2>
 fi
 
 # Add context usage information
-total_input=$(echo "$input" | jq -r '.context_window.total_input_tokens // empty')
-total_output=$(echo "$input" | jq -r '.context_window.total_output_tokens // empty')
+context_size=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 
-if [ -n "$total_input" ] && [ -n "$total_output" ]; then
-  total_tokens=$((total_input + total_output))
-  # Format tokens with comma separators for readability
-  formatted_tokens=$(printf "%'d" $total_tokens 2>/dev/null || echo $total_tokens)
+if [ -n "$context_size" ] && [ -n "$used_pct" ]; then
+  # Calculate used tokens from percentage and context size
+  used_tokens=$(( context_size * used_pct / 100 ))
 
-  output+=" ${BLACK}[${RESET}"
-  output+="${YELLOW}${formatted_tokens} tokens${RESET}"
-
-  if [ -n "$used_pct" ]; then
-    # Color code based on usage percentage
-    pct_int=${used_pct%.*}
-    if [ "$pct_int" -ge 80 ]; then
-      pct_color=$RED
-    elif [ "$pct_int" -ge 60 ]; then
-      pct_color=$YELLOW
+  # Format with k/M suffix for readability
+  format_tokens() {
+    local n=$1
+    if [ "$n" -ge 1000000 ]; then
+      local m=$(( n / 1000000 ))
+      local remainder=$(( (n % 1000000) / 100000 ))
+      if [ "$remainder" -gt 0 ]; then
+        printf '%d.%dM' "$m" "$remainder"
+      else
+        printf '%dM' "$m"
+      fi
+    elif [ "$n" -ge 1000 ]; then
+      printf '%dk' "$(( n / 1000 ))"
     else
-      pct_color=$GREEN
+      printf '%d' "$n"
     fi
-    output+=" ${BLACK}|${RESET} ${pct_color}${used_pct}%${RESET}"
+  }
+
+  formatted_used=$(format_tokens "$used_tokens")
+  formatted_size=$(format_tokens "$context_size")
+
+  # Color code based on usage percentage
+  pct_int=${used_pct%.*}
+  if [ "$pct_int" -ge 80 ]; then
+    pct_color=$RED
+  elif [ "$pct_int" -ge 60 ]; then
+    pct_color=$YELLOW
+  else
+    pct_color=$GREEN
   fi
 
+  output+=" ${BLACK}[${RESET}"
+  output+="${pct_color}${formatted_used}${BLACK}/${RESET}${formatted_size}"
+  output+=" ${BLACK}|${RESET} ${pct_color}${used_pct}%${RESET}"
   output+="${BLACK}]${RESET}"
 fi
 

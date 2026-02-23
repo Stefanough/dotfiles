@@ -16,7 +16,7 @@ YELLOW=$(printf '\033[00;33m')
 BLACK=$(printf '\033[30m')
 RESET=$(printf '\033[0m')
 
-output="${PURPLE}〉${RESET}"
+output="${PURPLE}🞻 ${RESET}"
 output+="${CYAN}${cwd}${RESET}"
 
 if git -c advice.detachedHead=false -c core.fileMode=false branch > /dev/null 2>&1; then

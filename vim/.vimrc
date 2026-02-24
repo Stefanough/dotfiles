@@ -349,6 +349,13 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost   * set norelativenumber
 augroup END
 
+" Match tmux inactive pane background (colour7) on focus loss
+augroup tmux_focus_bg
+  autocmd!
+  autocmd FocusLost  * highlight Normal ctermbg=7
+  autocmd FocusGained * highlight Normal ctermbg=15
+augroup END
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")

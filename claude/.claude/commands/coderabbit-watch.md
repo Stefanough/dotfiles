@@ -1,4 +1,4 @@
-Watch for CodeRabbit reviews on the current branch's PR and address them automatically in a background agent.
+Watch for CodeRabbit and Cursor reviews on the current branch's PR and address them automatically in a background agent.
 
 ## Foreground Setup
 
@@ -17,7 +17,7 @@ Before launching the background agent, detect the context:
    - `subagent_type: "general-purpose"`
    - The prompt should be the **entire Background Agent Prompt section below**, with BRANCH, PR_NUMBER, PR_URL, OWNER, and REPO substituted in.
 6. Tell the user:
-   > CodeRabbit watcher launched for PR #PR_NUMBER (PR_URL).
+   > Review watcher launched for PR #PR_NUMBER (PR_URL).
    > Summary will be written to `/tmp/coderabbit-watch-PR_NUMBER.md` when complete.
    > You'll get a notification when it finishes.
 
@@ -31,7 +31,16 @@ Before launching the background agent, detect the context:
 
 ---
 
-You are a background agent watching PR #PR_NUMBER on OWNER/REPO for CodeRabbit reviews. Your job is to poll for reviews, address feedback, and exit when CodeRabbit approves or safety caps are hit.
+You are a background agent watching PR #PR_NUMBER on OWNER/REPO for CodeRabbit and Cursor reviews. Your job is to poll for reviews, address feedback from all reviewers, and exit when CodeRabbit approves or safety caps are hit.
+
+### Reviewer Identification
+
+When processing comments, identify the author of each comment:
+- **CodeRabbit**: author login is `coderabbitai[bot]` — replies MUST include `@coderabbitai`
+- **Cursor**: author login contains `cursor` — replies do NOT need `@` tagging but MUST be equally thorough and well-reasoned
+- **Other reviewers**: address normally, tag with `@username` as a courtesy
+
+Treat all reviewers' feedback with equal weight and consideration. Do not dismiss or shortcut Cursor feedback just because it lacks a tagging mechanism.
 
 ### Setup
 
@@ -54,18 +63,20 @@ Repeat the following until an exit condition is met:
 
 #### Step 2: Fetch PR state
 
-Run these three commands to gather state:
+Run these commands to gather state:
 
 ```bash
 # Get reviews — check for approval
 gh api repos/OWNER/REPO/pulls/PR_NUMBER/reviews --jq '[.[] | select(.user.login == "coderabbitai[bot]")]'
 
-# Get review comments — check for unresolved feedback
-gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments --jq '[.[] | select(.user.login == "coderabbitai[bot]")]'
+# Get review comments — check for unresolved feedback from all reviewers
+gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments
 
 # Get issue comments — check for rate limit messages and general coderabbit comments
 gh api repos/OWNER/REPO/issues/PR_NUMBER/comments --jq '[.[] | select(.user.login == "coderabbitai[bot]")]'
 ```
+
+Note: Review comments are fetched unfiltered so you can identify feedback from CodeRabbit, Cursor, and other reviewers.
 
 #### Step 3: Classify state and act
 
@@ -83,7 +94,7 @@ gh api repos/OWNER/REPO/issues/PR_NUMBER/comments -f body="@coderabbit review"
 ```
 → Continue loop. This does NOT count toward `review_cycles`.
 
-**HAS_UNRESOLVED_COMMENTS** — There are review comments from `coderabbitai[bot]` whose IDs are NOT in `processed_comment_ids`
+**HAS_UNRESOLVED_COMMENTS** — There are review comments from any reviewer (CodeRabbit, Cursor, or others) whose IDs are NOT in `processed_comment_ids`
 → Address comments (see Addressing Comments section below).
 → Increment `review_cycles`.
 → Sleep 90 seconds, then continue loop.
@@ -91,30 +102,40 @@ gh api repos/OWNER/REPO/issues/PR_NUMBER/comments -f body="@coderabbit review"
 **PENDING_REVIEW** — There are coderabbit issue comments posted within the last 3 minutes (suggesting a review is in progress), but no new review comments to address
 → Sleep 60 seconds, then continue loop.
 
-**NO_REVIEW_YET** — No comments from `coderabbitai[bot]` at all
+**NO_REVIEW_YET** — No comments from any reviewer at all
 → Sleep 90 seconds, then continue loop.
 
 ### Addressing Comments
 
 When you have unresolved review comments to address:
 
-1. Collect all review comments from `coderabbitai[bot]` whose IDs are NOT in `processed_comment_ids`.
+1. Collect all review comments whose IDs are NOT in `processed_comment_ids`. Group them by reviewer.
 
 2. For each comment:
    a. Read the comment carefully and understand what is being asked.
-   b. Read the relevant code files to understand the full context.
-   c. **Critically evaluate** whether the feedback is valid and good. Do NOT blindly apply suggestions. Consider:
+   b. Identify the reviewer (CodeRabbit, Cursor, or other) to determine the reply protocol.
+   c. Read the relevant code files to understand the full context.
+   d. **Critically evaluate** whether the feedback is valid and good. Do NOT blindly apply suggestions. Consider:
       - Is the suggestion actually correct?
       - Does it improve the code?
       - Does it align with the codebase patterns and conventions?
       - Is it a meaningful issue or just stylistic nitpicking?
 
-   d. **If the feedback is valid**: make the fix and create a commit with a descriptive message. One commit per fix.
+   e. **If the feedback is valid**: make the fix and create a commit with a descriptive message. One commit per fix.
 
-   e. **If the feedback is NOT valid**: reply inline explaining why. You MUST tag `@coderabbitai` in every reply:
-      ```bash
-      gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments/COMMENT_ID/replies -f body="@coderabbitai - [your explanation of why this feedback was not applied]"
-      ```
+   f. **If the feedback is NOT valid**: reply inline explaining why, using the appropriate protocol:
+      - **For CodeRabbit comments** — MUST tag `@coderabbitai`:
+        ```bash
+        gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments/COMMENT_ID/replies -f body="@coderabbitai - [your explanation of why this feedback was not applied]"
+        ```
+      - **For Cursor comments** — no tag needed:
+        ```bash
+        gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments/COMMENT_ID/replies -f body="[your explanation of why this feedback was not applied]"
+        ```
+      - **For other reviewers** — tag with `@username`:
+        ```bash
+        gh api repos/OWNER/REPO/pulls/PR_NUMBER/comments/COMMENT_ID/replies -f body="@USERNAME - [your explanation of why this feedback was not applied]"
+        ```
 
 3. Add ALL processed comment IDs to `processed_comment_ids` (both fixed and rejected).
 
@@ -125,7 +146,7 @@ When you have unresolved review comments to address:
    git push origin BRANCH
    ```
 
-6. Record what you did for the summary (commit hashes, descriptions, rejections with reasons).
+6. Record what you did for the summary (commit hashes, descriptions, rejections with reasons, and which reviewer each item came from).
 
 ### Exit and Summary
 
@@ -134,7 +155,7 @@ On EVERY exit path (SUCCESS, MAX_CYCLES, TIMEOUT), write a summary file to `/tmp
 The summary must contain:
 
 ```
-# CodeRabbit Watch Summary
+# Review Watch Summary
 
 **PR:** PR_URL
 **Branch:** BRANCH
@@ -145,10 +166,10 @@ The summary must contain:
 ## Cycle 1
 
 ### Fixed
-- [commit hash] description of what was fixed
+- [commit hash] description of what was fixed (reviewer: CodeRabbit/Cursor/other)
 
 ### Rejected
-- Comment [ID]: reason the feedback was not applied
+- Comment [ID] (reviewer: CodeRabbit/Cursor/other): reason the feedback was not applied
 
 ## Cycle 2
 ...
@@ -161,7 +182,8 @@ If there were zero review cycles (e.g., CodeRabbit approved on the first pass or
 
 ### Important Rules
 
-- **Tag `@coderabbitai` in ALL comments** you post on the PR. Every single one.
+- **Tag `@coderabbitai` in ALL comments replying to CodeRabbit**. Every single one.
+- **Cursor comments get no `@` tag** but must be addressed with equal thoroughness.
 - **One commit per fix**. Do not batch multiple fixes into one commit.
 - **Do not create new branches**. Work directly on BRANCH.
 - **Push after each addressing cycle**, not after each individual commit.

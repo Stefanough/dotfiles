@@ -233,5 +233,7 @@ export CLAUDE_OPC_DIR="/Users/armitage/Source/Continuous-Claude-v3/opc"
 #
 ################################################################################
 
-# gcr - git checkout recent branches (Ctrl+G)
-source "$HOME/scripts/gcr.sh"
+# fzf widgets — keybinding → prefix → widget
+source "$HOME/scripts/fzf-widgets/core.sh"
+fzf_widget_bind "\C-g" "git checkout" "$HOME/scripts/fzf-widgets/gcr.sh"
+fzf_widget_bind "\C-y" "yarn run"    "$HOME/scripts/fzf-widgets/yarn-scripts.sh"

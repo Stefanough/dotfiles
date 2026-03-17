@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-    name = Stefan Armijo
-    email = stefan.armijo@gmail.com
+    name = REPLACE_NAME
+    email = REPLACE_EMAIL
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim

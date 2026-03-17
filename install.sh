@@ -38,6 +38,35 @@ done
 readonly D
 readonly S
 
+# Populate identity placeholders in config files.
+# Idempotent: skips if placeholders have already been replaced.
+populate_identity() {
+  local gitconfig="$PWD/git/.gitconfig"
+  local npmrc="$PWD/npm/.npmrc"
+
+  if grep -q 'REPLACE_EMAIL' "$gitconfig" 2>/dev/null || grep -q 'REPLACE_EMAIL' "$npmrc" 2>/dev/null; then
+    echo ''
+    echo 'Setting up identity in git and npm configs...'
+
+    read -rp 'Full name: ' user_name
+    read -rp 'Email: ' user_email
+    read -rp 'GitHub username: ' github_user
+
+    if [ "$D" = 'true' ]; then
+      echo "Dry run — would set name=$user_name, email=$user_email, github=$github_user"
+    else
+      sed -i '' "s/REPLACE_NAME/$user_name/g" "$gitconfig" "$npmrc"
+      sed -i '' "s/REPLACE_EMAIL/$user_email/g" "$gitconfig" "$npmrc"
+      sed -i '' "s/REPLACE_GITHUB_USER/$github_user/g" "$npmrc"
+      echo 'Identity written to git/.gitconfig and npm/.npmrc.'
+    fi
+  else
+    echo 'Identity already configured, skipping.'
+  fi
+}
+
+populate_identity
+
 # Check if Brew is installed. Check at /opt/homebrew/bin/brew
 if [ -f "$HOMEBREW_INSTALL_LOCATION" ]; then
   echo "Brew appears to be already installed."

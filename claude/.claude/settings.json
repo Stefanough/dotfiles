@@ -1,18 +1,46 @@
 {
   "env": {
-    "ANTHROPIC_CUSTOM_HEADERS": "[object Object]"
+    "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Skill(quality-gates)",
+      "Skill(keybindings-help)",
+      "mcp__*"
+    ]
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"'\"$CLAUDE_NOTIFICATION_MESSAGE\"'\" with title \"Claude Code\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "code-review@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
-    "Notion@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
     "github@claude-plugins-official": true,
-    "figma@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "coderabbit@texture-tools": true,
+    "pr-shepherd@texture-tools": true
   },
-  "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  }
+  "skipDangerousModePermissionPrompt": true
 }

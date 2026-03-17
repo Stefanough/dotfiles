@@ -12,7 +12,7 @@ Make `install.sh` executable and run. Installs HomeBrew and the packages
 defined in `packages.personal.Brewfile`.
 
 1. `cd dotfiles/`
-1. `chmod -R 777 install.sh`
+1. `chmod +x install.sh`
 1. `./install.sh`
 
 Options:
@@ -56,12 +56,8 @@ Dry-Run. No side effects.
 - Update Brewfile with current packages: `brew bundle dump -f --no-vscode`.
 - Update VSCode/extensions.txt: `code --list-extensions > VSCode/extensions.txt`
 
-### TODO
-* Better way to export PATH to bashrc.
-* Install NVM?
-
 ## Adding Existing Configuration to Dotfiles
-1. Create a directory for the target config. For example
-2. Copy existing directory to the new directory.
+1. Create a directory for the target config. For example, `mkdir ~/dotfiles/ghostty`.
+2. Copy existing config into the new directory, mirroring the path relative to home.
 3. Run `stow <directory name>` to symlink the directory back to your home
    directory (default).

@@ -407,5 +407,7 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "typescript.experimental.useTsgo": true
+  "workbench.activityBar.location": "hidden",
+  "typescript.experimental.useTsgo": true,
+  "hediet.vscode-drawio.resizeImages": null
 }

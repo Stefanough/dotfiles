@@ -236,4 +236,6 @@ export CLAUDE_OPC_DIR="/Users/armitage/Source/Continuous-Claude-v3/opc"
 # fzf widgets — keybinding → prefix → widget
 source "$HOME/scripts/fzf-widgets/core.sh"
 fzf_widget_bind "\C-g" "git checkout" "$HOME/scripts/fzf-widgets/gcr.sh"
-fzf_widget_bind "\C-y" "yarn run"    "$HOME/scripts/fzf-widgets/yarn-scripts.sh"
+fzf_widget_bind "\C-xy" "yarn run"   "$HOME/scripts/fzf-widgets/yarn-scripts.sh"
+
+. "$HOME/.cargo/env"

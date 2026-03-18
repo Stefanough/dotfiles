@@ -31,7 +31,6 @@ esbenp.prettier-vscode
 foxundermoon.shell-format
 gaearon.subliminal
 garrit.p5canvas
-github.copilot
 github.copilot-chat
 github.github-vscode-theme
 github.vscode-github-actions
@@ -40,6 +39,7 @@ graphql.vscode-graphql
 graphql.vscode-graphql-syntax
 handsomeone.8bit
 hawkcodes.solar-flare
+hediet.vscode-drawio
 hoovercj.vscode-settings-cycler
 humao.rest-client
 huytd.github-light-monochrome
@@ -56,6 +56,7 @@ mattseddon.vscode-dive-bar-theme
 mdmarufsarker.maruf-sarker
 mechatroner.rainbow-csv
 mediumdivision.spectral-glow
+mermaidchart.vscode-mermaid-chart
 mikehhodgson.monochrome-dark
 morozov-work.cyberwave-vscode
 ms-azuretools.vscode-containers
@@ -75,6 +76,7 @@ ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode.cmake-tools
+ms-vscode.cpp-devtools
 ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
 ms-vscode.cpptools-themes
@@ -118,6 +120,7 @@ timonwong.shellcheck
 tonsky.theme-alabaster
 tourervit.phantom
 twxs.cmake
+typescriptteam.native-preview
 virejdasani.in-your-face
 vscodevim.vim
 wassimdev.windows-nt-vscode-theme
@@ -125,4 +128,5 @@ wicked-labs.sequoia
 wraith13.zoombar-vscode
 yangdada.vscode-geojsonviewer
 zamerick.black-ocean
+zh9528.file-size
 zhuangtongfa.material-theme

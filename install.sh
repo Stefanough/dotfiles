@@ -118,7 +118,7 @@ while true; do
          echo 'Dry run, skipping install of packages.'
        else
          echo 'Installing packages listed in packages.personal.Brewfile'
-         brew bundle --verbose --no-lock --file="packages.personal.Brewfile"
+         brew bundle --verbose --file="packages.personal.Brewfile"
 
          # one-off for installing fzf autocomplete
          # TODO should this be executed elsewhere?

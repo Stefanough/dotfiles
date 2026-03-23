@@ -25,6 +25,24 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "type": "command",
+        "command": "/Users/armitage/Source/claude-capture/hooks/on-capture.sh"
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "/Users/armitage/Source/claude-capture/hooks/on-capture.sh"
+      }
+    ],
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "/Users/armitage/Source/claude-capture/hooks/on-session-start.sh"
+      }
     ]
   },
   "statusLine": {

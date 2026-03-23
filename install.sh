@@ -21,7 +21,7 @@
 set -eu
 
 readonly HOMEBREW_INSTALL_LOCATION='/opt/homebrew/bin/brew'
-readonly STOW_WHITELIST=(MenuMeters VSCode alacritty bash claude codex ctags ghostty git kitty npm ripgrep shellcheck tmux vim)
+readonly STOW_WHITELIST=(MenuMeters alacritty bash claude codex ctags ghostty git npm ripgrep shellcheck tmux vim)
 
 
 D='false' # variable for dry run

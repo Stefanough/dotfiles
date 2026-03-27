@@ -6,12 +6,15 @@
     "allow": [
       "Bash(*)",
       "Read(*)",
+      "Write",
+      "Edit",
       "WebSearch",
       "WebFetch(domain:raw.githubusercontent.com)",
       "Skill(quality-gates)",
       "Skill(keybindings-help)",
       "mcp__*"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "model": "opus[1m]",
   "hooks": {

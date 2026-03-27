@@ -408,6 +408,6 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "workbench.activityBar.location": "hidden",
-  "typescript.experimental.useTsgo": true,
+  "js/ts.experimental.useTsgo": false,
   "hediet.vscode-drawio.resizeImages": null
 }

@@ -24,7 +24,7 @@ function parse_git_branch {
 }
 
 function compose_prompt {
-  PS1="${PURPLE}〉${COLOR_RESET}"
+  PS1+="${PURPLE}〉${COLOR_RESET}"
   PS1+="${CYAN}\w${COLOR_RESET}"
   if is_git_repository; then
     PS1+="${BLACK}(${COLOR_RESET}"

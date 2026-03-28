@@ -7,6 +7,7 @@
 ################################################################################
 
 source "$(dirname "${BASH_SOURCE[0]}")/prompt.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/alascheme.sh"
 
 
 ################################################################################
@@ -26,8 +27,7 @@ export PATH="/opt/homebrew/Cellar/libpq/**/bin:$PATH"
 # fzf
 eval "$(fzf --bash)"
 
-# bat
-export BAT_THEME="Solarized (light)"
+# bat — BAT_THEME is managed by alascheme
 
 # Git autocompletion
 if [ -f ~/.git-completion.bash ]; then

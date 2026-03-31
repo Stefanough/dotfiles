@@ -113,7 +113,7 @@ _alascheme_completions() {
   if [[ -d "$ALACRITTY_THEMES_DIR" ]]; then
     local themes
     themes=$(find "$ALACRITTY_THEMES_DIR" -maxdepth 1 -name '*.toml' -exec basename {} .toml \; 2>/dev/null)
-    mapfile -t COMPREPLY < <(compgen -W "$themes" -- "$cur")
+    COMPREPLY=( $(compgen -W "$themes" -- "$cur") )
   fi
 }
 

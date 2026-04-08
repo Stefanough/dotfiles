@@ -12,4 +12,10 @@ vim/.vim/bundle/*
 tmux/.tmux/plugins/*
 
 # do not track Claude local settings
-.claude/**/*.local.*
+claude/.claude/**/*.local.*
+
+# do not track Claude cache
+claude/.claude/cache/
+
+# do not track Claude backups
+claude/.claude/backups/

@@ -31,20 +31,35 @@
     ],
     "UserPromptSubmit": [
       {
-        "type": "command",
-        "command": "/Users/armitage/Source/claude-capture/hooks/on-capture.sh"
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/armitage/Source/claude-capture/hooks/on-capture.sh"
+          }
+        ]
       }
     ],
     "Stop": [
       {
-        "type": "command",
-        "command": "/Users/armitage/Source/claude-capture/hooks/on-capture.sh"
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/armitage/Source/claude-capture/hooks/on-capture.sh"
+          }
+        ]
       }
     ],
     "SessionStart": [
       {
-        "type": "command",
-        "command": "/Users/armitage/Source/claude-capture/hooks/on-session-start.sh"
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/armitage/Source/claude-capture/hooks/on-session-start.sh"
+          }
+        ]
       }
     ]
   },
@@ -61,7 +76,18 @@
     "code-simplifier@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "coderabbit@texture-tools": true,
-    "pr-shepherd@texture-tools": true
+    "pr-shepherd@texture-tools": true,
+    "discourse@ancient-agent": true,
+    "focus@ancient-agent": true
   },
-  "skipDangerousModePermissionPrompt": true
+  "extraKnownMarketplaces": {
+    "ancient-agent": {
+      "source": {
+        "source": "git",
+        "url": "git@github.com:Stefanough/ancient-agent-plugins.git"
+      }
+    }
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true
 }

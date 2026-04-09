@@ -24,3 +24,11 @@ Keep explanations proportional to complexity. Simple changes need one sentence, 
 - Markdown tables: use minimum separator (`|-|-|`). Never pad with repeated hyphens (`|---|---|`).
 - NEVER use box-drawing / ASCII-art tables with characters like `┌`, `┬`, `─`, `│`, `└`, `┘`, `├`, `┤`, `┼`. These are completely banned.
 - No exceptions. Not for "clarity", not for alignment, not for terminal output.
+
+### Auto Memory
+
+When writing memory files, include an optional `origin` field in the frontmatter if the
+memory contains machine-specific information (paths, installed tools, OS-specific
+workarounds, hardware details, port configurations). The value is `$CLAUDE_MACHINE_NAME`
+if set, otherwise `hostname -s`. Omit `origin` for memories that are universally portable
+(preferences, coding standards, project context, feedback).

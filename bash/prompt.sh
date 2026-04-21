@@ -26,7 +26,6 @@ function parse_git_branch {
 function compose_prompt {
   # Set terminal/tmux pane title to user@hostname
   PS1="\[\033]2;\u@\h\007\]"
-  PS1+="${PURPLE}〉${COLOR_RESET}"
   PS1+="${CYAN}\w${COLOR_RESET}"
   if is_git_repository; then
     PS1+="${BLACK}(${COLOR_RESET}"

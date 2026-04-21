@@ -16,7 +16,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -88,6 +87,7 @@
       }
     }
   },
+  "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
   "skipAutoPermissionPrompt": true
 }

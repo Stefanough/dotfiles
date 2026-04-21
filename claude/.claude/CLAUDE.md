@@ -1,3 +1,18 @@
+## Second Brain
+
+For any technical question, design discussion, or debugging session, call
+`mcp__claude-capture__search_history` as the FIRST tool invocation — BEFORE
+Grep, Glob, codebase Search, or any subagent. The user's own conversation
+history and notes often contain the answer — past decisions, prior
+debugging, things they've written down.
+
+Start every such response with a one-line status:
+- `Second brain: found N relevant results about <topic>.`
+- `Second brain: searched <query>, no relevant matches.`
+- `Second brain: skipped (not applicable).`
+
+See `~/.claude/rules/second-brain.md` for full behavior.
+
 ## Context Efficiency
 
 ### Subagent Discipline
@@ -12,6 +27,8 @@ Never call TaskOutput twice for the same subagent. If it times out, increase the
 ### File Reading
 Read files with purpose. Before reading a file, know what you're looking for.
 Use Grep to locate relevant sections before reading entire large files.
+(Exception: see the Second Brain section above — `search_history` comes
+before Grep for open-ended questions.)
 Never re-read a file you've already read in this session.
 For files over 500 lines, use offset/limit to read only the relevant section.
 

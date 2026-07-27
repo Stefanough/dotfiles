@@ -33,6 +33,11 @@ if git -c advice.detachedHead=false -c core.fileMode=false branch > /dev/null 2>
   output+="${BLACK})${RESET}"
 fi
 
+model=$(echo "$input" | jq -r '.model.display_name // empty')
+if [ -n "$model" ]; then
+  output+=" ${PURPLE}${model}${RESET}"
+fi
+
 # Add context usage information
 context_size=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')

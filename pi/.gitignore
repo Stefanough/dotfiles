@@ -1,0 +1,9 @@
+.pi/agent/auth.json
+.pi/agent/trust.json
+.pi/agent/models-store.json
+.pi/agent/mcp-cache.json
+.pi/agent/mcp-npx-cache.json
+.pi/agent/sessions/
+.pi/agent/npm/
+.pi/agent/git/
+.pi/agent/bin/fd

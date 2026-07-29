@@ -2,8 +2,8 @@
   "lastChangelogVersion": "0.82.1",
   "theme": "dark",
   "defaultProvider": "openrouter",
-  "defaultModel": "anthropic/claude-opus-4.8",
-  "defaultThinkingLevel": "medium",
+  "defaultModel": "anthropic/claude-opus-5",
+  "defaultThinkingLevel": "max",
   "enableSkillCommands": true,
   "enabledModels": [
     "openrouter/anthropic/claude-opus-4.8",
@@ -16,7 +16,8 @@
     "anthropic/claude-opus-4-8"
   ],
   "packages": [
-    "npm:pi-mcp-adapter"
+    "npm:pi-mcp-adapter",
+    "npm:pi-lsp-lite"
   ],
   "skills": [
     "~/.claude/skills",

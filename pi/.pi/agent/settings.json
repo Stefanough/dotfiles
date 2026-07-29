@@ -19,6 +19,9 @@
     "npm:pi-mcp-adapter",
     "npm:pi-lsp-lite"
   ],
+  "extensions": [
+    "extensions"
+  ],
   "skills": [
     "~/.claude/skills",
     "/Users/armitage/Source/Texture/alt-mono/.claude/skills",

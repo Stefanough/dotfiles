@@ -1,9 +1,9 @@
 {
-  "lastChangelogVersion": "0.82.1",
+  "lastChangelogVersion": "0.84.0",
   "theme": "dark",
   "defaultProvider": "openrouter",
-  "defaultModel": "anthropic/claude-opus-5",
-  "defaultThinkingLevel": "max",
+  "defaultModel": "moonshotai/kimi-k3",
+  "defaultThinkingLevel": "high",
   "enableSkillCommands": true,
   "enabledModels": [
     "openrouter/anthropic/claude-opus-4.8",

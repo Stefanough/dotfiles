@@ -1,0 +1,32 @@
+{
+  "providers": {
+    "openrouter": {
+      "modelOverrides": {
+        "anthropic/claude-opus-5": {
+          "samplingParams": { "tools": [{ "type": "openrouter:web_search" }] }
+        },
+        "anthropic/claude-opus-4.8": {
+          "samplingParams": { "tools": [{ "type": "openrouter:web_search" }] }
+        },
+        "anthropic/claude-sonnet-5": {
+          "samplingParams": { "tools": [{ "type": "openrouter:web_search" }] }
+        },
+        "anthropic/claude-haiku-4.5": {
+          "samplingParams": { "tools": [{ "type": "openrouter:web_search" }] }
+        },
+        "openai/gpt-5.2-codex": {
+          "samplingParams": { "tools": [{ "type": "openrouter:web_search" }] }
+        },
+        "google/gemini-3.1-pro-preview": {
+          "samplingParams": { "tools": [{ "type": "openrouter:web_search" }] }
+        },
+        "x-ai/grok-4.5": {
+          "samplingParams": { "tools": [{ "type": "openrouter:web_search" }] }
+        },
+        "moonshotai/kimi-k3": {
+          "samplingParams": { "tools": [{ "type": "openrouter:web_search" }] }
+        }
+      }
+    }
+  }
+}

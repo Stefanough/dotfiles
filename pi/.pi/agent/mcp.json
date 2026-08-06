@@ -2,18 +2,25 @@
   "mcpServers": {
     "claude-capture": {
       "command": "node",
-      "args": ["/Users/armitage/Source/claude-capture/src/mcp-server.mjs"]
+      "args": [
+        "/Users/armitage/Source/claude-capture/src/mcp-server.mjs"
+      ]
     },
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"],
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
       "env": {
         "CONTEXT7_API_KEY": "!/Users/armitage/.pi/agent/bin/mcp-secret context7 --arg-after --api-key"
       }
     },
     "atlassian": {
       "command": "uvx",
-      "args": ["mcp-atlassian"],
+      "args": [
+        "mcp-atlassian"
+      ],
       "env": {
         "JIRA_URL": "https://texture.atlassian.net",
         "JIRA_USERNAME": "stefan@texturehq.com",
@@ -25,11 +32,16 @@
     },
     "tiger": {
       "command": "/opt/homebrew/bin/tiger",
-      "args": ["mcp", "start"]
+      "args": [
+        "mcp",
+        "start"
+      ]
     },
     "playwright": {
       "command": "npx",
-      "args": ["@playwright/mcp"]
+      "args": [
+        "@playwright/mcp"
+      ]
     },
     "aws-mcp": {
       "command": "uvx",
@@ -41,40 +53,54 @@
         "INSTALL_SOURCE=agent-toolkit"
       ]
     },
-
     "texture-postgres-prod": {
       "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/postgres-mcp/run.sh",
-      "env": { "TEXTURE_ENV": "prod" }
+      "env": {
+        "TEXTURE_ENV": "prod"
+      }
     },
     "texture-postgres-local": {
       "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/postgres-mcp/run.sh",
-      "env": { "TEXTURE_ENV": "local" }
+      "env": {
+        "TEXTURE_ENV": "local"
+      }
     },
     "texture-kafka-prod": {
       "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/kafka-mcp/run.sh",
-      "env": { "TEXTURE_ENV": "prod" }
+      "env": {
+        "TEXTURE_ENV": "prod"
+      }
     },
     "texture-kafka-local": {
       "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/kafka-mcp/run.sh",
-      "env": { "TEXTURE_ENV": "local" }
+      "env": {
+        "TEXTURE_ENV": "local"
+      }
     },
     "texture-elasticsearch-prod": {
       "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/elasticsearch-mcp/run.sh",
-      "env": { "TEXTURE_ENV": "prod" }
+      "env": {
+        "TEXTURE_ENV": "prod"
+      }
     },
     "texture-elasticsearch-local": {
       "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/elasticsearch-mcp/run.sh",
-      "env": { "TEXTURE_ENV": "local" }
+      "env": {
+        "TEXTURE_ENV": "local"
+      }
     },
     "texture-redis-prod": {
       "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/redis-mcp/run.sh",
-      "env": { "TEXTURE_ENV": "prod" }
+      "env": {
+        "TEXTURE_ENV": "prod"
+      }
     },
     "texture-redis-local": {
       "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/redis-mcp/run.sh",
-      "env": { "TEXTURE_ENV": "local" }
+      "env": {
+        "TEXTURE_ENV": "local"
+      }
     },
-
     "github": {
       "url": "https://api.githubcopilot.com/mcp/",
       "auth": "bearer",
@@ -83,7 +109,9 @@
     "posthog": {
       "url": "https://mcp.posthog.com/mcp",
       "auth": "oauth",
-      "headers": { "x-posthog-mcp-consumer": "plugin" }
+      "headers": {
+        "x-posthog-mcp-consumer": "plugin"
+      }
     },
     "neon": {
       "url": "https://mcp.neon.tech/mcp",
@@ -104,7 +132,6 @@
       "url": "https://mcp.customer.io/mcp",
       "auth": "oauth"
     },
-
     "linear": {
       "url": "https://mcp.linear.app/mcp",
       "auth": "oauth"
@@ -115,7 +142,8 @@
     },
     "notion": {
       "url": "https://mcp.notion.com/mcp",
-      "auth": "oauth"
+      "auth": "oauth",
+      "directTools": true
     },
     "figma": {
       "url": "https://mcp.figma.com/mcp",

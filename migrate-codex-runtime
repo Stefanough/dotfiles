@@ -11,11 +11,11 @@
 # Dry run by default. Pass -x to execute.
 ################################################################################
 
-set -eu
+set -Eeu
 
 readonly REPO_CODEX="$PWD/codex/.codex"
 readonly TARGET="$HOME/.codex"
-readonly KEEP_IN_REPO=(config.toml)
+readonly KEEP_IN_REPO=(config.toml AGENTS.md)
 
 X='false'
 while getopts 'x' flag; do
@@ -45,6 +45,24 @@ if [ ! -L "$TARGET" ]; then
   exit 0
 fi
 
+if [ ! -d "$TARGET" ]; then
+  echo "$TARGET is a broken symlink; refusing to migrate it." >&2
+  exit 1
+fi
+
+repo_codex_resolved="$(cd "$REPO_CODEX" && pwd -P)"
+target_resolved="$(cd "$TARGET" && pwd -P)"
+if [ "$target_resolved" != "$repo_codex_resolved" ]; then
+  echo "$TARGET points to $target_resolved, not $repo_codex_resolved." >&2
+  echo 'Refusing to replace an unrelated Codex state directory.' >&2
+  exit 1
+fi
+
+if [ "$X" = 'true' ] && ! command -v stow > /dev/null 2>&1; then
+  echo 'stow is required before the migration can run.' >&2
+  exit 1
+fi
+
 # Codex keeps sqlite databases open with active WAL files. Moving those out from
 # under a live process risks a corrupted state_5.sqlite.
 if pgrep -x codex > /dev/null 2>&1; then
@@ -57,6 +75,33 @@ echo "Migrating $TARGET"
 echo "  currently: $(readlink "$TARGET")"
 echo "  runtime state to move: $(du -sh "$REPO_CODEX" | cut -f1)"
 echo ''
+
+readonly ORIGINAL_TARGET="$(readlink "$TARGET")"
+moved=()
+
+rollback() {
+  status=$?
+  [ "$status" -ne 0 ] || status=1
+  trap - ERR INT TERM
+  set +e
+  echo 'Migration failed; restoring the original folded layout.' >&2
+  for name in "${KEEP_IN_REPO[@]}"; do
+    if [ -L "$TARGET/$name" ]; then rm "$TARGET/$name"; fi
+  done
+  for ((i=${#moved[@]} - 1; i >= 0; i--)); do
+    name="${moved[$i]}"
+    if [ -e "$TARGET/$name" ] || [ -L "$TARGET/$name" ]; then
+      mv "$TARGET/$name" "$REPO_CODEX/$name"
+    fi
+  done
+  if [ -d "$TARGET" ]; then rmdir "$TARGET"; fi
+  if [ ! -e "$TARGET" ] && [ ! -L "$TARGET" ]; then
+    ln -s "$ORIGINAL_TARGET" "$TARGET"
+  fi
+  exit "$status"
+}
+
+if [ "$X" = 'true' ]; then trap rollback ERR INT TERM; fi
 
 # Drop the folded symlink first so the real directory can take its place.
 run rm "$TARGET"
@@ -78,12 +123,14 @@ for path in "$REPO_CODEX"/*; do
   fi
 
   run mv "$path" "$TARGET/$name"
+  if [ "$X" = 'true' ]; then moved+=("$name"); fi
 done
 shopt -u dotglob nullglob
 
 echo ''
 echo 'Re-linking tracked config with per-file symlinks...'
 run stow --no-folding codex
+if [ "$X" = 'true' ]; then trap - ERR INT TERM; fi
 
 echo ''
 if [ "$X" = 'true' ]; then

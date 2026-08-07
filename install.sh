@@ -21,7 +21,15 @@
 set -eu
 
 readonly HOMEBREW_INSTALL_LOCATION='/opt/homebrew/bin/brew'
-readonly STOW_WHITELIST=(MenuMeters alacritty bash claude codex ctags ghostty git npm ripgrep shellcheck tmux vim)
+readonly STOW_WHITELIST=(MenuMeters alacritty bash claude codex ctags ghostty git npm pi ripgrep shellcheck tmux vim)
+
+# Agent harnesses write runtime state (credentials, session transcripts, sqlite)
+# into their dot-directory. Stow's default tree-folding would symlink the whole
+# directory into this repo on a machine where the target does not yet exist,
+# putting that state in the working tree. --no-folding forces per-file symlinks
+# into a real directory instead. Removing a package from here is a security
+# regression, not a style change.
+readonly NO_FOLDING_PACKAGES=(claude codex pi)
 
 
 D='false' # variable for dry run
@@ -170,8 +178,18 @@ if [ "$S" == 'true' ]; then
            echo 'Using stow to symlink packages.'
 
            for i in "${files[@]}"; do
-             echo "stowing $i"
-             stow "$i"
+             no_fold='false'
+             for nf in "${NO_FOLDING_PACKAGES[@]}"; do
+               if [[ $i == "$nf" ]]; then no_fold='true'; fi
+             done
+
+             if [ "$no_fold" = 'true' ]; then
+               echo "stowing $i (--no-folding)"
+               stow --no-folding "$i"
+             else
+               echo "stowing $i"
+               stow "$i"
+             fi
              done
          fi
 
@@ -182,3 +200,29 @@ if [ "$S" == 'true' ]; then
     esac
   done
 fi
+
+# Claude Code plugins and MCP servers live outside the stow tree — the CLI owns
+# those directories — so they are reinstalled from manifests instead.
+while true; do
+  echo ''
+  echo 'Would you like to reinstall Claude Code plugins and MCP servers? y/n'
+  read -r input
+  case "$input" in
+    y) plugin_script="$PWD/claude/.claude/scripts/install-plugins.sh"
+       mcp_script="$PWD/claude/.claude/scripts/install-mcp-servers.sh"
+
+       if ! command -v claude &> /dev/null; then
+         echo 'claude CLI not found on PATH, skipping.'
+       elif [ "$D" = 'true' ]; then
+         "$plugin_script" -d
+         "$mcp_script" -d
+       else
+         "$plugin_script" || echo 'Some plugins failed to install, see above.'
+         "$mcp_script" || echo 'Some MCP servers were skipped, see above.'
+       fi
+       break
+       ;;
+    n) break ;;
+    *) echo 'y or n' ;;
+  esac
+done

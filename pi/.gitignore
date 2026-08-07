@@ -7,6 +7,8 @@
 !.pi/agent/models.json
 !.pi/agent/mcp.json
 !.pi/agent/extensions/
+.pi/agent/extensions/*
+!.pi/agent/extensions/budget.ts
 !.pi/agent/bin/
 .pi/agent/bin/*
 !.pi/agent/bin/mcp-secret

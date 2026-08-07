@@ -5,6 +5,7 @@ const OR_API = "https://openrouter.ai/api/v1";
 const LOW_BALANCE_USD = 100;
 const SESSION_WARN_USD = 2;
 const FETCH_TIMEOUT_MS = 5000;
+const OR_REFRESH_INTERVAL_MS = 60_000;
 
 const CHEAPER: Record<string, { provider: string; id: string }> = {
 	"openrouter/anthropic/claude-opus-5": { provider: "openrouter", id: "anthropic/claude-sonnet-5" },
@@ -21,6 +22,7 @@ export default function (pi: ExtensionAPI) {
 	let orRemaining: number | null = null;
 	let orMonthly: number | null = null;
 	let priceCache: Map<string, { inp: number; out: number }> | null = null;
+	let lastOpenRouterRefresh = 0;
 
 	async function getJson(url: string, apiKey?: string): Promise<any | null> {
 		const controller = new AbortController();
@@ -39,6 +41,9 @@ export default function (pi: ExtensionAPI) {
 	}
 
 	async function refreshOpenRouter(ctx: any): Promise<void> {
+		orRemaining = null;
+		orMonthly = null;
+		lastOpenRouterRefresh = Date.now();
 		const key = await ctx.modelRegistry.getApiKeyForProvider("openrouter");
 		if (!key) return;
 		const [credits, keyInfo] = await Promise.all([
@@ -57,6 +62,7 @@ export default function (pi: ExtensionAPI) {
 		if (priceCache) return priceCache;
 		const map = new Map<string, { inp: number; out: number }>();
 		const body = await getJson(`${OR_API}/models`);
+		if (!Array.isArray(body?.data)) return map;
 		for (const m of body?.data ?? []) {
 			const p = m?.pricing;
 			if (!p) continue;
@@ -102,7 +108,12 @@ export default function (pi: ExtensionAPI) {
 		render(ctx);
 	});
 
-	pi.on("turn_end", async (_event, ctx) => render(ctx));
+	pi.on("turn_end", async (_event, ctx) => {
+		if (Date.now() - lastOpenRouterRefresh >= OR_REFRESH_INTERVAL_MS) {
+			await refreshOpenRouter(ctx);
+		}
+		render(ctx);
+	});
 	pi.on("model_select", async (_event, ctx) => render(ctx));
 
 	pi.registerCommand("budget", {
@@ -126,6 +137,7 @@ export default function (pi: ExtensionAPI) {
 		handler: async (_args, ctx) => {
 			if (!ctx.model) return ctx.ui.notify("No active model", "error");
 			const current = `${ctx.model.provider}/${ctx.model.id}`;
+			const currentModelId = ctx.model.id;
 			const target = CHEAPER[current];
 			if (!target) return ctx.ui.notify(`No cheaper step defined for ${current}`, "warning");
 
@@ -134,11 +146,12 @@ export default function (pi: ExtensionAPI) {
 			if (!(await pi.setModel(model))) return ctx.ui.notify("No API key for that model", "error");
 
 			const table = await prices();
-			const from = table.get(ctx.model.id);
+			const from = table.get(currentModelId);
 			const to = table.get(target.id);
 			const saving =
 				from && to && to.out > 0 ? ` (output ${(from.out / to.out).toFixed(1)}x cheaper)` : "";
 			ctx.ui.notify(`Switched to ${target.provider}/${target.id}${saving}`, "info");
+			render(ctx);
 		},
 	});
 }

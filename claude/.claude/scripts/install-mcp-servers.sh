@@ -18,6 +18,8 @@ DRY_RUN = "-d" in sys.argv[1:]
 MANIFEST = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "mcp-servers.json")
 SECRETS = os.path.expanduser("~/.config/dotfiles/secrets.env")
 PLACEHOLDER = re.compile(r"\$\{([A-Z0-9_]+)\}")
+CONFIG_ROOT = os.environ.get("CLAUDE_CONFIG_DIR", os.path.expanduser("~"))
+USER_CONFIG = os.path.join(CONFIG_ROOT, ".claude.json")
 
 
 def load_secrets():
@@ -50,19 +52,37 @@ def substitute(node, values, missing):
     return node
 
 
+def load_user_servers():
+    if not os.path.exists(USER_CONFIG):
+        return {}
+    with open(USER_CONFIG) as f:
+        data = json.load(f)
+    servers = data.get("mcpServers", {})
+    if not isinstance(servers, dict):
+        raise ValueError(f"mcpServers in {USER_CONFIG} is not an object")
+    return servers
+
+
+def registration_cmd(name, config):
+    return ["claude", "mcp", "add-json", name, json.dumps(config), "--scope", "user"]
+
+
 def main():
     with open(MANIFEST) as f:
         servers = json.load(f)["mcpServers"]
 
     values = load_secrets()
-    existing = subprocess.run(
-        ["claude", "mcp", "list"], capture_output=True, text=True
-    ).stdout
+    try:
+        user_servers = load_user_servers()
+    except (OSError, json.JSONDecodeError, ValueError) as error:
+        print(f"Could not read user MCP registrations: {error}", file=sys.stderr)
+        return 1
 
     skipped = []
     failed = []
     for name, config in servers.items():
-        registered = re.search(rf"^{re.escape(name)}\b", existing, re.MULTILINE)
+        old_config = user_servers.get(name)
+        registered = old_config is not None
 
         missing = set()
         resolved = substitute(config, values, missing)
@@ -71,7 +91,7 @@ def main():
             print(f"{name}: SKIPPED, unset {', '.join(sorted(missing))}")
             continue
 
-        cmd = ["claude", "mcp", "add-json", name, json.dumps(resolved), "--scope", "user"]
+        cmd = registration_cmd(name, resolved)
         if DRY_RUN:
             action = "refresh" if registered else "register"
             print(f"would {action} {name} ({config.get('type', 'stdio')})")
@@ -88,7 +108,13 @@ def main():
 
         result = subprocess.run(cmd)
         if result.returncode:
-            failed.append((name, "add registration"))
+            action = "add registration"
+            if registered:
+                print(f"! restoring previous {name} registration", file=sys.stderr)
+                rollback = subprocess.run(registration_cmd(name, old_config))
+                if rollback.returncode:
+                    action += "; rollback also failed"
+            failed.append((name, action))
 
     if skipped:
         print(f"\nSet these in {SECRETS} (or export them) and re-run:", file=sys.stderr)

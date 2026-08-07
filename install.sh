@@ -215,7 +215,7 @@ while true; do
          echo 'claude CLI not found on PATH, skipping.'
        elif [ "$D" = 'true' ]; then
          "$plugin_script" -d
-         "$mcp_script" -d
+         "$mcp_script" -d || echo 'Some MCP servers were skipped, see above.'
        else
          "$plugin_script" || echo 'Some plugins failed to install, see above.'
          "$mcp_script" || echo 'Some MCP servers were skipped, see above.'

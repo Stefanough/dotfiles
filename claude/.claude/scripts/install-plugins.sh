@@ -6,6 +6,7 @@ Usage: install-plugins.sh [-d]
 """
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -25,11 +26,11 @@ def installed_ids():
         ["claude", "plugin", "list", "--json"], capture_output=True, text=True
     )
     if out.returncode != 0:
-        return set()
+        raise RuntimeError("claude plugin list --json failed")
     try:
         data = json.loads(out.stdout)
-    except json.JSONDecodeError:
-        return set()
+    except json.JSONDecodeError as error:
+        raise RuntimeError(f"claude plugin list returned invalid JSON: {error}") from error
     if isinstance(data, dict):
         data = data.get("plugins", data)
     if isinstance(data, dict):
@@ -41,29 +42,42 @@ def main():
     with open(MANIFEST) as f:
         manifest = json.load(f)
 
-    existing_markets = subprocess.run(
+    market_result = subprocess.run(
         ["claude", "plugin", "marketplace", "list"], capture_output=True, text=True
-    ).stdout
+    )
+    if market_result.returncode != 0:
+        print("claude plugin marketplace list failed", file=sys.stderr)
+        return 1
+    existing_markets = set(
+        re.findall(r"^\s*❯\s+(\S+)\s*$", market_result.stdout, re.MULTILINE)
+    )
+    try:
+        have = installed_ids()
+    except RuntimeError as error:
+        print(error, file=sys.stderr)
+        return 1
 
+    failed_markets = []
     for market in manifest["marketplaces"]:
         if market["name"] in existing_markets:
             print(f"marketplace {market['name']}: already present")
             continue
-        run(["claude", "plugin", "marketplace", "add", market["source"]])
+        if not run(["claude", "plugin", "marketplace", "add", market["source"]]):
+            failed_markets.append(market["name"])
 
-    have = installed_ids()
-    failed = []
+    failed_plugins = []
     for plugin in manifest["plugins"]:
         if plugin in have:
             print(f"plugin {plugin}: already installed")
             continue
         if not run(["claude", "plugin", "install", plugin]):
-            failed.append(plugin)
+            failed_plugins.append(plugin)
 
-    if failed:
-        print(f"\nFAILED ({len(failed)}): " + ", ".join(failed), file=sys.stderr)
-        return 1
-    return 0
+    if failed_markets:
+        print("\nFAILED marketplaces: " + ", ".join(failed_markets), file=sys.stderr)
+    if failed_plugins:
+        print("FAILED plugins: " + ", ".join(failed_plugins), file=sys.stderr)
+    return 1 if failed_markets or failed_plugins else 0
 
 
 if __name__ == "__main__":

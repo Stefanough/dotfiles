@@ -1,9 +1,12 @@
-.pi/agent/auth.json
-.pi/agent/trust.json
-.pi/agent/models-store.json
-.pi/agent/mcp-cache.json
-.pi/agent/mcp-npx-cache.json
-.pi/agent/sessions/
-.pi/agent/npm/
-.pi/agent/git/
-.pi/agent/bin/fd
+# ~/.pi/agent is a whole-directory symlink into this package, so pi writes its
+# runtime state into the working tree. Allowlist, not denylist: anything pi adds
+# in a future release stays ignored until it is named here.
+.pi/agent/*
+!.pi/agent/settings.json
+!.pi/agent/keybindings.json
+!.pi/agent/models.json
+!.pi/agent/mcp.json
+!.pi/agent/extensions/
+!.pi/agent/bin/
+.pi/agent/bin/*
+!.pi/agent/bin/mcp-secret

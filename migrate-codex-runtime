@@ -1,0 +1,96 @@
+#!/bin/bash
+
+################################################################################
+# Move Codex runtime state out of the dotfiles working tree.
+#
+# ~/.codex was stowed as a folded directory symlink, so Codex writes auth.json,
+# session transcripts, and sqlite databases into this repo. This converts it to
+# the per-file layout the claude package uses: a real ~/.codex holding runtime
+# state, with only config.toml symlinked back to the repo.
+#
+# Dry run by default. Pass -x to execute.
+################################################################################
+
+set -eu
+
+readonly REPO_CODEX="$PWD/codex/.codex"
+readonly TARGET="$HOME/.codex"
+readonly KEEP_IN_REPO=(config.toml)
+
+X='false'
+while getopts 'x' flag; do
+  case "${flag}" in
+    x) X='true' ;;
+    *) echo "Unexpected option ${flag}" >&2; exit 1 ;;
+  esac
+done
+readonly X
+
+run() {
+  if [ "$X" = 'true' ]; then
+    "$@"
+  else
+    echo "would run: $*"
+  fi
+}
+
+if [ ! -d "$REPO_CODEX" ]; then
+  echo "No codex package at $REPO_CODEX. Run from the dotfiles directory." >&2
+  exit 1
+fi
+
+if [ ! -L "$TARGET" ]; then
+  echo "$TARGET is not a symlink — nothing to migrate."
+  echo 'Either this already ran, or codex was never stowed as a folded directory.'
+  exit 0
+fi
+
+# Codex keeps sqlite databases open with active WAL files. Moving those out from
+# under a live process risks a corrupted state_5.sqlite.
+if pgrep -x codex > /dev/null 2>&1; then
+  echo 'Codex is running. Quit it before migrating — moving its open sqlite' >&2
+  echo 'databases and WAL files while live risks corrupting them.' >&2
+  exit 1
+fi
+
+echo "Migrating $TARGET"
+echo "  currently: $(readlink "$TARGET")"
+echo "  runtime state to move: $(du -sh "$REPO_CODEX" | cut -f1)"
+echo ''
+
+# Drop the folded symlink first so the real directory can take its place.
+run rm "$TARGET"
+run mkdir -p "$TARGET"
+
+# Everything except the tracked config moves out of the repo.
+shopt -s dotglob nullglob
+for path in "$REPO_CODEX"/*; do
+  name="$(basename "$path")"
+
+  keep='false'
+  for k in "${KEEP_IN_REPO[@]}"; do
+    if [ "$name" = "$k" ]; then keep='true'; fi
+  done
+
+  if [ "$keep" = 'true' ]; then
+    echo "keeping in repo: $name"
+    continue
+  fi
+
+  run mv "$path" "$TARGET/$name"
+done
+shopt -u dotglob nullglob
+
+echo ''
+echo 'Re-linking tracked config with per-file symlinks...'
+run stow --no-folding codex
+
+echo ''
+if [ "$X" = 'true' ]; then
+  echo 'Done. Verify with:'
+else
+  echo 'Dry run complete. Re-run with -x to execute, then verify with:'
+fi
+echo '  ls -ld ~/.codex              # expect a real directory'
+echo '  ls -l ~/.codex/config.toml   # expect a symlink into dotfiles'
+echo '  git status --porcelain codex # expect clean'

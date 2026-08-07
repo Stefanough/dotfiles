@@ -39,6 +39,7 @@ claude/.claude/.credentials.json
 # per-campaign artifacts, not reusable technique. The meta-skill is published
 # to the marketplace; its output never is. Add each new runbook here.
 claude/.claude/skills/prisma7-upgrade/
+claude/.claude/skills/ts6-migrate-workspace/
 
 # ~/.codex is a whole-directory symlink into this package, so Codex writes its
 # entire runtime state (auth.json, sessions, sqlite, WAL) into the working tree.

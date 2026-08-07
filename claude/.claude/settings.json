@@ -44,6 +44,11 @@
           {
             "type": "command",
             "command": "/Users/armitage/Source/claude-capture/hooks/on-capture.sh"
+          },
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-pane-title.sh\"",
+            "timeout": 5
           }
         ]
       }

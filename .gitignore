@@ -34,13 +34,6 @@ claude/.claude/statsig/
 claude/.claude/telemetry/
 claude/.claude/.credentials.json
 
-# Campaign runbooks produced BY the distilling-runbooks skill stay on this
-# machine. They encode internal service topology and are disposable
-# per-campaign artifacts, not reusable technique. The meta-skill is published
-# to the marketplace; its output never is. Add each new runbook here.
-claude/.claude/skills/prisma7-upgrade/
-claude/.claude/skills/ts6-migrate-workspace/
-
 # ~/.codex is a whole-directory symlink into this package, so Codex writes its
 # entire runtime state (auth.json, sessions, sqlite, WAL) into the working tree.
 # Allowlist, not denylist: anything Codex adds in a future release stays ignored

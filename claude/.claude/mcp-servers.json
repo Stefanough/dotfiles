@@ -1,0 +1,34 @@
+{
+  "_comment": "User-scope MCP servers. Secrets are ${VAR} placeholders substituted at install time by scripts/install-mcp-servers.sh — never store real tokens here.",
+  "mcpServers": {
+    "atlassian": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-atlassian"],
+      "env": {
+        "JIRA_URL": "https://texture.atlassian.net",
+        "JIRA_USERNAME": "stefan@texturehq.com",
+        "JIRA_API_TOKEN": "${ATLASSIAN_API_TOKEN}",
+        "CONFLUENCE_URL": "https://texture.atlassian.net/wiki",
+        "CONFLUENCE_USERNAME": "stefan@texturehq.com",
+        "CONFLUENCE_API_TOKEN": "${ATLASSIAN_API_TOKEN}"
+      }
+    },
+    "CustomerIO": {
+      "type": "http",
+      "url": "https://mcp.customer.io/mcp"
+    },
+    "tiger": {
+      "type": "stdio",
+      "command": "tiger",
+      "args": ["mcp", "start"],
+      "env": {}
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp", "--api-key", "${CONTEXT7_API_KEY}"],
+      "env": {}
+    }
+  }
+}

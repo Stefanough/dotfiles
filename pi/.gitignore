@@ -1,0 +1,14 @@
+# ~/.pi/agent is a whole-directory symlink into this package, so pi writes its
+# runtime state into the working tree. Allowlist, not denylist: anything pi adds
+# in a future release stays ignored until it is named here.
+.pi/agent/*
+!.pi/agent/settings.json
+!.pi/agent/keybindings.json
+!.pi/agent/models.json
+!.pi/agent/mcp.json
+!.pi/agent/extensions/
+.pi/agent/extensions/*
+!.pi/agent/extensions/budget.ts
+!.pi/agent/bin/
+.pi/agent/bin/*
+!.pi/agent/bin/mcp-secret

@@ -1,0 +1,31 @@
+{
+  "marketplaces": [
+    { "name": "claude-plugins-official", "source": "anthropics/claude-plugins-official" },
+    { "name": "texture-tools", "source": "TextureHQ/claude-plugins" },
+    { "name": "ancient-agent", "source": "git@github.com:Stefanough/ancient-agent-plugins.git" },
+    { "name": "datadog-claude-code-preview-ddviz", "source": "datadog-labs/claude-code-plugin" },
+    { "name": "lapdog", "source": "DataDog/dd-apm-test-agent" }
+  ],
+  "plugins": [
+    "atlassian@claude-plugins-official",
+    "aws-core@claude-plugins-official",
+    "code-review@claude-plugins-official",
+    "code-simplifier@claude-plugins-official",
+    "context7@claude-plugins-official",
+    "feature-dev@claude-plugins-official",
+    "github@claude-plugins-official",
+    "neon@claude-plugins-official",
+    "posthog@claude-plugins-official",
+    "slack@claude-plugins-official",
+    "superpowers@claude-plugins-official",
+    "typescript-lsp@claude-plugins-official",
+    "coderabbit@texture-tools",
+    "distilling-runbooks@texture-tools",
+    "pr-shepherd@texture-tools",
+    "refine@texture-tools",
+    "discourse@ancient-agent",
+    "focus@ancient-agent",
+    "datadog@datadog-claude-code-preview-ddviz",
+    "lapdog@lapdog"
+  ]
+}

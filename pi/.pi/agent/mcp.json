@@ -1,0 +1,157 @@
+{
+  "mcpServers": {
+    "claude-capture": {
+      "command": "node",
+      "args": [
+        "/Users/armitage/Source/claude-capture/src/mcp-server.mjs"
+      ]
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "!/Users/armitage/.pi/agent/bin/mcp-secret context7 --arg-after --api-key"
+      }
+    },
+    "atlassian": {
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian"
+      ],
+      "env": {
+        "JIRA_URL": "https://texture.atlassian.net",
+        "JIRA_USERNAME": "stefan@texturehq.com",
+        "JIRA_API_TOKEN": "!/Users/armitage/.pi/agent/bin/mcp-secret atlassian JIRA_API_TOKEN",
+        "CONFLUENCE_URL": "https://texture.atlassian.net/wiki",
+        "CONFLUENCE_USERNAME": "stefan@texturehq.com",
+        "CONFLUENCE_API_TOKEN": "!/Users/armitage/.pi/agent/bin/mcp-secret atlassian CONFLUENCE_API_TOKEN"
+      }
+    },
+    "tiger": {
+      "command": "/opt/homebrew/bin/tiger",
+      "args": [
+        "mcp",
+        "start"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp"
+      ]
+    },
+    "aws-mcp": {
+      "command": "uvx",
+      "args": [
+        "mcp-proxy-for-aws@1.6.0",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--skip-auth",
+        "--metadata",
+        "INSTALL_SOURCE=agent-toolkit"
+      ]
+    },
+    "texture-postgres-prod": {
+      "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/postgres-mcp/run.sh",
+      "env": {
+        "TEXTURE_ENV": "prod"
+      }
+    },
+    "texture-postgres-local": {
+      "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/postgres-mcp/run.sh",
+      "env": {
+        "TEXTURE_ENV": "local"
+      }
+    },
+    "texture-kafka-prod": {
+      "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/kafka-mcp/run.sh",
+      "env": {
+        "TEXTURE_ENV": "prod"
+      }
+    },
+    "texture-kafka-local": {
+      "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/kafka-mcp/run.sh",
+      "env": {
+        "TEXTURE_ENV": "local"
+      }
+    },
+    "texture-elasticsearch-prod": {
+      "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/elasticsearch-mcp/run.sh",
+      "env": {
+        "TEXTURE_ENV": "prod"
+      }
+    },
+    "texture-elasticsearch-local": {
+      "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/elasticsearch-mcp/run.sh",
+      "env": {
+        "TEXTURE_ENV": "local"
+      }
+    },
+    "texture-redis-prod": {
+      "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/redis-mcp/run.sh",
+      "env": {
+        "TEXTURE_ENV": "prod"
+      }
+    },
+    "texture-redis-local": {
+      "command": "/Users/armitage/Source/Texture/alt-mono/tools/mcp-servers/redis-mcp/run.sh",
+      "env": {
+        "TEXTURE_ENV": "local"
+      }
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "auth": "bearer",
+      "bearerToken": "!gh auth token"
+    },
+    "posthog": {
+      "url": "https://mcp.posthog.com/mcp",
+      "auth": "oauth",
+      "headers": {
+        "x-posthog-mcp-consumer": "plugin"
+      }
+    },
+    "neon": {
+      "url": "https://mcp.neon.tech/mcp",
+      "auth": "oauth"
+    },
+    "datadog": {
+      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp?toolsets=core,visualizations",
+      "auth": "oauth"
+    },
+    "graphos-tools": {
+      "url": "https://mcp.apollographql.com"
+    },
+    "betterstack": {
+      "url": "https://mcp.betterstack.com",
+      "auth": "oauth"
+    },
+    "customerio": {
+      "url": "https://mcp.customer.io/mcp",
+      "auth": "oauth"
+    },
+    "linear": {
+      "url": "https://mcp.linear.app/mcp",
+      "auth": "oauth"
+    },
+    "sentry": {
+      "url": "https://mcp.sentry.dev/mcp",
+      "auth": "oauth"
+    },
+    "notion": {
+      "url": "https://mcp.notion.com/mcp",
+      "auth": "oauth",
+      "directTools": true
+    },
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "auth": "oauth"
+    },
+    "slack": {
+      "url": "https://mcp.slack.com/mcp",
+      "auth": "oauth"
+    }
+  }
+}

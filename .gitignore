@@ -19,3 +19,32 @@ claude/.claude/cache/
 
 # do not track Claude backups
 claude/.claude/backups/
+
+# Server-fetched state and CLI-managed directories. These are not symlinked into
+# ~/.claude today, but a folded stow on a fresh machine would put them here.
+claude/.claude/plugins/
+claude/.claude/policy-limits.json
+claude/.claude/mcp-needs-auth-cache.json
+claude/.claude/history.jsonl
+claude/.claude/projects/
+claude/.claude/sessions/
+claude/.claude/todos/
+claude/.claude/shell-snapshots/
+claude/.claude/statsig/
+claude/.claude/telemetry/
+claude/.claude/.credentials.json
+
+# ~/.codex is a whole-directory symlink into this package, so Codex writes its
+# entire runtime state (auth.json, sessions, sqlite, WAL) into the working tree.
+# Allowlist, not denylist: anything Codex adds in a future release stays ignored
+# until it is named here.
+#
+# rules/ and skills/ are deliberately absent: rules/default.rules is accumulated
+# command-approval state (one-off /private/tmp paths, branch-specific pushes)
+# and skills/.system/ is vendored by Codex on upgrade. Neither is authored.
+codex/.codex/*
+!codex/.codex/config.toml
+!codex/.codex/AGENTS.md
+
+# Not dotfiles.
+/projects/

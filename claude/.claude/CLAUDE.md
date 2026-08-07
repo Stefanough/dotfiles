@@ -13,6 +13,12 @@ Start every such response with a one-line status:
 
 See `~/.claude/rules/second-brain.md` for full behavior.
 
+## Comments
+
+Default to zero. Code must be self-documenting via names and structure. Verbose comment blocks justifying decisions, referencing tickets or PRs, documenting negative space, or adding JSDoc to every export are an antipattern — they rot, duplicate PR-body content, and add noise. When unsure, don't write the comment.
+
+See `~/.claude/rules/no-verbose-comments.md` for full behavior.
+
 ## Context Efficiency
 
 ### Subagent Discipline

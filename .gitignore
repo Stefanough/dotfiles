@@ -47,4 +47,4 @@ codex/.codex/*
 !codex/.codex/AGENTS.md
 
 # Not dotfiles.
-projects/
+/projects/

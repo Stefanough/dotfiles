@@ -2,7 +2,7 @@
 # UserPromptSubmit hook: mirror the submitted prompt into the tmux pane title.
 
 MIN_LEN=15
-MAX_BYTES=200
+MAX_CHARS=200
 
 [ -n "${TMUX_PANE:-}" ] || exit 0
 command -v tmux >/dev/null 2>&1 || exit 0
@@ -18,7 +18,7 @@ title=$(
   printf '%s' "$prompt" \
     | tr '\n\r\t#' '   _' \
     | sed 's/  */ /g; s/^ //; s/ *$//' \
-    | head -c "$MAX_BYTES"
+    | cut -c "1-$MAX_CHARS"
 )
 
 [ ${#title} -ge $MIN_LEN ] || exit 0

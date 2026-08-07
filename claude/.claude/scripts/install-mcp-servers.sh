@@ -60,10 +60,9 @@ def main():
     ).stdout
 
     skipped = []
+    failed = []
     for name, config in servers.items():
-        if re.search(rf"^{re.escape(name)}\b", existing, re.MULTILINE):
-            print(f"{name}: already registered")
-            continue
+        registered = re.search(rf"^{re.escape(name)}\b", existing, re.MULTILINE)
 
         missing = set()
         resolved = substitute(config, values, missing)
@@ -74,17 +73,32 @@ def main():
 
         cmd = ["claude", "mcp", "add-json", name, json.dumps(resolved), "--scope", "user"]
         if DRY_RUN:
-            print(f"would register {name} ({config.get('type', 'stdio')})")
+            action = "refresh" if registered else "register"
+            print(f"would {action} {name} ({config.get('type', 'stdio')})")
             continue
-        print(f"+ registering {name}")
-        subprocess.run(cmd)
+
+        if registered:
+            print(f"+ refreshing {name}")
+            result = subprocess.run(["claude", "mcp", "remove", name, "--scope", "user"])
+            if result.returncode:
+                failed.append((name, "remove existing registration"))
+                continue
+        else:
+            print(f"+ registering {name}")
+
+        result = subprocess.run(cmd)
+        if result.returncode:
+            failed.append((name, "add registration"))
 
     if skipped:
         print(f"\nSet these in {SECRETS} (or export them) and re-run:", file=sys.stderr)
         for name, missing in skipped:
             print(f"  {name}: {', '.join(missing)}", file=sys.stderr)
-        return 1
-    return 0
+    if failed:
+        print("\nMCP registration failed:", file=sys.stderr)
+        for name, action in failed:
+            print(f"  {name}: could not {action}", file=sys.stderr)
+    return 1 if skipped or failed else 0
 
 
 if __name__ == "__main__":

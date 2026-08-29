@@ -1,8 +1,5 @@
 {
   "cleanupPeriodDays": 365,
-  "env": {
-    "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1"
-  },
   "permissions": {
     "allow": [
       "Bash(*)",
@@ -13,7 +10,9 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Skill(quality-gates)",
       "Skill(keybindings-help)",
-      "mcp__*"
+      "Bash(kubectl *)",
+      "Bash(curl:*)",
+      "Bash(psql:*)"
     ],
     "defaultMode": "auto",
     "autoMode": {
@@ -25,6 +24,7 @@
       ]
     }
   },
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -78,7 +78,8 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
+    "command": "bash ~/.claude/statusline-command.sh",
+    "refreshInterval": 2
   },
   "subagentStatusLine": {
     "type": "command",
@@ -95,13 +96,33 @@
     "coderabbit@texture-tools": true,
     "pr-shepherd@texture-tools": true,
     "discourse@ancient-agent": true,
-    "focus@ancient-agent": true
+    "focus@ancient-agent": true,
+    "posthog@claude-plugins-official": true,
+    "neon@claude-plugins-official": true,
+    "datadog@datadog-claude-code-preview-ddviz": true,
+    "lapdog@lapdog": true,
+    "aws-core@claude-plugins-official": true,
+    "refine@texture-tools": true,
+    "distilling-runbooks@texture-tools": true
   },
   "extraKnownMarketplaces": {
     "ancient-agent": {
       "source": {
         "source": "git",
         "url": "git@github.com:Stefanough/ancient-agent-plugins.git"
+      }
+    },
+    "datadog-claude-code-preview-ddviz": {
+      "source": {
+        "source": "github",
+        "repo": "datadog-labs/claude-code-plugin",
+        "ref": "preview-ddviz"
+      }
+    },
+    "lapdog": {
+      "source": {
+        "source": "github",
+        "repo": "DataDog/dd-apm-test-agent"
       }
     }
   },

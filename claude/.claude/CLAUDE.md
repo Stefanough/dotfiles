@@ -1,23 +1,11 @@
 ## Second Brain
 
-For any technical question, design discussion, or debugging session, call
-`mcp__claude-capture__search_history` as the FIRST tool invocation — BEFORE
-Grep, Glob, codebase Search, or any subagent. The user's own conversation
-history and notes often contain the answer — past decisions, prior
-debugging, things they've written down.
-
-Start every such response with a one-line status:
-- `Second brain: found N relevant results about <topic>.`
-- `Second brain: searched <query>, no relevant matches.`
-- `Second brain: skipped (not applicable).`
-
-See `~/.claude/rules/second-brain.md` for full behavior.
+`search_history` before any other tool on open-ended technical questions, with a
+one-line status at the top of the response. Full behavior: `~/.claude/rules/second-brain.md`.
 
 ## Comments
 
-Default to zero. Code must be self-documenting via names and structure. Verbose comment blocks justifying decisions, referencing tickets or PRs, documenting negative space, or adding JSDoc to every export are an antipattern — they rot, duplicate PR-body content, and add noise. When unsure, don't write the comment.
-
-See `~/.claude/rules/no-verbose-comments.md` for full behavior.
+Default to zero. Full behavior: `~/.claude/rules/no-verbose-comments.md`.
 
 ## Context Efficiency
 

@@ -2,7 +2,6 @@
   "cleanupPeriodDays": 365,
   "permissions": {
     "allow": [
-      "Bash(*)",
       "Read(*)",
       "Write",
       "Edit",
@@ -12,17 +11,34 @@
       "Skill(keybindings-help)",
       "Bash(kubectl *)",
       "Bash(curl:*)",
-      "Bash(psql:*)"
+      "Bash(psql:*)",
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(yarn *)",
+      "Bash(node *)",
+      "Bash(npx *)",
+      "Bash(mkdir *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:docs.sentry.io)",
+      "WebFetch(domain:www.apollographql.com)",
+      "WebFetch(domain:apisyouwonthate.com)",
+      "WebFetch(domain:developers.redhat.com)",
+      "WebFetch(domain:docs.commercetools.com)",
+      "WebFetch(domain:python-statemachine.readthedocs.io)",
+      "WebFetch(domain:statecharts.dev)",
+      "WebFetch(domain:stately.ai)",
+      "mcp__claude_ai_Linear__get_issue",
+      "mcp__claude_ai_Linear__save_issue",
+      "mcp__claude_ai_Linear__list_users",
+      "mcp__claude_ai_Linear__list_teams",
+      "mcp__claude_ai_Slack__slack_read_thread",
+      "mcp__claude_ai_Sentry__get_issue_details",
+      "mcp__plugin_posthog_posthog__exec",
+      "Skill(update-config)",
+      "Skill(pr-shepherd:pr-shepherd)"
     ],
-    "defaultMode": "auto",
-    "autoMode": {
-      "allow": [
-         "$defaults",
-         "Reading credential files under /Users/armitage/Source/Texture/secrets/ — the user's deliberate shared local credential store for authenticating to Texture internal APIs and databases. Prefer inline expansion, e.g. $(cat <file>), so values are never echoed; never pass one to a command that echoes its input on failure.",
-         "Read-only SQL via psql against Texture production databases: SELECT, EXPLAIN, SHOW, and queries against timescaledb_information / information_schema / pg_catalog.",
-         "kubectl get, logs, describe, and port-forward against the Texture production cluster."
-      ]
-    }
+    "defaultMode": "auto"
   },
   "model": "opus[1m]",
   "hooks": {
@@ -93,7 +109,6 @@
     "typescript-lsp@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "coderabbit@texture-tools": true,
     "pr-shepherd@texture-tools": true,
     "discourse@ancient-agent": true,
     "focus@ancient-agent": true,

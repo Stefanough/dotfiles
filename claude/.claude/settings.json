@@ -7,7 +7,6 @@
       "Edit",
       "WebSearch",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Skill(quality-gates)",
       "Skill(keybindings-help)",
       "Bash(kubectl *)",
       "Bash(curl:*)",
@@ -146,5 +145,6 @@
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "autoCompactEnabled": false,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "enableAllProjectMcpServers": true
 }

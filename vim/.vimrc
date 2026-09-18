@@ -369,18 +369,16 @@ endif
 set background=light
 colorscheme solarized
 
-" conditionally set undercurl mode when using solarized
-function! GetColorSchemeName()
-    try
-        return g:colors_name
-    catch /^Vim:E121/
-        return "default"
-    endtry
-endfunction
+" ANSI underline colors for Alacritty/kitty, including through tmux.
+let &t_AU = "\<Esc>[58;5;%dm"
 
-if GetColorSchemeName() == 'solarized'
-  set t_Cs=",underline"
-endif
+" Keep misspellings visibly red when a colorscheme is loaded or reloaded.
+" Palette index 1 is Solarized red; guisp covers GUI/true-color rendering.
+augroup spell_highlight
+  autocmd!
+  autocmd ColorScheme * highlight SpellBad term=underline cterm=underline ctermul=1 ctermfg=NONE ctermbg=NONE gui=underline guisp=#dc322f guifg=NONE guibg=NONE
+augroup END
+highlight SpellBad term=underline cterm=underline ctermul=1 ctermfg=NONE ctermbg=NONE gui=underline guisp=#dc322f guifg=NONE guibg=NONE
 
 " Airline theme
 " let g:airline_theme='solarized_flood'

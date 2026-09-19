@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Use terminal Vim for external editing, including Codex Ctrl+G.
+export VISUAL=vim
+export EDITOR=vim
+
 ################################################################################
 #
 # Format Bash prompt
@@ -84,6 +88,11 @@ export PATH="$PNPM_HOME:$PATH"
 # if [[ ${BASH_VERSINFO[0]} -gt 4 ]] || [[ ${BASH_VERSINFO[0]} -eq 4 && ${BASH_VERSINFO[1]} -ge 4 ]]; then
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 # fi
+
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/armitage/.docker/bin"
+# End of Docker Desktop section.
+
 
 ################################################################################
 #

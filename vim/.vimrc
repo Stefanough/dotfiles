@@ -562,4 +562,3 @@ set exrc
 
 " enable secure to prevent autocmd commands in local rc files
 set secure
-

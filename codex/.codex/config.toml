@@ -6,3 +6,11 @@ personality = "pragmatic"
 network_access = true
 [notice.model_migrations]
 "gpt-5.2-codex" = "gpt-5.3-codex"
+
+[mcp_servers.claude-capture]
+command = "node"
+args = ["/Users/armitage/Source/claude-capture/src/mcp-server.mjs"]
+startup_timeout_sec = 30
+
+[mcp_servers.claude-capture.env]
+OLLAMA_URL = "http://localhost:11434"

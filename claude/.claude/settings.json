@@ -51,6 +51,16 @@
             "command": "osascript -e 'display notification \"'\"$CLAUDE_NOTIFICATION_MESSAGE\"'\" with title \"Claude Code\" sound name \"Glass\"'"
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-pane-title.sh\"",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
@@ -88,6 +98,16 @@
             "command": "/Users/armitage/Source/claude-capture/hooks/on-capture.sh"
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-pane-title.sh\"",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -107,6 +127,30 @@
             "type": "command",
             "command": "'/Users/armitage/Source/claude-capture/hooks/on-recall.sh'",
             "timeout": 4
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-pane-title.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/tmux-pane-title.sh\"",
+            "timeout": 5
           }
         ]
       }
@@ -167,5 +211,9 @@
   "skipWorkflowUsageWarning": true,
   "autoCompactEnabled": false,
   "skipAutoPermissionPrompt": true,
-  "enableAllProjectMcpServers": true
+  "autoMode": {
+  },
+  "env": {
+    "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1"
+  }
 }
